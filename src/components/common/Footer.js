@@ -1,5 +1,3 @@
-const { default: src } = require("*.bmp");
-
 import React from 'react';
 
 const Footer = () => {
