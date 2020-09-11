@@ -13,6 +13,7 @@ const Destacadas = () => {
               alt="hackers"
             />
             <Card.ImgOverlay className="row align-items-end texto">
+            <div>
                 <Card.Title>
                   Russia, China and Iran hackers target Trump and Biden,
                   Microsoft sayss
@@ -23,6 +24,7 @@ const Destacadas = () => {
                   presidential election, Microsoft says.
                 </Card.Text>
                 <Card.Text>Last updated 3 mins ago</Card.Text>
+                </div>
             </Card.ImgOverlay>
           </Card>
         </div>
