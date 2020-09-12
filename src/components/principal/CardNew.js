@@ -1,17 +1,22 @@
 import React from "react";
-import { Card} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const CardNew = (props) => {
-  console.log("En cardNew");
-  console.log(props);
   return (
-    <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={props.noticia.Imagen} />
+    <div className="cardNew-container">
+      <Card style={{ width: "21rem" }} className="cardNew-card">
+        <Card.Img
+          variant="top"
+          src={props.noticia.Imagen}
+          className="cardNew-img"
+        />
         <Card.Body>
           <Card.Title>{props.noticia.Titulo}</Card.Title>
           <Card.Text>{props.noticia.DetalleCorto}</Card.Text>
         </Card.Body>
+        <Card.Footer className="cardNew-cardFooter">
+          <small className="text-muted">Last updated 3 mins ago</small>
+        </Card.Footer>
       </Card>
     </div>
   );
