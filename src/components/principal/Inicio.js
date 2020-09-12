@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import Categories from "./Categories";
 import Card from "react-bootstrap/Card";
 import Destacadas from "./Destacadas";
 
+   
+
 const Inicio = () => {
+  const [categorias, setCategorias] = useState([
+    "Actualidad",
+    "Espectaculos",
+    "Tecnologia",
+    "Deportes",
+    "Politica",
+    "Economia",
+    "Salud",
+    "Fotografia",
+  ])
   return (
     <div className="container">
       <Destacadas></Destacadas>
@@ -41,6 +54,8 @@ const Inicio = () => {
           </Card>
         </div>
       </section>
+      
+      <Categories categorias = {categorias}></Categories>
     </div>
   );
 };

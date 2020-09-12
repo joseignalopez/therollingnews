@@ -1,14 +1,15 @@
-import React from "react";
-import "./App.css";
-import "./bootstrap.min.css";
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Inicio from "./components/principal/Inicio";
-import Header from "./components/common/Header";
-import Footer from "./components/common/Footer";
-import AgregarNoticia from "./components/administracion/AgregarNoticia";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
+import Inicio from './components/principal/Inicio';
+import AgregarNoticia from '.components/administracion/AgregarNoticia';
 
 function App() {
   return (
+    
     <Router>
       <Header></Header>
       <Switch>
