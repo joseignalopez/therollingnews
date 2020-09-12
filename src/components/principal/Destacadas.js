@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Card from "react-bootstrap/Card";
-import "./destacadas.css";
+import "./style/destacadas.css";
 
 const Destacadas = () => {
   return (
@@ -14,16 +14,16 @@ const Destacadas = () => {
             />
             <Card.ImgOverlay className="row align-items-end texto">
             <div>
-                <Card.Title>
+                <Card.Title id="titulo">
                   Russia, China and Iran hackers target Trump and Biden,
                   Microsoft sayss
                 </Card.Title>
-                <Card.Text>
+                <Card.Text id="texto">
                   Hackers with ties to Russia, China and Iran are attempting to
                   snoop on people and groups involved with the US 2020
                   presidential election, Microsoft says.
                 </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Card.Text className="ocultar">Last updated 3 mins ago</Card.Text>
                 </div>
             </Card.ImgOverlay>
           </Card>

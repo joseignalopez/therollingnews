@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import Inicio from './components/principal/Inicio';
-import AgregarNoticia from '.components/administracion/AgregarNoticia';
+import AgregarNoticia from './components/administracion/AgregarNoticia';
+
 
 function App() {
   return (
