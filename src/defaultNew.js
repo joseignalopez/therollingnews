@@ -98,7 +98,7 @@ const newLoaded = [
     Destacado: false,
     Titulo: `La inseguridad se mantiene como el principal problema para los tucumanos`,
     Imagen: `https://img.lagaceta.com.ar/fotos/notas/2020/08/17/360x202_ayuda-se-consideraba-clave-esta-ley-lucha-contra-inseguridad-856465-215112.jpg`,
-    DetalleCorto: "",
+    DetalleCorto: "El último sondeo de opinión de la consultora Meraki reflejó que la inseguridad se mantuvo como el principal problema” para la población tucumana.",
   },
   {
     Categoria: "Politica",
