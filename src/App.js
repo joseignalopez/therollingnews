@@ -5,12 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import Inicio from './components/principal/Inicio';
+import MonedaExtr from './components/Api/MonedaExtr';
+
 
 function App() {
   return (
+   
     
     <Router>
       <Header></Header>
+      <MonedaExtr></MonedaExtr>
       <Switch>
         <Route exact path="/">
           <Inicio></Inicio>
@@ -18,6 +22,7 @@ function App() {
       </Switch>
       <Footer></Footer>
     </Router>
+  
   );
 }
 
