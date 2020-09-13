@@ -11,8 +11,8 @@ const CardNew = (props) => {
           className="cardNew-img"
         />
         <Card.Body>
-          <Card.Title>{props.noticia.Titulo}</Card.Title>
-          <Card.Text>{props.noticia.DetalleCorto}</Card.Text>
+          <Card.Title className="font-weight-bolder type-Future">{props.noticia.Titulo}</Card.Title>
+          <Card.Text className="type-Future">{props.noticia.DetalleCorto}</Card.Text>
         </Card.Body>
         <Card.Footer className="cardNew-cardFooter">
           <small className="text-muted">Last updated 3 mins ago</small>
