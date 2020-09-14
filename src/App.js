@@ -10,7 +10,6 @@ import Inicio from './components/principal/Inicio';
 import AgregarNoticia from './components/administracion/noticias/AgregarNoticia';
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 
-
 function App() {
   const noticias = defaultNew;
   return (
