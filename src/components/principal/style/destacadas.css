@@ -1,0 +1,19 @@
+.texto-sm{
+    font-size: small;
+}
+
+.texto{
+    text-shadow: 3px 3px 10px black;
+}
+
+@media (max-width: 550px){
+    .ocultar{
+        display: none;
+    }
+    #titulo{
+        font-size: small;
+    }
+    #texto{
+        font-size: x-small;
+    }
+}
