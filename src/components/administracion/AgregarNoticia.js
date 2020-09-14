@@ -2,28 +2,110 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import './style/agregarnoticia.css'
+import "./style/agregarnoticia.css";
 
 const AgregarNoticia = () => {
+  const [titulo, setTitulo] = useState("");
+  const [imagenCabecera, setImagenCabecera] = useState("");
+  const [resumen, setResumen] = useState("");
+  const [noticia, setNoticia] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const [error, setError] = useState(false);
+
+  const seleccionarCategoria = (e) => {
+    setCategoria(e.target.value);
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //   validar
+    if (
+      titulo.trim() === "" ||
+      imagenCabecera.trim() === "" ||
+      resumen.trim() === "" ||
+      noticia.trim() === "" ||
+      categoria === ""
+    ) {
+      // mostrar cartel de error
+      setError(true);
+      return;
+    }
+    setError(false);
+    // agregar el producto a la api
+    
+    // crear el objeto a enviar
+    const noticiaNueva = {
+      titulo,
+      imagenCabecera,
+      resumen,
+      noticia,
+      categoria,
+      destacado: false
+    };
+
+    // try {
+    //   // aquí me conecto con mi api
+    //   const cabecera = {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(productoNuevo)
+    //   };
+    //   const resultado = await fetch(
+    //     "http://localhost:4000/cafeteria",
+    //     cabecera
+    //   );
+    //   if (resultado.status === 201) {
+    //     Swal.fire("Listo!", "El producto se cargó correctamente", "success");
+    //     props.setRecargarProductos(true);
+    //     props.history.push("/productos");
+    //   }
+    // } catch (error) {
+    //   //ese error no es el state creado, es una palabra que elegimos nosotros
+    //   console.log(error);
+    // }
+  };
+
+
   return (
     <section className="container">
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <h1 className="text-center my-4">Agregar nueva noticia</h1>
         <Form.Group>
           <Form.Label>Título de la nota</Form.Label>
-          <Form.Control type="text" placeholder="Agregar el título de la nota" />
+          <Form.Control
+            type="text"
+            placeholder="Agregar el título de la nota"
+            onChange={(e) => setTitulo(e.target.value)}
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Imagen de cabecera</Form.Label>
-          <Form.Control type="text" placeholder="Agregar url de la imagen" />
+          <Form.Control
+            type="text"
+            placeholder="Agregar url de la imagen"
+            onChange={(e) => setImagenCabecera(e.target.value)}
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Resumen</Form.Label>
-          <Form.Control as="textarea" rows="3" placeholder="Agregar un extracto de la nota" />
+          <Form.Control
+            as="textarea"
+            rows="3"
+            placeholder="Agregar un extracto de la nota"
+            onChange={(e) => setResumen(e.target.value)}
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Noticia</Form.Label>
-          <Form.Control as="textarea" rows="10" placeholder="Agregar el cuerpo de la nota" />
+          <Form.Control
+            as="textarea"
+            rows="10"
+            placeholder="Agregar el cuerpo de la nota"
+            onChange={(e) => setNoticia(e.target.value)}
+          />
         </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
@@ -34,6 +116,7 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
           <Form.Check
             type="radio"
@@ -42,6 +125,7 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
           <Form.Check
             type="radio"
@@ -50,6 +134,7 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
           <Form.Check
             type="radio"
@@ -58,6 +143,7 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
           <Form.Check
             type="radio"
@@ -66,6 +152,7 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
           <Form.Check
             type="radio"
@@ -74,6 +161,7 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
           <Form.Check
             type="radio"
@@ -82,8 +170,18 @@ const AgregarNoticia = () => {
             name="categoria"
             inline
             className="mx-3"
+            onChange={seleccionarCategoria}
           />
         </div>
+        
+        {
+          // alerta en caso de no completar los datos al intentar el submit
+          error ? (
+            <Alert className="mt-4" variant={"danger"}>
+              Debes completar todos los campos
+            </Alert>
+          ) : null
+        }
         <Button type="submit" className="w-100 mb-4 boton">
           AGREGAR NOTICIA
         </Button>
