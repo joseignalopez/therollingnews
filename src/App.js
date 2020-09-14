@@ -7,7 +7,8 @@ import NewDetail from "./components/new/NewDetail";
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import Inicio from './components/principal/Inicio';
-import AgregarNoticia from './components/administracion/AgregarNoticia';
+import AgregarNoticia from './components/administracion/noticias/AgregarNoticia';
+import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
         ></Route>
         <Route exact path="/:categoria">
           {/* Aqui debemos crear una ventana con todas la noticias de una categoria */}
+        </Route>
+        <Route exact path="/admin/listanoticias">
+          <ListaNoticias></ListaNoticias>
         </Route>
         <Route exact path="/admin/agregarnoticia">
           <AgregarNoticia></AgregarNoticia>
