@@ -5,6 +5,7 @@ import Destacadas from "./Destacadas";
 
    
 
+
 const Inicio = () => {
   const [categorias, setCategorias] = useState([
     "Actualidad",

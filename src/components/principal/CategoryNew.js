@@ -12,7 +12,7 @@ const CategoryNew = (props) => {
         </h2>
         <CardDeck className="mb-3 categoryNew-cardDeck">
           {props.noticiasDeCategoria.map((noticia, i) => (
-            <CardNew key={i} noticia={noticia}></CardNew>
+            <CardNew key={i} noticia={noticia} nombreCategoria={props.nombreCategoria}></CardNew>
           ))}
         </CardDeck>
       </div>
