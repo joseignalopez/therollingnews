@@ -4,8 +4,9 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import "./style/noticias.css";
 import Swal from "sweetalert2";
+import { withRouter } from 'react-router-dom';
 
-const AgregarNoticia = () => {
+const AgregarNoticia = (props) => {
   const [titulo, setTitulo] = useState("");
   const [imagenCabecera, setImagenCabecera] = useState("");
   const [resumen, setResumen] = useState("");
@@ -47,26 +48,27 @@ const AgregarNoticia = () => {
 
     try {
       // me conecto con la api
-      const cabecera = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(noticiaNueva)
-      };
       const resultado = await fetch(
         "http://localhost:4000/noticias",
-        cabecera
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(noticiaNueva),
+        }
       );
       if (resultado.status === 201) {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
+        props.setRecargarNoticias(true);
+        props.history.push("/admin/listanoticias");
       }
     } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Ocurrió un error!',
-        footer: '<a href>No se pudo cargar la noticia.</a>'
+        footer: '<p>No se pudo cargar la noticia.</p>'
       })
       console.log(error);
     }
@@ -194,4 +196,4 @@ const AgregarNoticia = () => {
   );
 };
 
-export default AgregarNoticia;
+export default withRouter(AgregarNoticia);

@@ -1,9 +1,10 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from 'react-bootstrap/Button';
+import ElementoLista from './ElementoLista';
 import "./style/noticias.css";
 
-const ListaNoticias = () => {
+const ListaNoticias = (props) => {
   return (
     <section className="container my-4">
         <div className="row">
@@ -20,7 +21,13 @@ const ListaNoticias = () => {
           </tr>
         </thead>
         <tbody>
-            {/* aquí agregar la función para mapear los elementos de la lista */}
+        {
+          //item es palabra que yo elijo para representar cada uno de los elementos dentro del arreglo a mapear
+          //indice (segundo parámetro) es el lugar que ocupa el elemento dentro del arreglo
+          props.noticias.map((noticia) => (
+            <ElementoLista key={noticia.id} noticia={noticia}></ElementoLista>
+          ))
+        }
         </tbody>
       </Table>
     </section>

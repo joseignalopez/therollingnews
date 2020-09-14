@@ -19,7 +19,7 @@ const Footer = () => {
               <li className="pt-1"><a href="#" className="text-light">Políticas de privacidad</a></li>
           </div>
           <div className="col-sm-12 col-md-4 sm-mb-4">
-            <img src="img1.jpg" width="70%" alt="The Rolling Times"/>
+            <img src={process.env.PUBLIC_URL + "img1.jpg"} width="70%" alt="The Rolling Times"/>
             <ul className="list-unstyled d-flex justify-content-center p-0 mt-4">
                 <li><a href="https://facebook.com" target="_blank" className="text-light mr-2"><FontAwesomeIcon icon={faFacebookSquare} size="3x"></FontAwesomeIcon></a></li>
                 <li><a href="https://instagram.com" target="_blank" className="text-light mx-2"><FontAwesomeIcon icon={faInstagramSquare} size="3x"></FontAwesomeIcon></a></li>
