@@ -25,6 +25,13 @@
   margin-bottom: 10px;
 }
 
+a:hover{text-decoration:none;
+color: black;} 
+a{text-decoration:none;
+  color: black;
+}
+
+
 @media (max-width: 980px) {
   .cardNew-card {
     width: auto;
