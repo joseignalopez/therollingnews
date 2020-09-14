@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import Inicio from './components/principal/Inicio';
+import Ingresar from "./components/login/Ingresar";
+
 
 function App() {
   return (
@@ -15,6 +17,10 @@ function App() {
         <Route exact path="/">
           <Inicio></Inicio>
         </Route>
+        <Route exact path="/login/Ingresar">
+          <Ingresar></Ingresar>
+        </Route>
+
       </Switch>
       <Footer></Footer>
     </Router>
