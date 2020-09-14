@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/common/Header";
-import Footer from "./components/common/Footer";
-import Inicio from "./components/principal/Inicio";
+
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import MonedaExtr from "./components/Api/MonedaExtr";
 import Tiempo from "./components/Apiclima/Tiempo";
 import Reloj from "./components/Apiclima/Reloj";
 import Fecha from "./components/fecha/Fecha";
-=======
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import defaultNew from "./defaultNew";
@@ -22,7 +15,6 @@ import Footer from "./components/common/Footer";
 import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
->>>>>>> bcf9e0dd33681f8f0fe47b660443275837544db8
 
 function App() {
   const noticias = defaultNew;
