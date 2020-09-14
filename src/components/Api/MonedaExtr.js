@@ -20,9 +20,9 @@ const Precio = () => {
     <div className="d-flex container-fluid justify-content-center">
       <section className="row">
         <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-          <Card.Body>
-            <h5>{precio[0] && precio[0].type}</h5>
-            <Card.Text>
+          <Card.Body className="p-0 text-center">
+            <h5 className="p-0 m-0">{precio[0] && precio[0].type}</h5>
+            <Card.Text className="p-0 m-0">
               {precio[0] && precio[0].sellTitle}:{" "}
               {precio[0] && precio[0].sellPrice}
             </Card.Text>
@@ -32,10 +32,10 @@ const Precio = () => {
         </Card>
 
         <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-          <Card.Body>
-            <h5>{precio[1] && precio[1].type}</h5>
+          <Card.Body className="p-0 text-center">
+            <h5 className="p-0 m-0">{precio[1] && precio[1].type}</h5>
 
-            <Card.Text>
+            <Card.Text className="p-0 m-0">
               {precio[1] && precio[1].sellTitle}:{" "}
               {precio[1] && precio[1].sellPrice}
             </Card.Text>
@@ -47,10 +47,10 @@ const Precio = () => {
         </Card>
 
         <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-          <Card.Body>
-            <h5>{precio[6] && precio[6].type}</h5>
+          <Card.Body className="p-0 text-center">
+            <h5 className="p-0 m-0">{precio[6] && precio[6].type}</h5>
 
-            <Card.Text>
+            <Card.Text className="p-0 m-0">
               {precio[6] && precio[6].sellTitle}:{" "}
               {precio[6] && precio[6].sellPrice}
             </Card.Text>
@@ -61,10 +61,10 @@ const Precio = () => {
           </Card.Body>
         </Card>
         <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-          <Card.Body>
-            <h5>{precio[7] && precio[7].type}</h5>
+          <Card.Body className="p-0 text-center">
+            <h5 className="p-0 m-0">{precio[7] && precio[7].type}</h5>
 
-            <Card.Text>
+            <Card.Text className="p-0 m-0">
               {precio[7] && precio[7].sellTitle}:{" "}
               {precio[7] && precio[7].sellPrice}
             </Card.Text>

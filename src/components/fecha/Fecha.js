@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import Card from "react-bootstrap/Card";
 const Fecha = () => {
   const [fechaje, setFechaje] = useState("");
 
@@ -13,9 +13,12 @@ const Fecha = () => {
   }, []);
 
   return (
-    <div className="text-center">
-      <h1>{fechaje}</h1>
-    </div>
+  
+<Card>
+<Card.Body>
+<h1>{fechaje}</h1>
+</Card.Body>
+</Card>
   );
 };
 

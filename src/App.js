@@ -14,15 +14,14 @@ function App() {
   return (
     <Router>
       <Header></Header>
-      <MonedaExtr></MonedaExtr>
-      <Fecha></Fecha>
-      <section className="container">
+      <section className="container contenidoSeccion">
         <div className="row text-center d-flex justify-content-center">
-          <Tiempo className="col-sm-12 col-md-9 col-lg-9"></Tiempo>
-          <Reloj className="col-sm-12 col-md-3 col-lg-3"></Reloj>
+          <Fecha className="col-sm-12 col-md-3 col-lg-3 fecha"></Fecha>
+          <Tiempo className="col-sm-12 col-md-6 col-lg-6"></Tiempo>
+          <Reloj className="col-sm-12 col-md-3 col-lg-3 reloj"></Reloj>
         </div>
       </section>
-
+      <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
           <Inicio></Inicio>
