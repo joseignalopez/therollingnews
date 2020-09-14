@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import "./style/agregarnoticia.css";
+import Swal from "sweetalert2";
 
 const AgregarNoticia = () => {
   const [titulo, setTitulo] = useState("");
@@ -19,7 +20,7 @@ const AgregarNoticia = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //   validar
+    // validar la carga de la noticia
     if (
       titulo.trim() === "" ||
       imagenCabecera.trim() === "" ||
@@ -27,12 +28,12 @@ const AgregarNoticia = () => {
       noticia.trim() === "" ||
       categoria === ""
     ) {
-      // mostrar cartel de error
+      // mostrar alert de error
       setError(true);
       return;
     }
     setError(false);
-    // agregar el producto a la api
+    // agregar la noticia a la api
     
     // crear el objeto a enviar
     const noticiaNueva = {
@@ -44,28 +45,31 @@ const AgregarNoticia = () => {
       destacado: false
     };
 
-    // try {
-    //   // aquí me conecto con mi api
-    //   const cabecera = {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(productoNuevo)
-    //   };
-    //   const resultado = await fetch(
-    //     "http://localhost:4000/cafeteria",
-    //     cabecera
-    //   );
-    //   if (resultado.status === 201) {
-    //     Swal.fire("Listo!", "El producto se cargó correctamente", "success");
-    //     props.setRecargarProductos(true);
-    //     props.history.push("/productos");
-    //   }
-    // } catch (error) {
-    //   //ese error no es el state creado, es una palabra que elegimos nosotros
-    //   console.log(error);
-    // }
+    try {
+      // me conecto con la api
+      const cabecera = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(noticiaNueva)
+      };
+      const resultado = await fetch(
+        "http://localhost:4000/noticias",
+        cabecera
+      );
+      if (resultado.status === 201) {
+        Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ocurrió un error!',
+        footer: '<a href>No se pudo cargar la noticia.</a>'
+      })
+      console.log(error);
+    }
   };
 
 

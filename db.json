@@ -1,0 +1,13 @@
+{
+  "noticias": [
+    {
+      "titulo": "Sin circulación nocturna en Tucumán: a las 23.30 entra en vigencia la restricción",
+      "imagenCabecera": "https://img.lagaceta.com.ar/fotos/notas/2020/09/14/archivo-860404-090324.jpeg",
+      "resumen": "Sólo actividades esenciales estarán habilitadas para transitar con permiso obligatorio.",
+      "noticia": "El mismo día que se habilita la reapertura de locales gastronómicos y de gimnasios, el Comité Operativo de Emergencia (COE) pondrá en vigencia la resolución N° 99 mediante la cual se restringe de 23.30 a 7 la circulación en la vía pública a toda persona que no cuente con una autorización. \nDurante el anuncio, las autoridades argumentaron que el fin es combatir las reuniones sociales, las cuales están suspendidas en la provincia (al igual que los encuentros familiares). \nEsta medida es una consecuencia del pedido realizado por el Ministerio de Salud, que solicitó al COE que de algún modo se limite la circulación de personas en las calles.\nAsí, quienes circulen fuera de ese horario deberán comprobar con permiso actualizado y obligatorio que son trabajadores esenciales (se encuentra en la página del COE). ",
+      "categoria": "Actualidad",
+      "destacado": false,
+      "id": 1
+    }
+  ]
+}
