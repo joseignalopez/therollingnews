@@ -9,7 +9,6 @@ import Footer from './components/common/Footer'
 import Inicio from './components/principal/Inicio';
 import AgregarNoticia from './components/administracion/AgregarNoticia';
 
-
 function App() {
   const noticias = defaultNew;
   return (
