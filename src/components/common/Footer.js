@@ -1,15 +1,9 @@
 import React from "react";
-<<<<<<< HEAD
- import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faFacebook,faInstagram} from "@fortawesome/free-brands-svg-icons";
-
-=======
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare} from "@fortawesome/free-brands-svg-icons";
 import { faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 import { faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope} from "@fortawesome/free-solid-svg-icons";
->>>>>>> 758ff719c9e38c943d8032c43aec9a8db220e763
 
 const Footer = () => {
   return (
