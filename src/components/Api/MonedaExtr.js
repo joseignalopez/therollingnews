@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
+import './Moneda.css'
+
 const Precio = () => {
   //state
   const [precio, setprecio] = useState([]);
@@ -17,9 +19,9 @@ const Precio = () => {
   };
 
   return (
-    <div className="d-flex container-fluid justify-content-center">
-      <section className="row">
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+    <div className="d-flex container-fluid justify-content-center ">
+      <section className="row ">
+        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
           <Card.Body className="p-0 text-center">
             <h5 className="p-0 m-0">{precio[0] && precio[0].type}</h5>
             <Card.Text className="p-0 m-0">
@@ -31,7 +33,7 @@ const Precio = () => {
           </Card.Body>
         </Card>
 
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
           <Card.Body className="p-0 text-center">
             <h5 className="p-0 m-0">{precio[1] && precio[1].type}</h5>
 
@@ -46,11 +48,11 @@ const Precio = () => {
           </Card.Body>
         </Card>
 
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
           <Card.Body className="p-0 text-center">
             <h5 className="p-0 m-0">{precio[6] && precio[6].type}</h5>
 
-            <Card.Text className="p-0 m-0">
+            <Card.Text className="p-0 m-0" >
               {precio[6] && precio[6].sellTitle}:{" "}
               {precio[6] && precio[6].sellPrice}
             </Card.Text>
@@ -60,7 +62,7 @@ const Precio = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
           <Card.Body className="p-0 text-center">
             <h5 className="p-0 m-0">{precio[7] && precio[7].type}</h5>
 

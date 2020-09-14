@@ -16,7 +16,7 @@ const Fecha = () => {
   
 <Card>
 <Card.Body>
-<h1>{fechaje}</h1>
+<h5>{fechaje}</h5>
 </Card.Body>
 </Card>
   );

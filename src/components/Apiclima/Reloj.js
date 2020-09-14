@@ -8,7 +8,7 @@ const Reloj = () => {
     const intervale = () => {
       const element = (
         <div className="box-reloj">
-          <h1 className="text-dark"> {new Date().toLocaleTimeString()}</h1>
+          <h5 className="text-dark"> {new Date().toLocaleTimeString()}</h5>
         </div>
       );
       setReloj(element);
@@ -21,7 +21,7 @@ const Reloj = () => {
     <Card>
       <Card.Body>
         <>
-          <h1>{hora}</h1>
+          <h5>{hora}</h5>
         </>
       </Card.Body>
     </Card>
