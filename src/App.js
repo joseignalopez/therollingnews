@@ -28,9 +28,7 @@ function App() {
     try {
       // operación GET
       const respuesta = await fetch("http://localhost:4000/noticias");
-      console.log(respuesta);
       const resultado = await respuesta.json();
-      console.log(resultado);
       // guardar datos en el state
       setListadoNoticias(resultado);
     } catch (error) {
@@ -43,7 +41,7 @@ function App() {
       <Header></Header>
       <Switch>
         <Route exact path="/">
-          <Inicio></Inicio>
+          <Inicio noticias={listadoNoticias}></Inicio>
         </Route>
         <Route
           path="/:categoria/nota/:id"
