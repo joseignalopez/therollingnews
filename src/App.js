@@ -15,6 +15,8 @@ import Footer from "./components/common/Footer";
 import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
+import Ingresar from "./components/login/Ingresar";
+
 
 function App() {
   const noticias = defaultNew;
@@ -85,6 +87,10 @@ function App() {
             setRecargarNoticias={setRecargarNoticias}
           ></AgregarNoticia>
         </Route>
+        <Route exact path="/login/Ingresar">
+          <Ingresar></Ingresar>
+        </Route>
+
       </Switch>
       <Footer></Footer>
     </Router>
