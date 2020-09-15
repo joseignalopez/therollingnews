@@ -8,12 +8,6 @@
   font-family: Futura;
   src: local("Futura Std");
 }
-/* .categoryNew-cardDeck p,
-.categoryNew-cardDeck h5,
-.categoryNew-title {
-  font-family: Futura;
-  src: local("Futura Std");
-} */
 .cardNew-card {
   height: 100%;
 }
@@ -34,13 +28,18 @@ a{text-decoration:none;
 
 @media (max-width: 980px) {
   .cardNew-card {
-    width: auto;
-  }
-  .cardNew-card {
     width: auto !important;
   }
   /* .cardNew-container{
         padding: 0 10px 0 10px;
         margin-bottom: 10px;
     } */
+}
+@media(min-width:450px) and (max-width: 979px){
+ .cardNew-card{
+   width: 70% !important;
+ }
+ .categoryNew-cardDeck, .cardNew-container{
+   margin-left: 8%;
+ }
 }

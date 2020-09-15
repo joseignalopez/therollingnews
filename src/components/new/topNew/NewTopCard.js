@@ -6,7 +6,7 @@ const NewTopCard = (props) => {
     <div className="mt-4 ">
       <div className="">
         <Card.Img src={props.imagen} className="cardNew-img"/>
-        <Card.Title className="p-1">{props.titulo}</Card.Title>
+        <Card.Title className="p-1 font-weight-bold">{props.titulo}</Card.Title>
         {/* <Card.Body>
         </Card.Body> */}
       </div>
