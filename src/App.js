@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -49,9 +48,7 @@ function App() {
       <Header></Header>
       <section className="container contenidoSeccion">
         <div className="row text-center d-flex justify-content-center">
-          <Fecha className="col-sm-12 col-md-3 col-lg-3 fecha"></Fecha>
-          <Tiempo className="col-sm-12 col-md-6 col-lg-6"></Tiempo>
-          <Reloj className="col-sm-12 col-md-3 col-lg-3 reloj"></Reloj>
+          <Tiempo className="col-sm-12 col-md-12 col-lg-12"></Tiempo>
         </div>
       </section>
       <MonedaExtr className="moneda"></MonedaExtr>
