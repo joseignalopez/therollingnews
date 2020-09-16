@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import {Navbar, Nav,Form, Button }from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser,faCaretDown,faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { faUser,faCaretDown,faCheckSquare,faSearch } from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 import ReactDOM from 'react-dom';
 
@@ -49,10 +49,12 @@ const Header = () => {
             {seccionVisible && <SeccionesHeader></SeccionesHeader>}
            </div>
            </Nav>   
-        <Form className=" search" inline >
-        <div className="search">
-          <input type="text"  placeholder=" Buscar " id="icon" className="placeicon" value={searchTerm} onChange={handleChange} />
-          <Button></Button>
+        <Form className="" inline >
+        <div className="">
+          <input type="text"  placeholder=" Buscar " id="icon" className="btn-sm " value={searchTerm} />
+          <Button className=" azul btn-ms" onChange={handleChange}>
+            <FontAwesomeIcon icon={faSearch} /> 
+          </Button>
           {/* <ul> 
             {searchResultado.map(item=>(
               <li>{item}</li>
