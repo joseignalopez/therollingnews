@@ -4,6 +4,13 @@
 .logo{
     height: 30px;
 }
+
+.contenidoSeccion{
+    border: 0;
+    color: black;
+  
+}
+
 body{
   font-family: 'Futura';
 }

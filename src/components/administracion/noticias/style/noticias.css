@@ -5,12 +5,15 @@
 
 .destacar{
     color: #ff9506;
+    border: none;
 }
 
 .editar{
     color: #2c49cc;
+    border: none;
 }
 
 .eliminar{
     color: #d00006;
+    border: none;
 }

@@ -18,6 +18,7 @@ const Inicio = () => {
     "Salud",
     "Fotografia",
   ])
+
   return (
     <div className="container">
       <Destacadas></Destacadas>

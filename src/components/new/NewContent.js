@@ -4,7 +4,7 @@ import {Card} from 'react-bootstrap'
 
 const NewContent = (props) => {
   return (
-    <div className="col-9 pr-5">
+    <div className="col-9 pr-5 newDetail-container_new type-Future">
       <NewContentHeader
         titulo={props.noticia.Titulo}
         categoria={props.noticia.Categoria}
