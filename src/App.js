@@ -1,5 +1,11 @@
+
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import MonedaExtr from "./components/Api/MonedaExtr";
+import Tiempo from "./components/Apiclima/Tiempo";
+import Reloj from "./components/Apiclima/Reloj";
+import Fecha from "./components/fecha/Fecha";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import defaultNew from "./defaultNew";
@@ -39,6 +45,14 @@ function App() {
   return (
     <Router>
       <Header></Header>
+      <section className="container contenidoSeccion">
+        <div className="row text-center d-flex justify-content-center">
+          <Fecha className="col-sm-12 col-md-3 col-lg-3 fecha"></Fecha>
+          <Tiempo className="col-sm-12 col-md-6 col-lg-6"></Tiempo>
+          <Reloj className="col-sm-12 col-md-3 col-lg-3 reloj"></Reloj>
+        </div>
+      </section>
+      <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
           <Inicio noticias={listadoNoticias}></Inicio>

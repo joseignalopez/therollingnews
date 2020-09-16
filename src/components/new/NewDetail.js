@@ -7,17 +7,17 @@ import "./style/newDetail.css";
 
 const NewDetail = (props) => {
   return (
-    <div className="pl-4 pr-4">
+    <div className="pl-4 pr-4 newDetail">
       <NewHeader></NewHeader>
-      <div className="d-flex justify-content-center mb-3">
+      <div className="d-flex justify-content-center mb-3 newDetail-container">
         <NewContent noticia={props.noticia} className=""></NewContent>
-        <div className="border pl-2 pr-2 mt-3 rounded-lg col-2 shadow bg-white rounded">
+        <div className="border pl-2 pr-2 mt-3 rounded-lg col-2 shadow bg-white rounded newDetail-col_publicity type-Future">
           <NewTop
             noticiasRelevantes={props.noticias.filter(
               (n) => n.Destacado === true
             )}
           ></NewTop>
-          <div className="bk-azul mt-3">
+          <div className="bk-azul mt-3 type-Future">
             <h1>Publicidad</h1>
           </div>
           <div className="bk-naranja mt-3">
