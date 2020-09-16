@@ -3,7 +3,6 @@ import CategoryNew from "./CategoryNew";
 import defaultNew from "../../defaultNew";
 
 const Categories = (props) => {
-  console.log(props.categorias);
   const noticias = defaultNew;
   return (
     <div>
