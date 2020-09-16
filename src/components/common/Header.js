@@ -48,11 +48,11 @@ const Header = () => {
           <NavLink exact={true} to="/secciones" className="nav-link " activeClassName="active" onClick={()=>setSeccionVisible(!seccionVisible)}>Secciones<FontAwesomeIcon icon={faCaretDown} /></NavLink>
             {seccionVisible && <SeccionesHeader></SeccionesHeader>}
            </div>
-           </Nav>  
-         
+           </Nav>   
         <Form className=" search" inline >
         <div className="search">
-          <input type="text"  placeholder=" Buscar                                                           &#xf002;" id="icon" className="placeicon" value={searchTerm} onChange={handleChange} />
+          <input type="text"  placeholder=" Buscar " id="icon" className="placeicon" value={searchTerm} onChange={handleChange} />
+          <Button></Button>
           {/* <ul> 
             {searchResultado.map(item=>(
               <li>{item}</li>
