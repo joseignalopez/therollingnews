@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -15,6 +14,7 @@ import Footer from "./components/common/Footer";
 import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
+import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 
 function App() {
   const noticias = defaultNew;
@@ -82,6 +82,24 @@ function App() {
             setRecargarNoticias={setRecargarNoticias}
           ></AgregarNoticia>
         </Route>
+        <Route
+          exact
+          path="/admin/editar/:id"
+          render={(props) => {
+            const idNoticia = parseInt(props.match.params.id);
+            console.log(idNoticia);
+            const noticiaSeleccionada = listadoNoticias.find(
+              (noticia) => noticia.id === idNoticia
+            );
+            console.log(noticiaSeleccionada)
+            return (
+              <EditarNoticia
+                noticia={noticiaSeleccionada}
+                setRecargarNoticias={setRecargarNoticias}
+              ></EditarNoticia>
+            );
+          }}
+        ></Route>
       </Switch>
       <Footer></Footer>
     </Router>

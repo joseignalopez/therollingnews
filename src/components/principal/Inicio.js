@@ -6,7 +6,7 @@ import Destacadas from "./Destacadas";
    
 
 
-const Inicio = (props) => {
+const Inicio = () => {
   const [categorias, setCategorias] = useState([
     "Actualidad",
     "Espectaculos",
@@ -17,11 +17,6 @@ const Inicio = (props) => {
     "Salud",
     "Fotografia",
   ])
-
-  const destacadas = props.noticias.filter((noticia)=> noticia.destacado === true);
-  console.log(destacadas)
-  const destacadaBig = destacadas[2];
-  console.log(destacadaBig)
 
   return (
     <div className="container">

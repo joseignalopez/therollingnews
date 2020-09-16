@@ -5,6 +5,7 @@ import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ElementoLista = (props) => {
   const eliminarNoticia = (id) => {
@@ -58,9 +59,9 @@ const ElementoLista = (props) => {
         <Button variant="outline-warning" size="sm" className="mx-1 destacar">
           <FontAwesomeIcon icon={faCheckCircle} size="2x"></FontAwesomeIcon>
         </Button>
-        <Button variant="outline-primary" size="sm" className="mx-1 editar">
-          <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
-        </Button>
+        <Link to={`/admin/editar/${props.noticia.id}`} className="btn btn-outline-primary mx-1 editar">
+            <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
+        </Link>
         <Button
           variant="outline-danger"
           size="sm"
