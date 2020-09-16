@@ -1,9 +1,24 @@
 import React from "react";
+<<<<<<< HEAD
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare} from "@fortawesome/free-brands-svg-icons";
 import { faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 import { faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope} from "@fortawesome/free-solid-svg-icons";
+=======
+<<<<<<< HEAD
+ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+ import { faFacebookSquare,faInstagramSquare,faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
+ import { faEnvelope} from "@fortawesome/free-solid-svg-icons";
+
+=======
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
+import { faInstagramSquare } from "@fortawesome/free-brands-svg-icons";
+import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+>>>>>>> 85e0e93e0ee27122ce539ed510aaedaa4b177b5e
+>>>>>>> publicidad
 
 const Footer = () => {
   return (
@@ -11,31 +26,139 @@ const Footer = () => {
       <section className="container py-4">git
         <div className="text-center row text-light">
           <div className="col-sm-12 col-md-4 list-unstyled mb-4 d-flex flex-column justify-content-around">
-              <li className="pb-1"><a href="#" className="text-light">Acerca de nosotros</a></li>
-              <li className="py-1"><a href="#" className="text-light">Términos y condiciones</a></li>
-              <li className="py-1"><a href="#" className="text-light">Cookies</a></li>
-              <li className="py-1"><a href="#" className="text-light">Contacto</a></li>
-              <li className="py-1"><a href="#" className="text-light">Publicitar con nosotros</a></li>
-              <li className="pt-1"><a href="#" className="text-light">Políticas de privacidad</a></li>
+            <li className="pb-1">
+              <a href="#" className="text-light">
+                Acerca de nosotros
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Términos y condiciones
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Cookies
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Contacto
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Publicitar con nosotros
+              </a>
+            </li>
+            <li className="pt-1">
+              <a href="#" className="text-light">
+                Políticas de privacidad
+              </a>
+            </li>
           </div>
           <div className="col-sm-12 col-md-4 sm-mb-4">
+<<<<<<< HEAD
             <img src={process.env.PUBLIC_URL + "logo-rolling-thimes.png"} width="70%" alt="The Rolling Times"/>
+=======
+            <img
+              src={process.env.PUBLIC_URL + "img1.jpg"}
+              width="70%"
+              alt="The Rolling Times"
+            />
+>>>>>>> publicidad
             <ul className="list-unstyled d-flex justify-content-center p-0 mt-4">
-                <li><a href="https://facebook.com" target="_blank" className="text-light mr-2"><FontAwesomeIcon icon={faFacebookSquare} size="3x"></FontAwesomeIcon></a></li>
-                <li><a href="https://instagram.com" target="_blank" className="text-light mx-2"><FontAwesomeIcon icon={faInstagramSquare} size="3x"></FontAwesomeIcon></a></li>
-                <li><a href="https://twitter.com" target="_blank" className="text-light mx-2"><FontAwesomeIcon icon={faTwitterSquare} size="3x"></FontAwesomeIcon></a></li>
-                <li><a href="https://gmail.com" target="_blank" className="text-light ml-2"><FontAwesomeIcon icon={faEnvelope} size="3x"></FontAwesomeIcon></a></li>
+              <li>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  className="text-light mr-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faFacebookSquare}
+                    size="3x"
+                  ></FontAwesomeIcon>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  className="text-light mx-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faInstagramSquare}
+                    size="3x"
+                  ></FontAwesomeIcon>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  className="text-light mx-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faTwitterSquare}
+                    size="3x"
+                  ></FontAwesomeIcon>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://gmail.com"
+                  target="_blank"
+                  className="text-light ml-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    size="3x"
+                  ></FontAwesomeIcon>
+                </a>
+              </li>
             </ul>
           </div>
-          <div className="col-sm-12 col-md-4 list-unstyled d-flex flex-column justify-content-around"> 
-                <li className="pb-1"><a href="#" className="text-light"><b>Secciones:</b></a></li>
-                <li className="py-1"><a href="#" className="text-light">Actualidad</a></li>
-                <li className="py-1"><a href="#" className="text-light">Espectáculos</a></li>
-                <li className="py-1"><a href="#" className="text-light">Tecnología</a></li>
-                <li className="py-1"><a href="#" className="text-light">Deportes</a></li>
-                <li className="pt-1"><a href="#" className="text-light">Política</a></li>
-                <li className="pt-1"><a href="#" className="text-light">Economía</a></li>
-                <li className="pt-1"><a href="#" className="text-light">Salud</a></li>      
+          <div className="col-sm-12 col-md-4 list-unstyled d-flex flex-column justify-content-around">
+            <li className="pb-1">
+              <a href="#" className="text-light">
+                <b>Secciones:</b>
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Actualidad
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Espectáculos
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Tecnología
+              </a>
+            </li>
+            <li className="py-1">
+              <a href="#" className="text-light">
+                Deportes
+              </a>
+            </li>
+            <li className="pt-1">
+              <a href="#" className="text-light">
+                Política
+              </a>
+            </li>
+            <li className="pt-1">
+              <a href="#" className="text-light">
+                Economía
+              </a>
+            </li>
+            <li className="pt-1">
+              <a href="#" className="text-light">
+                Salud
+              </a>
+            </li>
           </div>
         </div>
       </section>
