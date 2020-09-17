@@ -6,6 +6,10 @@
     text-shadow: 3px 3px 10px black;
 }
 
+.titulo{
+    font-weight: bold;
+}
+
 @media (max-width: 550px){
     .ocultar{
         display: none;
