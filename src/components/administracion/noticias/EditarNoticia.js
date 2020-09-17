@@ -14,6 +14,7 @@ const EditarNoticia = (props) => {
   const imagenCabeceraRef = useRef("");
   const resumenRef = useRef("");
   const noticiaRef = useRef("");
+  const destacado = props.noticia.destacado;
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
@@ -43,7 +44,8 @@ const EditarNoticia = (props) => {
         imagenCabecera: imagenCabeceraRef.current.value,
         resumen: resumenRef.current.value,
         noticia: noticiaRef.current.value,
-        categoria: _categoria 
+        categoria: _categoria,
+        destacado
     }
 
     try {
