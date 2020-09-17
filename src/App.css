@@ -82,5 +82,6 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
     color:white; 
    
   }
-  
-  
+  .bg-transparente{
+    background-color: rgb(255,255,255); opacity: 0.5;
+  }

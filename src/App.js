@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -16,7 +15,6 @@ import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 import Ingresar from "./components/login/Ingresar";
-
 
 function App() {
   const noticias = defaultNew;
@@ -90,7 +88,6 @@ function App() {
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>
         </Route>
-
       </Switch>
       <Footer></Footer>
     </Router>
