@@ -7,7 +7,7 @@ import Publicidad from './Publicidad';
    
 
 
-const Inicio = () => {
+const Inicio = (props) => {
   const [categorias, setCategorias] = useState([
     "Actualidad",
     "Espectaculos",
@@ -21,7 +21,7 @@ const Inicio = () => {
 
   return (
     <div className="container">
-      <Destacadas></Destacadas>
+      <Destacadas destacadas={props.destacadas}></Destacadas>
       <section className="">
         <BannerCovid></BannerCovid>
       </section>
