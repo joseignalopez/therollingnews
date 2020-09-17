@@ -21,6 +21,7 @@ function App() {
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
+  const [destacadas, setDestacadas] = useState([])
 
   useEffect(() => {
     // llamar a la api
@@ -37,6 +38,8 @@ function App() {
       const resultado = await respuesta.json();
       // guardar datos en el state
       setListadoNoticias(resultado);
+      const noticiasDestacadas = resultado.filter((noticias) => noticias.destacado === true);
+      setDestacadas(noticiasDestacadas);
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +56,7 @@ function App() {
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
-          <Inicio noticias={listadoNoticias}></Inicio>
+          <Inicio destacadas={destacadas}></Inicio>
         </Route>
         <Route
           path="/:categoria/nota/:id"
