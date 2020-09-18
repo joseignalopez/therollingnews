@@ -16,7 +16,6 @@ const Tiempo = () => {
     );
 
     const respuestaApi = await preguntaApi.json();
-    console.log(respuestaApi);
     setClima(respuestaApi);
   };
 

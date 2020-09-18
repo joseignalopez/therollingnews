@@ -39,11 +39,6 @@
   ],
   "categorias": [
     {
-      "categoria": "prueba 2",
-      "descripcionCat": "prueba 2",
-      "id": 2
-    },
-    {
       "categoria": "Espectáculos",
       "descripcionCat": "noticias sobre cine, música, teatro y televisión",
       "id": 3

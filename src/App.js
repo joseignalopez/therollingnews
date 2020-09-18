@@ -24,7 +24,6 @@ function App() {
   const destacadas = defaultNew.filter(
     (destacadas) => destacadas.Destacado === true
   );
-  console.log(destacadas);
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
@@ -102,7 +101,6 @@ function App() {
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia.id === idNoticia
             );
-            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
