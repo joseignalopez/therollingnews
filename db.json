@@ -51,6 +51,11 @@
       "categoria": "prueba 1",
       "descripcionCat": "prueba 1",
       "id": 1
+    },
+    {
+      "categoria": "prueba 2",
+      "descripcionCat": "prueba 2",
+      "id": 2
     }
   ]
 }

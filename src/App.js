@@ -29,13 +29,13 @@ function App() {
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
-  // const [destacadas, setDestacadas] = useState([]);
 
   useEffect(() => {
     // llamar a la api
     if (recargarNoticias) {
       consultarAPI();
       setRecargarNoticias(false);
+      setRecargarCategorias(false)
     }
   }, [recargarNoticias, recargarCategorias]);
 
@@ -43,11 +43,12 @@ function App() {
     try {
       // operación GET
       const respuesta = await fetch("http://localhost:4000/noticias");
+      const respuestaCat = await fetch("http://localhost:4000/categorias");
       const resultado = await respuesta.json();
+      const resultadoCat = await respuestaCat.json();
       // guardar datos en el state
       setListadoNoticias(resultado);
-      // const noticiasDestacadas = resultado.filter((noticias) => noticias.destacado === true);
-      // setDestacadas(noticiasDestacadas);
+      setListadoCategorias(resultadoCat);
     } catch (error) {
       console.log(error);
     }
@@ -110,7 +111,7 @@ function App() {
           }}
         ></Route>
         <Route exact path="/admin/agregarcategoria">
-          <AgregarCategoria></AgregarCategoria>
+          <AgregarCategoria setRecargarCategorias={setRecargarCategorias}></AgregarCategoria>
         </Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>

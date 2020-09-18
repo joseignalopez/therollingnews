@@ -5,7 +5,7 @@ import Alert from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 
-const AgregarCategoria = () => {
+const AgregarCategoria = (props) => {
   const [categoria, setCategoria] = useState("");
   const [descripcionCat, setDescripcionCat] = useState("");
   const [error, setError] = useState(false);
@@ -34,9 +34,20 @@ const AgregarCategoria = () => {
           body: JSON.stringify(categoriaNueva),
         }
       );
+      if (resultado.status === 201) {
+        Swal.fire("Listo!", "La categoría se cargó correctamente", "success");
+        props.setRecargarCategorias(true);
+        // props.history.push("/admin/listanoticias");
+      }
       
   } catch (error) {
-      
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ocurrió un error!',
+        footer: '<p>No se pudo cargar la categoría.</p>'
+      })
+      console.log(error);
   }}
 
 
