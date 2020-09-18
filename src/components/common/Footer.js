@@ -42,7 +42,11 @@ const Footer = () => {
           </div>
           <div className="col-sm-12 col-md-4 sm-mb-4">
             <img
+<<<<<<< HEAD
               src={process.env.PUBLIC_URL+"/therollingthimes.png"} 
+=======
+              src={process.env.PUBLIC_URL + "/img1.jpg"}
+>>>>>>> d0f81da9812614e51a17049693a2aa596982144f
               width="70%"
               alt="The Rolling Times"
             />

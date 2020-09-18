@@ -145,7 +145,7 @@ const newLoaded = [
     Id: 12,
     Fecha: Date(),
     Categoria: "Deportes",
-    Destacado: true,
+    Destacado: false,
     Titulo: `“Toda la gente, una cosa, una locura…”: Vignolo y lo vivido en la cancha de Atlético Tucumán`,
     Imagen: `https://www.eltucumano.com/fotos/cache/notas/2020/09/10/818x460_200910094001_49027.jpg`,
     DetalleCorto:
@@ -170,7 +170,7 @@ const newLoaded = [
     Id: 13,
     Fecha: Date(),
     Categoria: "Politica",
-    Destacado: false,
+    Destacado: true,
     Titulo: `Liberaron a "El Presto", el influencer investigado por amenazas contra Cristina`,
     Imagen: `https://img.lagaceta.com.ar/fotos/notas/2020/09/11/twitter-elpresto2ok-860087-145058.jpeg`,
     DetalleCorto:

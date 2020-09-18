@@ -19,62 +19,34 @@ const Precio = () => {
   };
 
   return (
-    <div className="d-flex container-fluid justify-content-center ">
+    <div className="d-flex container justify-content-center ">
       <section className="row ">
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
+        <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
           <Card.Body className="p-0 text-center">
-            <h5 className="p-0 m-0">{precio[0] && precio[0].type}</h5>
+            <p className="p-0 m-0"><strong>Dolar</strong>:{" "}
+              {precio[0] && precio[0].sellPrice}/{precio[0] && precio[0].buyPrice}</p>
             <Card.Text className="p-0 m-0">
-              {precio[0] && precio[0].sellTitle}:{" "}
-              {precio[0] && precio[0].sellPrice}
+              
             </Card.Text>
             <Card.Text></Card.Text>
-            {precio[0] && precio[0].buyTitle}: {precio[0] && precio[0].buyPrice}
+            
           </Card.Body>
         </Card>
 
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
+        <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
           <Card.Body className="p-0 text-center">
-            <h5 className="p-0 m-0">{precio[1] && precio[1].type}</h5>
-
-            <Card.Text className="p-0 m-0">
-              {precio[1] && precio[1].sellTitle}:{" "}
-              {precio[1] && precio[1].sellPrice}
-            </Card.Text>
-            <Card.Text>
-              {precio[1] && precio[1].buyTitle}:{" "}
-              {precio[1] && precio[1].buyPrice}
-            </Card.Text>
+            <p className="p-0 m-0"><strong>Blue</strong>:{" "}
+              {precio[1] && precio[1].sellPrice}/{precio[1] && precio[1].buyPrice}</p>
+  
           </Card.Body>
         </Card>
 
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
+        <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
           <Card.Body className="p-0 text-center">
-            <h5 className="p-0 m-0">{precio[6] && precio[6].type}</h5>
+            <p className="p-0 m-0"><strong>Real</strong>:{" "}
+              {precio[6] && precio[6].sellPrice}/{precio[6] && precio[6].buyPrice}</p>
 
-            <Card.Text className="p-0 m-0" >
-              {precio[6] && precio[6].sellTitle}:{" "}
-              {precio[6] && precio[6].sellPrice}
-            </Card.Text>
-            <Card.Text>
-              {precio[6] && precio[6].buyTitle}:{" "}
-              {precio[6] && precio[6].buyPrice}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card className="col-sm-12 col-md-6 col-lg-3 col-xl-3 borde">
-          <Card.Body className="p-0 text-center">
-            <h5 className="p-0 m-0">{precio[7] && precio[7].type}</h5>
-
-            <Card.Text className="p-0 m-0">
-              {precio[7] && precio[7].sellTitle}:{" "}
-              {precio[7] && precio[7].sellPrice}
-            </Card.Text>
-
-            <Card.Text>
-              {precio[7] && precio[7].buyTitle}:{" "}
-              {precio[7] && precio[7].buyPrice}
-            </Card.Text>
+            
           </Card.Body>
         </Card>
       </section>

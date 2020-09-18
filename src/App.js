@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import MonedaExtr from "./components/Api/MonedaExtr";
 import Tiempo from "./components/Apiclima/Tiempo";
 import Reloj from "./components/Apiclima/Reloj";
@@ -15,12 +14,19 @@ import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
+import Ingresar from "./components/login/Ingresar";
+import Registro from "./components/login/Registro";
+
+
 
 function App() {
   const noticias = defaultNew;
+  const destacadas = defaultNew.filter((destacadas) => destacadas.Destacado === true)
+  console.log(destacadas)
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
+  // const [destacadas, setDestacadas] = useState([]);
 
   useEffect(() => {
     // llamar a la api
@@ -37,6 +43,8 @@ function App() {
       const resultado = await respuesta.json();
       // guardar datos en el state
       setListadoNoticias(resultado);
+      // const noticiasDestacadas = resultado.filter((noticias) => noticias.destacado === true);
+      // setDestacadas(noticiasDestacadas);
     } catch (error) {
       console.log(error);
     }
@@ -47,15 +55,13 @@ function App() {
       <Header></Header>
       <section className="container contenidoSeccion">
         <div className="row text-center d-flex justify-content-center">
-          <Fecha className="col-sm-12 col-md-3 col-lg-3 fecha"></Fecha>
-          <Tiempo className="col-sm-12 col-md-6 col-lg-6"></Tiempo>
-          <Reloj className="col-sm-12 col-md-3 col-lg-3 reloj"></Reloj>
+          <Tiempo className="col-sm-12 col-md-12 col-lg-12"></Tiempo>
         </div>
       </section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
-          <Inicio noticias={listadoNoticias}></Inicio>
+          <Inicio destacadas={destacadas}></Inicio>
         </Route>
         <Route
           path="/:categoria/nota/:id"
@@ -91,7 +97,7 @@ function App() {
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia.id === idNoticia
             );
-            console.log(noticiaSeleccionada)
+            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
@@ -100,6 +106,13 @@ function App() {
             );
           }}
         ></Route>
+        <Route exact path="/login/Ingresar">
+          <Ingresar></Ingresar>
+        </Route>
+        <Route exact path="/login/Registro">
+          <Registro/>
+        </Route>
+
       </Switch>
       <Footer></Footer>
     </Router>
