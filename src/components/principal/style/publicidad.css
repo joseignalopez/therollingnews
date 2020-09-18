@@ -1,0 +1,13 @@
+aside {
+    widows: 150px;
+    height: 700px;
+    background-color:white;
+    float:right;
+}
+
+@media(max-width:600px){
+    aside{
+        display: none; 
+       
+    }
+}

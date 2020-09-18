@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import {Navbar, Nav,Form, Button }from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser,faCaretDown,faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { faUser,faCaretDown,faCheckSquare,faSearch } from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 import ReactDOM from 'react-dom';
 
@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
-      <Navbar.Brand href="#home"><img src="logo.jpg" alt="logo" className="logo"/></Navbar.Brand>
+      <Navbar.Brand href="#home"><img src="logo-rolling-thimes.png" alt="logo" className="logo"/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <div  className="subnav ">
@@ -48,11 +48,13 @@ const Header = () => {
           <NavLink exact={true} to="/secciones" className="nav-link " activeClassName="active" onClick={()=>setSeccionVisible(!seccionVisible)}>Secciones<FontAwesomeIcon icon={faCaretDown} /></NavLink>
             {seccionVisible && <SeccionesHeader></SeccionesHeader>}
            </div>
-           </Nav>  
-         
-        <Form className=" search" inline >
-        <div className="search">
-          <input type="text"  placeholder=" Buscar                                                           &#xf002;" id="icon" className="placeicon" value={searchTerm} onChange={handleChange} />
+           </Nav>   
+        <Form className="" inline >
+        <div className="">
+          <input type="text"  placeholder=" Buscar " id="icon" className="btn-sm " value={searchTerm} />
+          <Button className=" azul btn-ms" onChange={handleChange}>
+            <FontAwesomeIcon icon={faSearch} /> 
+          </Button>
           {/* <ul> 
             {searchResultado.map(item=>(
               <li>{item}</li>

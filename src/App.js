@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -15,6 +14,7 @@ import Footer from "./components/common/Footer";
 import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
+import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 
 function App() {
   const noticias = defaultNew;
@@ -34,9 +34,7 @@ function App() {
     try {
       // operación GET
       const respuesta = await fetch("http://localhost:4000/noticias");
-      console.log(respuesta);
       const resultado = await respuesta.json();
-      console.log(resultado);
       // guardar datos en el state
       setListadoNoticias(resultado);
     } catch (error) {
@@ -49,16 +47,13 @@ function App() {
       <Header></Header>
       <section className="container contenidoSeccion">
         <div className="row text-center d-flex justify-content-center">
-          <Fecha className="col-sm-12 col-md-3 col-lg-3 fecha"></Fecha>
-          <Tiempo className="col-sm-12 col-md-6 col-lg-6"></Tiempo>
-          <Reloj className="col-sm-12 col-md-3 col-lg-3 reloj"></Reloj>
+          <Tiempo className="col-sm-12 col-md-12 col-lg-12"></Tiempo>
         </div>
       </section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
-          <Inicio></Inicio>
-          <Fecha></Fecha>
+          <Inicio noticias={listadoNoticias}></Inicio>
         </Route>
         <Route
           path="/:categoria/nota/:id"
@@ -85,6 +80,24 @@ function App() {
             setRecargarNoticias={setRecargarNoticias}
           ></AgregarNoticia>
         </Route>
+        <Route
+          exact
+          path="/admin/editar/:id"
+          render={(props) => {
+            const idNoticia = parseInt(props.match.params.id);
+            console.log(idNoticia);
+            const noticiaSeleccionada = listadoNoticias.find(
+              (noticia) => noticia.id === idNoticia
+            );
+            console.log(noticiaSeleccionada);
+            return (
+              <EditarNoticia
+                noticia={noticiaSeleccionada}
+                setRecargarNoticias={setRecargarNoticias}
+              ></EditarNoticia>
+            );
+          }}
+        ></Route>
       </Switch>
       <Footer></Footer>
     </Router>
