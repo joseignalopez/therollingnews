@@ -39,14 +39,24 @@
   ],
   "categorias": [
     {
-      "categoria": "prueba 1",
-      "descripcionCat": "prueba 1",
-      "id": 1
-    },
-    {
       "categoria": "prueba 2",
       "descripcionCat": "prueba 2",
       "id": 2
+    },
+    {
+      "categoria": "Espectáculos",
+      "descripcionCat": "noticias sobre cine, música, teatro y televisión",
+      "id": 3
+    },
+    {
+      "categoria": "Salud",
+      "descripcionCat": "noticias sobre salud, cuidados, salud pública, alimentación, etc.",
+      "id": 4
+    },
+    {
+      "categoria": "Deportes",
+      "descripcionCat": "Noticias de footbol, basket, tenis y más",
+      "id": 5
     }
   ]
 }

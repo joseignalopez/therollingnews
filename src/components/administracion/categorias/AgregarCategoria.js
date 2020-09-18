@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
+import '../style/admin.css'
 import { withRouter } from "react-router-dom";
 
 const AgregarCategoria = (props) => {
@@ -37,7 +38,7 @@ const AgregarCategoria = (props) => {
       if (resultado.status === 201) {
         Swal.fire("Listo!", "La categoría se cargó correctamente", "success");
         props.setRecargarCategorias(true);
-        // props.history.push("/admin/listanoticias");
+        props.history.push("/admin/listacategorias");
       }
       
   } catch (error) {
