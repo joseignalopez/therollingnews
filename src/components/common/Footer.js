@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
           <div className="col-sm-12 col-md-4 sm-mb-4">
             <img
-              src={process.env.PUBLIC_URL + "img1.jpg"}
+              src={process.env.PUBLIC_URL + "/img1.jpg"}
               width="70%"
               alt="The Rolling Times"
             />

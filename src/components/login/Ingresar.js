@@ -4,15 +4,13 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { faInstagramSquare } from "@fortawesome/free-brands-svg-icons";
-import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Ingresar = (props) => {
   return (
     <div className="bg bg-warning py-5">
-      {/* fondo de la pagina */}
-      <img src="blogin.jpg"></img>
+      {/* <div className="fixed-bg">
+      <img src={process.env.PUBLIC_URL+"https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"}></img>
+      </div> */}
       <div className="container">
         <div className="row">
           <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5">
