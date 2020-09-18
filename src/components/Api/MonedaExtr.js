@@ -44,7 +44,7 @@ const Precio = () => {
         <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
           <Card.Body className="p-0 text-center">
             <p className="p-0 m-0"><strong>Real</strong>:{" "}
-              {precio[7] && precio[7].sellPrice}/{precio[7] && precio[7].buyPrice}</p>
+              {precio[6] && precio[6].sellPrice}/{precio[6] && precio[6].buyPrice}</p>
 
             
           </Card.Body>
