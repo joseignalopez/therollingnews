@@ -35,15 +35,6 @@
       "categoria": "Espectaculos",
       "destacado": false,
       "id": 4
-    },
-    {
-      "titulo": "asdada2123123",
-      "imagenCabecera": "asdasd123123",
-      "resumen": "asdasd123",
-      "noticia": "asdasdasadasd\n\nasdasd\nasd",
-      "categoria": "Deportes",
-      "destacado": false,
-      "id": 5
     }
   ],
   "categorias": [
