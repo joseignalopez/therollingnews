@@ -16,6 +16,7 @@ import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
+import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 
 
 
@@ -26,6 +27,8 @@ function App() {
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
+  const [listadoCategorias, setListadoCategorias] = useState([]);
+  const [recargarCategorias, setRecargarCategorias] = useState(true);
   // const [destacadas, setDestacadas] = useState([]);
 
   useEffect(() => {
@@ -34,7 +37,7 @@ function App() {
       consultarAPI();
       setRecargarNoticias(false);
     }
-  }, [recargarNoticias]);
+  }, [recargarNoticias, recargarCategorias]);
 
   const consultarAPI = async () => {
     try {
@@ -106,6 +109,9 @@ function App() {
             );
           }}
         ></Route>
+        <Route exact path="/admin/agregarcategoria">
+          <AgregarCategoria></AgregarCategoria>
+        </Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>
         </Route>

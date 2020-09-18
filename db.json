@@ -45,5 +45,12 @@
       "destacado": false,
       "id": 5
     }
+  ],
+  "categorias": [
+    {
+      "categoria": "prueba 1",
+      "descripcionCat": "prueba 1",
+      "id": 1
+    }
   ]
 }
