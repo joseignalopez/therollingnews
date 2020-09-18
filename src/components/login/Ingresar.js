@@ -14,7 +14,7 @@ const Ingresar = () => {
   
   <div className="py-5">
   <div className="fixed-bg">
-  <img src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"></img>
+  <img src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg" className="bglogin"></img>
   </div>
   <div className="container">
     <div className="row">

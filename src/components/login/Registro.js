@@ -11,7 +11,7 @@ const Registro = () => {
   return (
     <div className="py-5">
       <div className="fixed-bg">
-    <img src="https://tecno.americaeconomia.com/sites/tecno.americaeconomia.com/files/styles/photo_inline/public/hombre_tablet.jpg?itok=j5mscLdz"></img>
+    <img src="https://tecno.americaeconomia.com/sites/tecno.americaeconomia.com/files/styles/photo_inline/public/hombre_tablet.jpg?itok=j5mscLdz" className="bglogin"></img>
     </div>
       <div className="container">
         <div className="row">
