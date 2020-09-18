@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import MonedaExtr from "./components/Api/MonedaExtr";
 import Tiempo from "./components/Apiclima/Tiempo";
 import Reloj from "./components/Apiclima/Reloj";
@@ -15,6 +14,10 @@ import Inicio from "./components/principal/Inicio";
 import AgregarNoticia from "./components/administracion/noticias/AgregarNoticia";
 import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
+import Ingresar from "./components/login/Ingresar";
+import Registro from "./components/login/Registro";
+
+
 
 function App() {
   const noticias = defaultNew;
@@ -98,6 +101,13 @@ function App() {
             );
           }}
         ></Route>
+        <Route exact path="/login/Ingresar">
+          <Ingresar></Ingresar>
+        </Route>
+        <Route exact path="/login/Registro">
+          <Registro/>
+        </Route>
+
       </Switch>
       <Footer></Footer>
     </Router>

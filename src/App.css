@@ -74,5 +74,12 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
     color:white; 
    
   }
-  
-  
+  .fixed-bg{
+    /* position: fixed; */
+    /* background: url("/public/bglogin.jpg"); */
+    z-index: -1 !important;
+    background-position: center center !important;;
+    background-attachment: fixed !important;;
+    background-size: cover !important;;
+    width: 100% !important;;
+  }

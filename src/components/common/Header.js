@@ -33,7 +33,11 @@ const Header = () => {
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
+<<<<<<< HEAD
       <Navbar.Brand href="#home"><img src="logo-rolling-thimes.png" alt="logo" className="logo"/></Navbar.Brand>
+=======
+      <Navbar.Brand href="#home"><img src="/logo.jpg" alt="logo" className="logo"/></Navbar.Brand>
+>>>>>>> registro
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <div  className="subnav ">
