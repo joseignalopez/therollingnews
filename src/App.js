@@ -92,7 +92,7 @@ function App() {
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia.id === idNoticia
             );
-            console.log(noticiaSeleccionada)
+            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}

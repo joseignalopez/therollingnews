@@ -33,8 +33,7 @@ const Tiempo = () => {
                   src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}.png`}
                   alt="weather.main"
                 ></img>{" "}
-                -- Temp. Max: {clima.main.temp_max}°C--Temp. Min:
-                {clima.main.temp_min}°C
+                --
               </p>
             </>
           ) : null}
