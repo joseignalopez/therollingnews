@@ -18,10 +18,12 @@ import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 
 function App() {
   const noticias = defaultNew;
+  const destacadas = defaultNew.filter((destacadas) => destacadas.Destacado === true)
+  console.log(destacadas)
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
-  const [destacadas, setDestacadas] = useState([])
+  // const [destacadas, setDestacadas] = useState([]);
 
   useEffect(() => {
     // llamar a la api
@@ -38,8 +40,8 @@ function App() {
       const resultado = await respuesta.json();
       // guardar datos en el state
       setListadoNoticias(resultado);
-      const noticiasDestacadas = resultado.filter((noticias) => noticias.destacado === true);
-      setDestacadas(noticiasDestacadas);
+      // const noticiasDestacadas = resultado.filter((noticias) => noticias.destacado === true);
+      // setDestacadas(noticiasDestacadas);
     } catch (error) {
       console.log(error);
     }
