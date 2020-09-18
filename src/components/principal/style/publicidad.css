@@ -11,3 +11,8 @@ aside {
        
     }
 }
+
+.type-Future {
+    font-family: Futura;
+    src: local("Futura Std");
+  }
