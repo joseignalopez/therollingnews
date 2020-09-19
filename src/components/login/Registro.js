@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import './style/login.css'; 
+import { FormControl } from "react-bootstrap";
+import './style/login.css';
 
 const Registro = () => {
   return (
