@@ -20,7 +20,6 @@ import AgregarCategoria from "./components/administracion/categorias/AgregarCate
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
  import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
 
-
 function App() {
   const noticias = defaultNew;
   const destacadas = defaultNew.filter(
@@ -146,11 +145,9 @@ function App() {
         <Route exact path="/login/Registro">
           <Registro />
         </Route>
-       </Switch>
-       <Route>
-         <Footer></Footer>
-       </Route>
-       </Router>
+      </Switch>
+      <Footer></Footer>
+    </Router>
   );
 }
 

@@ -8,47 +8,47 @@ const SeccionesHeader = () => {
         <ul className="d-flex  flex-column flex-lg-row">
         
           <li className="nav-item my-1  ">
-              <a className="nav-link " href="" >
+              <a className="nav-link " >
             Actualidad
                </a>
           </li> 
           <li className="nav-item my-1">
-              <a className=" nav-link"href=""  >
+              <a className=" nav-link" >
             Espectáculos
                </a>
           </li>
           <li className="nav-item my-1 ">
-              <a className="nav-link" href="" >
+              <a className="nav-link" >
             Tecnología
                </a>
           </li>
           <li className="nav-item my-1">
-              <a className=" nav-link" href="" >
+              <a className=" nav-link">
             Deportes
                </a>
           </li>
           <li className="nav-item my-1">
-              <a className=" nav-link"href=""  >
+              <a className=" nav-link" >
             Política
                </a>
           </li>
           <li className="nav-item my-1">
-              <a className="nav-link "href=""  >
+              <a className="nav-link " >
             Economía
                </a>
           </li>
           <li className="nav-item my-1">
-              <a className="nav-link " href="" >
+              <a className="nav-link " >
                          Salud
                </a>
           </li>
           <li className="nav-item my-1 ">
-              <a className="nav-link " href=""  >
+              <a className="nav-link " >
                        Fotografía
                </a>
           </li>
           <li className="nav-item my-1">
-              <a className="nav-link " href="" >
+              <a className="nav-link " >
             Covid-19
                </a>
           </li>

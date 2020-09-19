@@ -1,7 +1,6 @@
-import React,{ useState } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import "./style/destacadas.css";
-
 
 const DestacadaBig = (props) => {
     return (

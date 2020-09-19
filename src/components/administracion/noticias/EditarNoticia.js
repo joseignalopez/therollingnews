@@ -70,7 +70,7 @@ const EditarNoticia = (props) => {
           icon: 'error',
           title: 'Oops...',
           text: 'Ocurrió un error!',
-          footer: '<p>No se pudo cargar la noticia.</p>'
+          footer: '<p>No se pudo modificar la noticia.</p>'
         })
         console.log(error);
       }
