@@ -49,9 +49,6 @@ function App() {
     <Router>
       <Header></Header>
       <section className="container contenidoSeccion">
-        <div className="row text-center d-flex justify-content-center">
-          <Tiempo className="col-sm-12 col-md-12 col-lg-12"></Tiempo>
-        </div>
       </section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>

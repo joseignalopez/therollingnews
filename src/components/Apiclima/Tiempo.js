@@ -21,24 +21,20 @@ const Tiempo = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center p-0 text-center">
-      <Card >
-        <Card.Body>
+    <div className="">
           {clima && clima.main ? (
-            <>
-              <p className="m-0"><strong>{clima.name}</strong>
-               --{""}Temp. Actual: {clima.main.temp}°C --{" "}
-                {clima.weather[0].description} --{" "}
-                <img
+            <div>
+              <small className=""><strong>Clima:</strong>
+               {""} {clima.main.temp}°C | {" "}
+                {clima.weather[0].description}
+                {/* <img className=""
                   src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}.png`}
-                  alt="weather.main"
-                ></img>{" "}
-                --
-              </p>
-            </>
+                  alt="weather.main" 
+                ></img> */}
+              </small>
+            </div>
           ) : null}
-        </Card.Body>
-      </Card>
+
     </div>
   );
 };

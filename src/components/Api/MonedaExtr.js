@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-import './Moneda.css'
+import Tiempo from "../Apiclima/Tiempo";
+import "./Moneda.css";
 
 const Precio = () => {
   //state
@@ -17,38 +18,33 @@ const Precio = () => {
     console.log(data);
     setprecio(data);
   };
-
+  // col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo
   return (
-    <div className="d-flex container justify-content-center ">
-      <section className="row ">
-        <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
-          <Card.Body className="p-0 text-center">
-            <p className="p-0 m-0"><strong>Dolar</strong>:{" "}
-              {precio[0] && precio[0].sellPrice}/{precio[0] && precio[0].buyPrice}</p>
-            <Card.Text className="p-0 m-0">
-              
-            </Card.Text>
-            <Card.Text></Card.Text>
-            
-          </Card.Body>
-        </Card>
+    <div className="d-flex container-fluid justify-content-center shadow rounded amarillo text-white">
+      <section className="row w-75 d-flex justify-content-around">
+        <div className="d-flex align-items-center col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+          <small>
+            <strong>Dolar</strong>: {precio[0] && precio[0].sellPrice}/
+            {precio[0] && precio[0].buyPrice}
+          </small>
+        </div>
 
-        <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
-          <Card.Body className="p-0 text-center">
-            <p className="p-0 m-0"><strong>Blue</strong>:{" "}
-              {precio[1] && precio[1].sellPrice}/{precio[1] && precio[1].buyPrice}</p>
-  
-          </Card.Body>
-        </Card>
+        <div className="d-flex align-items-center col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+          <small>
+            <strong>Blue</strong>: {precio[1] && precio[1].sellPrice}/
+            {precio[1] && precio[1].buyPrice}
+          </small>
+        </div>
 
-        <Card className="col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo">
-          <Card.Body className="p-0 text-center">
-            <p className="p-0 m-0"><strong>Real</strong>:{" "}
-              {precio[6] && precio[6].sellPrice}/{precio[6] && precio[6].buyPrice}</p>
-
-            
-          </Card.Body>
-        </Card>
+        <div className="d-flex align-items-center col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+          <small>
+            <strong>Real</strong>: {precio[6] && precio[6].sellPrice}/
+            {precio[6] && precio[6].buyPrice}
+          </small>
+        </div>
+        <div className="d-flex align-items-center col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+          <Tiempo></Tiempo>
+        </div>
       </section>
     </div>
   );
