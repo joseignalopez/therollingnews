@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import "./style/noticias.css";
+import "../style/admin.css";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 

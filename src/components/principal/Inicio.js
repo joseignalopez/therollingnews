@@ -6,6 +6,7 @@ import Publicidad from "./Publicidad";
 
 
 
+
 const Inicio = (props) => {
   const [destacadaBig, setDestacadaBig] = useState({});
   const [destacadaSmall1, setDestacadaSmall1] = useState({});
@@ -40,9 +41,9 @@ const Inicio = (props) => {
       ></Destacadas>
       <section className="">
         <BannerCovid></BannerCovid>
-        
+       
       </section>
-      <aside className="publicidad  py-2 mt-2 ">
+      <aside className="publicidad shadow py-2 mt-2 ">
         <Publicidad></Publicidad>
       </aside>
 

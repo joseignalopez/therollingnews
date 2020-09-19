@@ -16,6 +16,8 @@ import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
+import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
+
 
 
 
@@ -26,25 +28,28 @@ function App() {
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
-  // const [destacadas, setDestacadas] = useState([]);
+  const [listadoCategorias, setListadoCategorias] = useState([]);
+  const [recargarCategorias, setRecargarCategorias] = useState(true);
 
   useEffect(() => {
     // llamar a la api
     if (recargarNoticias) {
       consultarAPI();
       setRecargarNoticias(false);
+      setRecargarCategorias(false)
     }
-  }, [recargarNoticias]);
+  }, [recargarNoticias, recargarCategorias]);
 
   const consultarAPI = async () => {
     try {
       // operación GET
       const respuesta = await fetch("http://localhost:4000/noticias");
+      const respuestaCat = await fetch("http://localhost:4000/categorias");
       const resultado = await respuesta.json();
+      const resultadoCat = await respuestaCat.json();
       // guardar datos en el state
       setListadoNoticias(resultado);
-      // const noticiasDestacadas = resultado.filter((noticias) => noticias.destacado === true);
-      // setDestacadas(noticiasDestacadas);
+      setListadoCategorias(resultadoCat);
     } catch (error) {
       console.log(error);
     }
@@ -106,6 +111,9 @@ function App() {
             );
           }}
         ></Route>
+        <Route exact path="/admin/agregarcategoria">
+          <AgregarCategoria setRecargarCategorias={setRecargarCategorias}></AgregarCategoria>
+        </Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>
         </Route>
@@ -113,9 +121,11 @@ function App() {
           <Registro/>
         </Route>
 
-      </Switch>
-      <Footer></Footer>
-    </Router>
+       </Switch>
+       <Route>
+         <Footer></Footer>
+       </Route>
+       </Router>
   );
 }
 

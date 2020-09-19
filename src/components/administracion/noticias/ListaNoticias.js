@@ -2,7 +2,7 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ElementoLista from "./ElementoLista";
-import "./style/noticias.css";
+import "../style/admin.css";
 
 const ListaNoticias = (props) => {
   return (

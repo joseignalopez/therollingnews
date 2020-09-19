@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import "./style/noticias.css";
+import "../style/admin.css";
 import Swal from "sweetalert2";
 import { withRouter } from 'react-router-dom';
 
@@ -34,7 +34,6 @@ const AgregarNoticia = (props) => {
       return;
     }
     setError(false);
-    // agregar la noticia a la api
     
     // crear el objeto a enviar
     const noticiaNueva = {
@@ -47,7 +46,6 @@ const AgregarNoticia = (props) => {
     };
 
     try {
-      // me conecto con la api
       const resultado = await fetch(
         "http://localhost:4000/noticias",
         {
@@ -76,9 +74,9 @@ const AgregarNoticia = (props) => {
 
 
   return (
-    <section className="container">
-      <Form onSubmit={handleSubmit}>
+    <section className="container px-5">
         <h1 className="text-center my-4">Agregar nueva noticia</h1>
+      <Form onSubmit={handleSubmit} className="mt-5">
         <Form.Group>
           <Form.Label>Título de la nota</Form.Label>
           <Form.Control
@@ -184,7 +182,7 @@ const AgregarNoticia = (props) => {
           // alerta en caso de no completar los datos al intentar el submit
           error ? (
             <Alert className="mt-4" variant={"danger"}>
-              Debes completar todos los campos
+              Se debe completar todos los campos
             </Alert>
           ) : null
         }
