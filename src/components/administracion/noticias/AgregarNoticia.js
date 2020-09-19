@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import "../style/admin.css";
 import Swal from "sweetalert2";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 const AgregarNoticia = (props) => {
   const [titulo, setTitulo] = useState("");
@@ -17,7 +17,6 @@ const AgregarNoticia = (props) => {
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +33,7 @@ const AgregarNoticia = (props) => {
       return;
     }
     setError(false);
-    
+
     // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
@@ -42,20 +41,17 @@ const AgregarNoticia = (props) => {
       resumen,
       noticia,
       categoria,
-      destacado: false
+      destacado: false,
     };
 
     try {
-      const resultado = await fetch(
-        "http://localhost:4000/noticias",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(noticiaNueva),
-        }
-      );
+      const resultado = await fetch("http://localhost:4000/noticias", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(noticiaNueva),
+      });
       if (resultado.status === 201) {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
         props.setRecargarNoticias(true);
@@ -63,23 +59,23 @@ const AgregarNoticia = (props) => {
       }
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Ocurrió un error!',
-        footer: '<p>No se pudo cargar la noticia.</p>'
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>No se pudo cargar la noticia.</p>",
+      });
       console.log(error);
     }
   };
 
-
   return (
     <section className="container px-5">
-        <h1 className="text-center my-4">Agregar nueva noticia</h1>
+      <h1 className="text-center my-4">Agregar nueva noticia</h1>
       <Form onSubmit={handleSubmit} className="mt-5">
         <Form.Group>
           <Form.Label>Título de la nota</Form.Label>
           <Form.Control
+            autoFocus
             type="text"
             placeholder="Agregar el título de la nota"
             onChange={(e) => setTitulo(e.target.value)}
@@ -113,21 +109,19 @@ const AgregarNoticia = (props) => {
         </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
-          {
-            props.categorias.map((categoria) =>(
-              <Form.Check
-            type="radio"
-            label={categoria.nombreCat}
-            value={categoria.nombreCat}
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-            ))
-          }
+          {props.categorias.map((categoria) => (
+            <Form.Check
+              type="radio"
+              label={categoria.nombreCat}
+              value={categoria.nombreCat}
+              name="categoria"
+              inline
+              className="mx-3"
+              onChange={seleccionarCategoria}
+            />
+          ))}
         </div>
-        
+
         {
           // alerta en caso de no completar los datos al intentar el submit
           error ? (

@@ -59,6 +59,7 @@ const AgregarCategoria = (props) => {
           <Form.Group>
             <Form.Label>Categoría</Form.Label>
             <Form.Control
+              autoFocus
               type="text"
               placeholder="ingresar el nombre de la categoría"
               onChange={(e) => setNombreCat(e.target.value)}

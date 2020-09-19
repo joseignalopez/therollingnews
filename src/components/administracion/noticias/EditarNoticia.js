@@ -122,76 +122,20 @@ const EditarNoticia = (props) => {
         </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
-          <Form.Check
+        {
+            props.categorias.map((categoria) =>(
+              <Form.Check
             type="radio"
-            label="Actualidad"
-            value="Actualidad"
+            label={categoria.nombreCat}
+            value={categoria.nombreCat}
             name="categoria"
             inline
             className="mx-3"
             onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Actualidad"}
+            defaultChecked={props.noticia.categoria === `${categoria.nombreCat}`}
           />
-          <Form.Check
-            type="radio"
-            label="Espectáculos"
-            value="Espectaculos"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Espectaculos"}
-          />
-          <Form.Check
-            type="radio"
-            label="Tecnología"
-            value="Tecnologia"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Tecnologia"}
-          />
-          <Form.Check
-            type="radio"
-            label="Deportes"
-            value="Deportes"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Deportes"}
-          />
-          <Form.Check
-            type="radio"
-            label="Política"
-            value="Politica"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Politica"}
-          />
-          <Form.Check
-            type="radio"
-            label="Economía"
-            value="Economia"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Economia"}
-          />
-          <Form.Check
-            type="radio"
-            label="Salud"
-            value="Salud"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Salud"}
-          />
+            ))
+          }
         </div>
 
         {
