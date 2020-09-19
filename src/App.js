@@ -90,6 +90,7 @@ function App() {
         </Route>
         <Route exact path="/admin/agregarnoticia">
           <AgregarNoticia
+            categorias={listadoCategorias}
             setRecargarNoticias={setRecargarNoticias}
           ></AgregarNoticia>
         </Route>
@@ -105,6 +106,7 @@ function App() {
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
+                categorias={listadoCategorias}
                 setRecargarNoticias={setRecargarNoticias}
               ></EditarNoticia>
             );
@@ -130,15 +132,14 @@ function App() {
             const categoriaSeleccionada = listadoCategorias.find(
               (categoria) => categoria.id === idCategoria
             );
-            return(
+            return (
               <EditarCategoria
                 categoria={categoriaSeleccionada}
                 setRecargarCategorias={setRecargarCategorias}
               ></EditarCategoria>
-            )
+            );
           }}
-        >
-        </Route>
+        ></Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>
         </Route>
