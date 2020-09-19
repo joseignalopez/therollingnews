@@ -52,11 +52,11 @@ const ElementoListaCat = (props) => {
   return (
     <ListGroup.Item className="d-flex align-items-center">
       <p className="pt-3">
-        <span className="font-weight-bold">{props.categoria.categoria} </span>
+        <span className="font-weight-bold">{props.categoria.nombreCat} </span>
         {props.categoria.descripcionCat}
       </p>
       <Link
-        to={`/productos/editar/${props.categoria.id}`}
+        to={`/admin/editarCat/${props.categoria.id}`}
         className="btn btn-outline-primary mx-1 editar ml-auto"
       >
         <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>

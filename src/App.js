@@ -18,6 +18,7 @@ import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
+import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
 
 function App() {
   const noticias = defaultNew;
@@ -94,7 +95,7 @@ function App() {
         </Route>
         <Route
           exact
-          path="/admin/editar/:id"
+          path="/admin/editarNoti/:id"
           render={(props) => {
             const idNoticia = parseInt(props.match.params.id);
             console.log(idNoticia);
@@ -119,6 +120,24 @@ function App() {
           <AgregarCategoria
             setRecargarCategorias={setRecargarCategorias}
           ></AgregarCategoria>
+        </Route>
+        <Route
+          exact
+          path="/admin/editarCat/:id"
+          render={(props) => {
+            const idCategoria = parseInt(props.match.params.id);
+            console.log(idCategoria);
+            const categoriaSeleccionada = listadoCategorias.find(
+              (categoria) => categoria.id === idCategoria
+            );
+            return(
+              <EditarCategoria
+                categoria={categoriaSeleccionada}
+                setRecargarCategorias={setRecargarCategorias}
+              ></EditarCategoria>
+            )
+          }}
+        >
         </Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>

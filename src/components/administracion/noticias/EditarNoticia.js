@@ -66,6 +66,12 @@ const EditarNoticia = (props) => {
           props.history.push("/admin/listanoticias");
         }
       } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ocurrió un error!',
+          footer: '<p>No se pudo cargar la noticia.</p>'
+        })
         console.log(error);
       }
 
@@ -197,7 +203,7 @@ const EditarNoticia = (props) => {
           ) : null
         }
         <Button type="submit" className="w-100 mb-4 boton">
-          MODIFICAR NOTICIA
+          GUARDAR CAMBIOS
         </Button>
       </Form>
     </section>

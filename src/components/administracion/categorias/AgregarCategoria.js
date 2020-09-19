@@ -7,20 +7,20 @@ import '../style/admin.css'
 import { withRouter } from "react-router-dom";
 
 const AgregarCategoria = (props) => {
-  const [categoria, setCategoria] = useState("");
+  const [nombreCat, setNombreCat] = useState("");
   const [descripcionCat, setDescripcionCat] = useState("");
   const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
       e.preventDefault()
-      if (categoria.trim() === "" || descripcionCat.trim() === ""){
+      if (nombreCat.trim() === "" || descripcionCat.trim() === ""){
           setError(true);
           return;
       }
       setError(false);
   
   const categoriaNueva = {
-      categoria,
+      nombreCat,
       descripcionCat
   }
 
@@ -54,14 +54,14 @@ const AgregarCategoria = (props) => {
 
     return (
       <section className="container px-5">
-        <h1 className="text-center my-4">Agregar Categoría</h1>
+        <h1 className="text-center my-4">Agregar nueva categoría</h1>
         <Form onSubmit={handleSubmit} className="mt-5 mb-3">
           <Form.Group>
             <Form.Label>Categoría</Form.Label>
             <Form.Control
               type="text"
               placeholder="ingresar el nombre de la categoría"
-              onChange={(e) => setCategoria(e.target.value)}
+              onChange={(e) => setNombreCat(e.target.value)}
             />
           </Form.Group>
 

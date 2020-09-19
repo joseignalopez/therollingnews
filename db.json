@@ -39,17 +39,17 @@
   ],
   "categorias": [
     {
-      "categoria": "Espectáculos",
-      "descripcionCat": "noticias sobre cine, música, teatro y televisión",
+      "nombreCat": "Espectáculos",
+      "descripcionCat": "noticias sobre cine, música, teatro y televisión.",
       "id": 3
     },
     {
-      "categoria": "Salud",
+      "nombreCat": "Salud",
       "descripcionCat": "noticias sobre salud, cuidados, salud pública, alimentación, etc.",
       "id": 4
     },
     {
-      "categoria": "Deportes",
+      "nombreCat": "Deportes",
       "descripcionCat": "Noticias de footbol, basket, tenis y más",
       "id": 5
     }
