@@ -18,7 +18,7 @@ import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
-import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
+ import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
 
 
 function App() {
