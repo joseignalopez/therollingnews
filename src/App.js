@@ -17,14 +17,15 @@ import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
-
-
+import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
+import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
 
 
 function App() {
   const noticias = defaultNew;
-  const destacadas = defaultNew.filter((destacadas) => destacadas.Destacado === true)
-  console.log(destacadas)
+  const destacadas = defaultNew.filter(
+    (destacadas) => destacadas.Destacado === true
+  );
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
@@ -33,10 +34,10 @@ function App() {
 
   useEffect(() => {
     // llamar a la api
-    if (recargarNoticias) {
+    if (recargarNoticias || recargarCategorias) {
       consultarAPI();
       setRecargarNoticias(false);
-      setRecargarCategorias(false)
+      setRecargarCategorias(false);
     }
   }, [recargarNoticias, recargarCategorias]);
 
@@ -95,14 +96,13 @@ function App() {
         </Route>
         <Route
           exact
-          path="/admin/editar/:id"
+          path="/admin/editarNoti/:id"
           render={(props) => {
             const idNoticia = parseInt(props.match.params.id);
             console.log(idNoticia);
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia.id === idNoticia
             );
-            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
@@ -111,16 +111,41 @@ function App() {
             );
           }}
         ></Route>
+        <Route exact path="/admin/listacategorias">
+          <ListadoCategorias
+            categorias={listadoCategorias}
+            setRecargarCategorias={setRecargarCategorias}
+          ></ListadoCategorias>
+        </Route>
         <Route exact path="/admin/agregarcategoria">
-          <AgregarCategoria setRecargarCategorias={setRecargarCategorias}></AgregarCategoria>
+          <AgregarCategoria
+            setRecargarCategorias={setRecargarCategorias}
+          ></AgregarCategoria>
+        </Route>
+        <Route
+          exact
+          path="/admin/editarCat/:id"
+          render={(props) => {
+            const idCategoria = parseInt(props.match.params.id);
+            console.log(idCategoria);
+            const categoriaSeleccionada = listadoCategorias.find(
+              (categoria) => categoria.id === idCategoria
+            );
+            return(
+              <EditarCategoria
+                categoria={categoriaSeleccionada}
+                setRecargarCategorias={setRecargarCategorias}
+              ></EditarCategoria>
+            )
+          }}
+        >
         </Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
-          <Registro/>
+          <Registro />
         </Route>
-
        </Switch>
        <Route>
          <Footer></Footer>

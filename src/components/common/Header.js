@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faCaretDown,faCheckSquare,faSearch } from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 
-
-
 /*  const categorias = [
   "Deportes",
   "Actualidad",

@@ -24,7 +24,7 @@ const Administrar = () => {
         
         <br/>
        <div className="col-md-12 col-sm-12 text-center mb-2">
-          <Button  variant="primary" size="lg" className="button azul" href="/admin/listacategorias">
+          <Button  variant="primary" size="lg" className="button azul" href="/admin/listadocategorias">
             <FontAwesomeIcon icon={faList} />{" "}
             Administrar Categorias
           </Button>{" "}

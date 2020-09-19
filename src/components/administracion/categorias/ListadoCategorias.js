@@ -1,0 +1,32 @@
+import React from "react";
+import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
+import "../style/admin.css";
+import ElementoListaCat from "./ElementoListaCat";
+
+const ListadoCategorias = (props) => {
+  return (
+    <section className="container my-5 px-5">
+      <div className="row">
+        <h1 className="text-center col-12">Lista de Categorías</h1>
+        <Button className="boton ml-auto my-3" href="/admin/agregarcategoria">
+          Agregar categoría
+        </Button>{" "}
+      </div>
+      <ListGroup>
+        {
+          // dibujar filas de la lista
+          props.categorias.map((categoria) => (
+            <ElementoListaCat
+              key={categoria.id}
+              categoria={categoria}
+              setRecargarCategorias={props.setRecargarCategorias}
+            ></ElementoListaCat>
+          ))
+        }
+      </ListGroup>
+    </section>
+  );
+};
+
+export default ListadoCategorias;
