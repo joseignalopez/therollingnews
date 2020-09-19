@@ -9,14 +9,17 @@ const Destacadas = (props) => {
         <div className="col-lg-12 col-md-12 row">
           <div className="col-lg-8 col-md-12 col-sm-12">
             <Card className="bg-dark text-white mb-lg-4 mb-3">
-              <Card.Img src={props.destacadaBig.Imagen} alt={props.destacadaBig.Titulo} />
+              <Card.Img
+                src={props.destacadas[2].imagenCabecera}
+                alt={props.destacadas[2].titulo}
+              />
               <Card.ImgOverlay className="row align-items-end">
                 <div className="shade p-1">
                   <Card.Title className="titulo">
-                    {props.destacadaBig.Titulo}
+                    {props.destacadas[2].titulo}
                   </Card.Title>
                   <Card.Text className="texto ocultar">
-                    {props.destacadaBig.DetalleCorto}
+                    {props.destacadas[2].resumen}
                   </Card.Text>
                 </div>
               </Card.ImgOverlay>
@@ -26,11 +29,14 @@ const Destacadas = (props) => {
             <div className="row">
               <div className="col-lg-12 col-md-6 col-sm-12 mb-3">
                 <Card className="bg-dark text-white">
-                  <Card.Img src={props.destacadaSmall1.Imagen} alt={props.destacadaSmall1.Titulo} />
+                  <Card.Img
+                    src={props.destacadas[1].imagenCabecera}
+                    alt={props.destacadas[1].titulo}
+                  />
                   <Card.ImgOverlay className="row align-items-end texto-sm texto">
                     <div className="shade p-1">
                       <Card.Title className="texto-sm">
-                        {props.destacadaSmall1.Titulo}
+                        {props.destacadas[1].titulo}
                       </Card.Title>
                     </div>
                   </Card.ImgOverlay>
@@ -39,13 +45,13 @@ const Destacadas = (props) => {
               <div className="col-lg-12 col-md-6 col-sm-12 mb-3">
                 <Card className="bg-dark text-white">
                   <Card.Img
-                    src={props.destacadaSmall2.Imagen}
-                    alt={props.destacadaSmall2.Titulo}
+                    src={props.destacadas[0].imagenCabecera}
+                    alt={props.destacadas[0].titulo}
                   />
                   <Card.ImgOverlay className="row align-items-end texto-sm texto">
                     <div className="shade p-1">
                       <Card.Title className="texto-sm">
-                        {props.destacadaSmall2.Titulo}
+                        {props.destacadas[0].titulo}
                       </Card.Title>
                     </div>
                   </Card.ImgOverlay>

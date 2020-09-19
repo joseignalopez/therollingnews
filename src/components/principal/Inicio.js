@@ -19,22 +19,23 @@ const Inicio = (props) => {
     "Fotografia",
   ]);
 
-  const cargaDest = async (e) => {
-    const big = await props.destacadas[2];
-    const small1 = await props.destacadas[1];
-    const small2 = await props.destacadas[0];
-    setDestacadaBig(big);
-    setDestacadaSmall1(small1);
-    setDestacadaSmall2(small2);
-  };
-  cargaDest();
+  // const cargaDest = async (e) => {
+  //   const big = await props.destacadas[2];
+  //   const small1 = await props.destacadas[1];
+  //   const small2 = await props.destacadas[0];
+  //   setDestacadaBig(big);
+  //   setDestacadaSmall1(small1);
+  //   setDestacadaSmall2(small2);
+  // };
+  // cargaDest();
 
   return (
     <div className="container">
       <Destacadas
-        destacadaBig={destacadaBig}
-        destacadaSmall1={destacadaSmall1}
-        destacadaSmall2={destacadaSmall2}
+      destacadas={props.destacadas}
+        // destacadaBig={destacadaBig}
+        // destacadaSmall1={destacadaSmall1}
+        // destacadaSmall2={destacadaSmall2}
       ></Destacadas>
       <section className="">
         <BannerCovid></BannerCovid>
