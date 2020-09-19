@@ -8,8 +8,8 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const ElementoLista = (props) => {
+
   const eliminarNoticia = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Estás seguro?",
       text: "La noticia no se podrá recuperar",
@@ -59,7 +59,7 @@ const ElementoLista = (props) => {
         <Button variant="outline-warning" size="sm" className="mx-1 destacar">
           <FontAwesomeIcon icon={faCheckCircle} size="2x"></FontAwesomeIcon>
         </Button>
-        <Link to={`/admin/editar/${props.noticia.id}`} className="btn btn-outline-primary mx-1 editar">
+        <Link to={`/admin/editarNoti/${props.noticia.id}`} className="btn btn-outline-primary mx-1 editar">
             <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
         </Link>
         <Button

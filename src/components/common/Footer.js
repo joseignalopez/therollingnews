@@ -3,7 +3,6 @@ import React from "react";
  import { faFacebookSquare,faInstagramSquare,faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
  import { faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
-
 const Footer = () => {
   return (
     <div className="rojo">
@@ -43,7 +42,7 @@ const Footer = () => {
           </div>
           <div className="col-sm-12 col-md-4 sm-mb-4">
             <img
-              src={process.env.PUBLIC_URL + "/img1.jpg"}
+              src={process.env.PUBLIC_URL + "/therollingthimes.png"}
               width="70%"
               alt="The Rolling Times"
             />

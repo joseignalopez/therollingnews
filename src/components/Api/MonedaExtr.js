@@ -15,7 +15,6 @@ const Precio = () => {
   const consultarDolar = async () => {
     const respuesta = await fetch("https://dolarapi.casalox.com/api/v1/dolar");
     const data = await respuesta.json();
-    console.log(data);
     setprecio(data);
   };
   // col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo

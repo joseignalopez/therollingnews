@@ -16,30 +16,40 @@ import ListaNoticias from "./components/administracion/noticias/ListaNoticias";
 import EditarNoticia from "./components/administracion/noticias/EditarNoticia";
 import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
-
-
+import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
+import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
+import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
 
 function App() {
   const noticias = defaultNew;
+  const destacadas = defaultNew.filter(
+    (destacadas) => destacadas.Destacado === true
+  );
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
+  const [listadoCategorias, setListadoCategorias] = useState([]);
+  const [recargarCategorias, setRecargarCategorias] = useState(true);
 
   useEffect(() => {
     // llamar a la api
-    if (recargarNoticias) {
+    if (recargarNoticias || recargarCategorias) {
       consultarAPI();
       setRecargarNoticias(false);
+      setRecargarCategorias(false);
     }
-  }, [recargarNoticias]);
+  }, [recargarNoticias, recargarCategorias]);
 
   const consultarAPI = async () => {
     try {
       // operación GET
       const respuesta = await fetch("http://localhost:4000/noticias");
+      const respuestaCat = await fetch("http://localhost:4000/categorias");
       const resultado = await respuesta.json();
+      const resultadoCat = await respuestaCat.json();
       // guardar datos en el state
       setListadoNoticias(resultado);
+      setListadoCategorias(resultadoCat);
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +63,7 @@ function App() {
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
-          <Inicio noticias={listadoNoticias}></Inicio>
+          <Inicio destacadas={destacadas}></Inicio>
         </Route>
         <Route
           path="/:categoria/nota/:id"
@@ -82,14 +92,13 @@ function App() {
         </Route>
         <Route
           exact
-          path="/admin/editar/:id"
+          path="/admin/editarNoti/:id"
           render={(props) => {
             const idNoticia = parseInt(props.match.params.id);
             console.log(idNoticia);
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia.id === idNoticia
             );
-            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
@@ -98,13 +107,41 @@ function App() {
             );
           }}
         ></Route>
+        <Route exact path="/admin/listacategorias">
+          <ListadoCategorias
+            categorias={listadoCategorias}
+            setRecargarCategorias={setRecargarCategorias}
+          ></ListadoCategorias>
+        </Route>
+        <Route exact path="/admin/agregarcategoria">
+          <AgregarCategoria
+            setRecargarCategorias={setRecargarCategorias}
+          ></AgregarCategoria>
+        </Route>
+        <Route
+          exact
+          path="/admin/editarCat/:id"
+          render={(props) => {
+            const idCategoria = parseInt(props.match.params.id);
+            console.log(idCategoria);
+            const categoriaSeleccionada = listadoCategorias.find(
+              (categoria) => categoria.id === idCategoria
+            );
+            return(
+              <EditarCategoria
+                categoria={categoriaSeleccionada}
+                setRecargarCategorias={setRecargarCategorias}
+              ></EditarCategoria>
+            )
+          }}
+        >
+        </Route>
         <Route exact path="/login/Ingresar">
           <Ingresar></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
-          <Registro/>
+          <Registro />
         </Route>
-
       </Switch>
       <Footer></Footer>
     </Router>

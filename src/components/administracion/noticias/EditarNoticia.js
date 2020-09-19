@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import "./style/noticias.css";
+import "../style/admin.css";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 
@@ -14,6 +14,7 @@ const EditarNoticia = (props) => {
   const imagenCabeceraRef = useRef("");
   const resumenRef = useRef("");
   const noticiaRef = useRef("");
+  const destacado = props.noticia.destacado;
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
@@ -43,7 +44,8 @@ const EditarNoticia = (props) => {
         imagenCabecera: imagenCabeceraRef.current.value,
         resumen: resumenRef.current.value,
         noticia: noticiaRef.current.value,
-        categoria: _categoria 
+        categoria: _categoria,
+        destacado
     }
 
     try {
@@ -64,6 +66,12 @@ const EditarNoticia = (props) => {
           props.history.push("/admin/listanoticias");
         }
       } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ocurrió un error!',
+          footer: '<p>No se pudo modificar la noticia.</p>'
+        })
         console.log(error);
       }
 
@@ -195,7 +203,7 @@ const EditarNoticia = (props) => {
           ) : null
         }
         <Button type="submit" className="w-100 mb-4 boton">
-          MODIFICAR NOTICIA
+          GUARDAR CAMBIOS
         </Button>
       </Form>
     </section>

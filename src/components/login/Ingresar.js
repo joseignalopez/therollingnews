@@ -5,19 +5,20 @@ import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FormControl } from "react-bootstrap";
+import './style/login.css'
 
 
 const Ingresar = () => {
 
   return (
   
-  <div className="bg bg-warning py-5">
-  {/* <div className="fixed-bg">
-  <img src={process.env.PUBLIC_URL+"https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"}></img>
-  </div> */}
+  <div className="py-5">
+  <div className="fixed-bg">
+  <img src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg" className="bglogin"></img>
+  </div>
   <div className="container">
     <div className="row">
-      <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5">
+      <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5 mt-5">
         <Card.Body>
           <Card.Title className="mb-4 text-danger">Ingresar</Card.Title>
           <Card.Text>

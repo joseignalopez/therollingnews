@@ -35,13 +35,22 @@
       "categoria": "Espectaculos",
       "destacado": false,
       "id": 4
+    }
+  ],
+  "categorias": [
+    {
+      "nombreCat": "Espectáculos",
+      "descripcionCat": "noticias sobre cine, música, teatro y televisión.",
+      "id": 3
     },
     {
-      "titulo": "113",
-      "imagenCabecera": "1",
-      "resumen": "1",
-      "noticia": "1\n\n1\n\n2",
-      "categoria": "Tecnologia",
+      "nombreCat": "Salud",
+      "descripcionCat": "noticias sobre salud, cuidados, salud pública, alimentación, etc.",
+      "id": 4
+    },
+    {
+      "nombreCat": "Deportes",
+      "descripcionCat": "Noticias de footbol, basket, tenis y más.",
       "id": 5
     }
   ]

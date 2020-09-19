@@ -2,11 +2,11 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ElementoLista from "./ElementoLista";
-import "./style/noticias.css";
+import "../style/admin.css";
 
 const ListaNoticias = (props) => {
   return (
-    <section className="container my-4">
+    <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Noticias</h1>
         <Button className="boton ml-auto my-3" href="/admin/agregarnoticia">
