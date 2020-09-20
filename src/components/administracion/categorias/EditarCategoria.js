@@ -24,13 +24,14 @@ const EditarCategoria = (props) => {
     setError(false)
 
     const categoriaModificada = {
-        nombreCat: nombreCatRef.current.value,
-        descripcionCat: descripcionCatRef.current.value
+        nombre: nombreCatRef.current.value,
+        descripcion: descripcionCatRef.current.value
     }
 
     try {
         const respuesta = await fetch(
-            `http://localhost:4000/categorias/${props.categoria.id}`,
+            /* `http://localhost:4000/categorias/${props.categoria.id}`, */
+            `http://localhost:4000/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,
             {
               method: "PUT",
               headers: {
@@ -43,7 +44,7 @@ const EditarCategoria = (props) => {
           if (respuesta.status === 200) {
             props.setRecargarCategorias(true);
             Swal.fire("Listo!", "La categoría se modificó correctamente", "success");
-            props.history.push("/admin/listacategorias");
+            props.history.push("/Administracion/Categorias");
           }
     } catch (error) {
         Swal.fire({
@@ -66,7 +67,7 @@ const EditarCategoria = (props) => {
             type="text"
             placeholder="ingresar el nombre de la categoría"
             ref={nombreCatRef}
-            defaultValue={props.categoria.nombreCat}
+            defaultValue={props.categoria.nombre}
           />
         </Form.Group>
 
@@ -76,7 +77,7 @@ const EditarCategoria = (props) => {
             type="text"
             placeholder="una descripción breve de la categoría"
             ref={descripcionCatRef}
-            defaultValue={props.categoria.descripcionCat}
+            defaultValue={props.categoria.descripcion}
           />
         </Form.Group>
         {

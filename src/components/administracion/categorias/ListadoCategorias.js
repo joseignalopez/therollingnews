@@ -5,11 +5,12 @@ import "../style/admin.css";
 import ElementoListaCat from "./ElementoListaCat";
 
 const ListadoCategorias = (props) => {
+  console.log(props.categorias)
   return (
     <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Categorías</h1>
-        <Button className="boton ml-auto my-3" href="/admin/agregarcategoria">
+        <Button className="boton ml-auto my-3" href="/Administracion/Categoria">
           Agregar categoría
         </Button>{" "}
       </div>
@@ -18,7 +19,7 @@ const ListadoCategorias = (props) => {
           // dibujar filas de la lista
           props.categorias.map((categoria) => (
             <ElementoListaCat
-              key={categoria.id}
+              key={categoria._id}
               categoria={categoria}
               setRecargarCategorias={props.setRecargarCategorias}
             ></ElementoListaCat>

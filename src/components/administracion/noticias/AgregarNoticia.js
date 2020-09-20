@@ -47,7 +47,8 @@ const AgregarNoticia = (props) => {
 
     try {
       const resultado = await fetch(
-        "http://localhost:4000/noticias",
+        /* "http://localhost:4000/noticias", */
+        "http://localhost:4000/Administracion/Noticia",
         {
           method: "POST",
           headers: {
