@@ -51,7 +51,7 @@ const Header = () => {
         <Form className=""  >
         <div className="">
           <input type="text"  placeholder=" Buscar " id="icon" className="btn-sm "  />
-          <Button className=" azul btn-ms"  onChange={handleChange} >
+          <Button className="azul btn-ms"  onChange={handleChange} >
             <FontAwesomeIcon icon={faSearch} /> 
           </Button>
           {/* <ul> 

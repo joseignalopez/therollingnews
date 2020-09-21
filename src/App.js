@@ -31,6 +31,7 @@ function App() {
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
   const [destacados, setDestacados] = useState([]);
+  const [usuarios, setUsuarios] = useState("");
 
   useEffect(() => {
     // llamar a la api
@@ -154,7 +155,6 @@ function App() {
             const categoriaSeleccionada = listadoCategorias.find(
               (categoria) => categoria._id === idCategoria
             );
-            console.log(categoriaSeleccionada);
             return (
               <EditarCategoria
                 categoria={categoriaSeleccionada}
@@ -164,7 +164,8 @@ function App() {
           }}
         ></Route>
         <Route exact path="/login/Ingresar">
-          <Ingresar></Ingresar>
+          <Ingresar
+          usuarios={usuarios}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
           <Registro />
