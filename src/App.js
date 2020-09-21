@@ -30,6 +30,7 @@ function App() {
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
+  const [usuarios, setUsuarios] = useState("");
 
   useEffect(() => {
     // llamar a la api
@@ -47,9 +48,13 @@ function App() {
       const respuestaCat = await fetch("http://localhost:4000/categorias");
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
+      const respuestaUsuarios = await fetch("http://localhost:4000/usuarios");
+      const resultadoUsuarios = await respuestaUsuarios.json();
+
       // guardar datos en el state
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
+      setUsuarios(resultadoUsuarios);
     } catch (error) {
       console.log(error);
     }
@@ -58,8 +63,7 @@ function App() {
   return (
     <Router>
       <Header></Header>
-      <section className="container contenidoSeccion">
-      </section>
+      <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
@@ -127,17 +131,17 @@ function App() {
             const categoriaSeleccionada = listadoCategorias.find(
               (categoria) => categoria.id === idCategoria
             );
-            return(
+            return (
               <EditarCategoria
                 categoria={categoriaSeleccionada}
                 setRecargarCategorias={setRecargarCategorias}
               ></EditarCategoria>
-            )
+            );
           }}
-        >
-        </Route>
+        ></Route>
         <Route exact path="/login/Ingresar">
-          <Ingresar></Ingresar>
+          <Ingresar
+          usuarios={usuarios}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
           <Registro />
