@@ -84,7 +84,7 @@ const Registro = (props) => {
     <div className="py-5">
       <div className="fixed-bg">
         <img
-          src="https://tecno.americaeconomia.com/sites/tecno.americaeconomia.com/files/styles/photo_inline/public/hombre_tablet.jpg?itok=j5mscLdz"
+          src={process.env.PUBLIC_URL + "/bglogin.jpg"}
           className="bglogin"
         ></img>
       </div>

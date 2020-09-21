@@ -6,11 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FormControl } from "react-bootstrap";
 import "./style/login.css";
+import Swal from "sweetalert2";
+import { withRouter } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
 
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
   const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -23,30 +25,61 @@ const Ingresar = (props) => {
     const usuarioBuscado = props.usuarios.find(
       (usuario) => usuario.email === email
     );
-    // const usuarioEncontrado = usuarioBuscado[0];
     console.log(usuarioBuscado);
-    if (
-      email === usuarioBuscado.email &&
-      password === usuarioBuscado.password
-    ) {
-      console.log("ANDA PAL ACA");
-      return;
+    if (usuarioBuscado !== undefined) {
+      if (
+        email === usuarioBuscado.email &&
+        password === usuarioBuscado.password
+      ) {
+        const usuarioLogueado = {
+          nombre: usuarioBuscado.nombre,
+          apellido: usuarioBuscado.apellido,
+          email: usuarioBuscado.email,
+          password: usuarioBuscado.password,
+          claseUsuario: "publico",
+          statusLogin: true,
+        };
+        try {
+          const respuesta = await fetch(
+            `http://localhost:4000/usuarios/${usuarioBuscado.id}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(usuarioLogueado),
+            }
+          );
+          console.log(respuesta);
+          if (respuesta.status === 200) {
+            Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
+            props.history.push("/");
+          }
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ocurrió un error!",
+            footer: "<p>Ocurrió un error al ingresar</p>",
+          });
+          console.log(error);
+        }
+      } 
+    }else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>Email o contraseña incorrectas</p>",
+      });
     }
-
-    // const usuarioNuevo = {
-    //   nombre,
-    //   apellido,
-    //   email,
-    //   contraseña,
-    //   claseUsuario: "publico",
-    // };
   };
 
   return (
     <div className="py-5">
-      <div className="fixed-bg">
+      <div className="fixed-bg w-100">
         <img
-          src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"
+          src={process.env.PUBLIC_URL + "/bglogin.jpg"}
           className="bglogin"
         ></img>
       </div>
@@ -73,6 +106,7 @@ const Ingresar = (props) => {
                       name="password"
                     />
                   </Form.Group>
+
                   <Button
                     className="mb-3 text-white amarillo"
                     type="submit"
@@ -81,6 +115,7 @@ const Ingresar = (props) => {
                   >
                     Ingresar
                   </Button>
+
                   <Card.Link className="text-secondary" href="#">
                     ¿Necesitás ayuda?
                   </Card.Link>
@@ -118,4 +153,4 @@ const Ingresar = (props) => {
   );
 };
 
-export default Ingresar;
+export default withRouter(Ingresar);

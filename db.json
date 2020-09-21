@@ -55,7 +55,6 @@
     }
   ],
   "usuarios": [
-  
     {
       "nombre": "asd",
       "apellido": "asd",
@@ -86,6 +85,7 @@
       "email": "dasd@asdjasd.com",
       "password": "qqqqq",
       "claseUsuario": "publico",
+      "statusLogin": true,
       "id": 6
     }
   ]
