@@ -23,7 +23,7 @@ const ElementoListaCat = (props) => {
       if (result.value) {
         try {
           const respuesta = await fetch(
-            `http://localhost:4000/Categorias/${id}`,
+            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias/${id}`,
             {
               method: "DELETE",
               headers: {

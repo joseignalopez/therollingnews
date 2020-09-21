@@ -38,17 +38,19 @@ const AgregarNoticia = (props) => {
     // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
-      imagenCabecera,
-      resumen,
-      noticia,
+      url: imagenCabecera,
+      detalleCorto: resumen,
+      detalle: noticia,
       categoria,
-      destacado: false
+      destacado: false,
+      autor: "",
+      fecha: ""
     };
 
     try {
       const resultado = await fetch(
         /* "http://localhost:4000/noticias", */
-        "http://localhost:4000/Administracion/Noticia",
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia",
         {
           method: "POST",
           headers: {

@@ -44,9 +44,9 @@ function App() {
     try {
       // operación GET
       /* const respuesta = await fetch("http://localhost:4000/noticias"); */
-      const respuesta = await fetch("http://localhost:4000/api/theRollingNew");
+      const respuesta = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew");
       /* const respuestaCat = await fetch("http://localhost:4000/categorias"); */
-      const respuestaCat = await fetch("http://localhost:4000/api/theRollingNew/Categorias");
+      const respuestaCat = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias");
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
       // guardar datos en el state

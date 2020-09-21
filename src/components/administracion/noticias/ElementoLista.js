@@ -24,7 +24,7 @@ const ElementoLista = (props) => {
         // aquí eliminamos el producto
         try {
           const respuesta = await fetch(
-            `http://localhost:4000/Administracion/Noticia/${id}`,
+            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${id}`,
             {
               method: "DELETE",
               headers: {

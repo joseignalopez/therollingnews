@@ -31,7 +31,7 @@ const EditarCategoria = (props) => {
     try {
         const respuesta = await fetch(
             /* `http://localhost:4000/categorias/${props.categoria.id}`, */
-            `http://localhost:4000/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,
+            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,
             {
               method: "PUT",
               headers: {

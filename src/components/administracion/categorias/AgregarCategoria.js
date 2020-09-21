@@ -27,7 +27,7 @@ const AgregarCategoria = (props) => {
   try {
     const resultado = await fetch(
         /* "http://localhost:4000/categorias", */
-        "http://localhost:4000/api/theRollingNew/Administracion/Categoria",
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria",
         {
           method: "POST",
           headers: {
