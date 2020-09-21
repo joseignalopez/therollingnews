@@ -20,13 +20,14 @@ const AgregarCategoria = (props) => {
       setError(false);
   
   const categoriaNueva = {
-      nombreCat,
-      descripcionCat
+      nombre: nombreCat,
+      descripcion: descripcionCat
   }
 
   try {
     const resultado = await fetch(
-        "http://localhost:4000/categorias",
+        /* "http://localhost:4000/categorias", */
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria",
         {
           method: "POST",
           headers: {

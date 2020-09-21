@@ -15,6 +15,7 @@ const Contactos = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     if(
       nomApe.trim()  === "" ||
       email.trim()   === "" ||
@@ -30,15 +31,16 @@ const Contactos = (props) => {
     };
 
     try{ 
-      const cabecera={
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(datos)
-        }
+      
       const resultado = await fetch(
-        "http://localhost:4000/principal/contactos",cabecera );
+        "http://localhost:4000/principal/contactos",
+        {
+          method="PUT",
+          headers:{
+            "Content-Type": "application/json",
+          }
+        }
+        );
       if (resultado.status === 201) {
         props.setConsulta(true)
         Swal.fire("Listo!", "La Consulta fue enviada correctamente", "success")
@@ -69,8 +71,15 @@ const Contactos = (props) => {
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email </Form.Label>
-              <Form.Control type="email" placeholder="juanperez@gmail.com" onChange={(e)=> setEmail(e.target.value)}/>
-              
+              <Form.Control type="email" placeholder="juanperez@gmail.com" onChange={(e)=> setEmail(e.target.value)} onBlur={(e)=> validarEmail(e.target.value)}/>
+              {
+                      // alerta en caso de no completar los datos al intentar el submit
+                      errorCorreo ? (
+                        <Alert className="mt-4" variant={"danger"}>
+                          Debe ingresar una dirección de Correo Válida.
+                        </Alert>
+                      ) : null
+                    }
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>Consulta</Form.Label>
@@ -82,6 +91,7 @@ const Contactos = (props) => {
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check
+               onChange={aceptarTerminos}
                 type="checkbox"
                 label="Acepto Terminos y condiciones"
               />
@@ -90,7 +100,7 @@ const Contactos = (props) => {
           // alerta en caso de no completar los datos al intentar el submit
           error ? (
             <Alert className="mt-4" variant={"danger"}>
-              Se debe completar todos los campos
+              Se debe ingresar todos los campos
             </Alert>
           ) : null
         }

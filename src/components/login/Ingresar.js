@@ -6,8 +6,70 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import './style/login.css'
 
+const Ingresar = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
-const Ingresar = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password === "" || email === "") {
+      setError(true);
+      return;
+    }
+    setError(false);
+    const usuarioBuscado = props.usuarios.find(
+      (usuario) => usuario.email === email
+    );
+    console.log(usuarioBuscado);
+    if (usuarioBuscado !== undefined) {
+      if (
+        email === usuarioBuscado.email &&
+        password === usuarioBuscado.password
+      ) {
+        const usuarioLogueado = {
+          nombre: usuarioBuscado.nombre,
+          apellido: usuarioBuscado.apellido,
+          email: usuarioBuscado.email,
+          password: usuarioBuscado.password,
+          claseUsuario: "publico",
+          statusLogin: true,
+        };
+        try {
+          const respuesta = await fetch(
+            `http://localhost:4000/usuarios/${usuarioBuscado.id}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(usuarioLogueado),
+            }
+          );
+          console.log(respuesta);
+          if (respuesta.status === 200) {
+            Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
+            props.history.push("/");
+          }
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ocurrió un error!",
+            footer: "<p>Ocurrió un error al ingresar</p>",
+          });
+          console.log(error);
+        }
+      } 
+    }else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>Email o contraseña incorrectas</p>",
+      });
+    }
+  };
 
   return (
   
@@ -68,9 +130,7 @@ const Ingresar = () => {
         </Card.Body>
       </Card>
     </div>
-  </div>
-</div>
-);
+  );
 };
 
-export default Ingresar;
+export default withRouter(Ingresar);

@@ -34,6 +34,7 @@ function App() {
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
+  const [usuarios, setUsuarios] = useState("");
 
   useEffect(() => {
     // llamar a la api
@@ -47,13 +48,19 @@ function App() {
   const consultarAPI = async () => {
     try {
       // operación GET
-      const respuesta = await fetch("http://localhost:4000/noticias");
-      const respuestaCat = await fetch("http://localhost:4000/categorias");
+      /* const respuesta = await fetch("http://localhost:4000/noticias"); */
+      const respuesta = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew");
+      /* const respuestaCat = await fetch("http://localhost:4000/categorias"); */
+      const respuestaCat = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias");
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
+      const respuestaUsuarios = await fetch("http://localhost:4000/usuarios");
+      const resultadoUsuarios = await respuestaUsuarios.json();
+
       // guardar datos en el state
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
+      setUsuarios(resultadoUsuarios);
     } catch (error) {
       console.log(error);
     }
@@ -62,11 +69,7 @@ function App() {
   return (
     <Router>
       <Header></Header>
-      <section className="container contenidoSeccion">
-        <div className="row text-center d-flex justify-content-center">
-          <Tiempo className="col-sm-12 col-md-12 col-lg-12"></Tiempo>
-        </div>
-      </section>
+      <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
@@ -83,29 +86,29 @@ function App() {
             return <NewDetail noticia={nota} noticias={noticias}></NewDetail>;
           }}
         ></Route>
-        <Route exact path="/:categoria">
-          {/* Aqui debemos crear una ventana con todas la noticias de una categoria */}
-        </Route>
-        <Route exact path="/admin/listanoticias">
+        
+        <Route exact path="/Administracion/Noticias">
           <ListaNoticias
             noticias={listadoNoticias}
             setRecargarNoticias={setRecargarNoticias}
           ></ListaNoticias>
         </Route>
-        <Route exact path="/admin/agregarnoticia">
+        <Route exact path="/Administracion/Noticia">
           <AgregarNoticia
             setRecargarNoticias={setRecargarNoticias}
           ></AgregarNoticia>
         </Route>
         <Route
           exact
-          path="/admin/editarNoti/:id"
+          path="/Administracion/Noticia/:id"
           render={(props) => {
-            const idNoticia = parseInt(props.match.params.id);
+            const idNoticia = props.match.params.id;
             console.log(idNoticia);
+            console.log(listadoNoticias)
             const noticiaSeleccionada = listadoNoticias.find(
-              (noticia) => noticia.id === idNoticia
+              (noticia) => noticia._id === idNoticia
             );
+            console.log(noticiaSeleccionada)
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
@@ -114,37 +117,36 @@ function App() {
             );
           }}
         ></Route>
-        <Route exact path="/admin/listacategorias">
+        <Route exact path="/Administracion/Categorias/">
           <ListadoCategorias
             categorias={listadoCategorias}
             setRecargarCategorias={setRecargarCategorias}
           ></ListadoCategorias>
         </Route>
-        <Route exact path="/admin/agregarcategoria">
+        <Route exact path="/Administracion/Categoria">
           <AgregarCategoria
             setRecargarCategorias={setRecargarCategorias}
           ></AgregarCategoria>
         </Route>
         <Route
           exact
-          path="/admin/editarCat/:id"
+          path="/Administracion/Categoria/:id"
           render={(props) => {
-            const idCategoria = parseInt(props.match.params.id);
-            console.log(idCategoria);
+            const idCategoria = props.match.params.id;
             const categoriaSeleccionada = listadoCategorias.find(
-              (categoria) => categoria.id === idCategoria
+              (categoria) => categoria._id === idCategoria
             );
-            return(
+            return (
               <EditarCategoria
                 categoria={categoriaSeleccionada}
                 setRecargarCategorias={setRecargarCategorias}
               ></EditarCategoria>
-            )
+            );
           }}
-        >
-        </Route>
+        ></Route>
         <Route exact path="/login/Ingresar">
-          <Ingresar></Ingresar>
+          <Ingresar
+          usuarios={usuarios}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
           <Registro />

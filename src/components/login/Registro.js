@@ -6,21 +6,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import './style/login.css';
 
-const Registro = () => {
   return (
     <div className="py-5">
       <div className="fixed-bg">
-    <img src="https://tecno.americaeconomia.com/sites/tecno.americaeconomia.com/files/styles/photo_inline/public/hombre_tablet.jpg?itok=j5mscLdz" className="bglogin"></img>
-    </div>
+        <img
+          src={process.env.PUBLIC_URL + "/bglogin.jpg"}
+          className="bglogin"
+        ></img>
+      </div>
       <div className="container">
         <div className="row">
           <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5 mt-5">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Registrarse</Card.Title>
               <Card.Text>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group controlId="formBasicNombre">
                     <Form.Control
+                      onChange={(e) => setNombre(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Nombre completo"
                       name="nombre"
@@ -29,6 +32,7 @@ const Registro = () => {
 
                   <Form.Group controlId="formBasicApellido">
                     <Form.Control
+                      onChange={(e) => setApellido(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Apellido"
                       name="apellido"
@@ -36,10 +40,20 @@ const Registro = () => {
                   </Form.Group>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control
+                      onBlur={(e) => validarEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Ingrese un Email"
                       name="email"
                     />
+                    {
+                      // alerta en caso de no completar los datos al intentar el submit
+                      errorCorreo ? (
+                        <Alert className="mt-4" variant={"danger"}>
+                          Debe ingresar una dirección de Correo Válida.
+                        </Alert>
+                      ) : null
+                    }
                   </Form.Group>
                   <Form.Group className="my-4" controlId="formBasicPassword">
                     <Form.Control
@@ -50,12 +64,20 @@ const Registro = () => {
                   </Form.Group>
                   <Form.Group controlId="formBasicCheckbox">
                     <Form.Check
+                      onChange={aceptarTerminos}
                       className="text-muted"
                       type="checkbox"
                       label="Estoy de Acuerdo con los Términos y Condiciones"
                     />
                   </Form.Group>
-
+                  {
+                    // alerta en caso de no completar los datos al intentar el submit
+                    error ? (
+                      <Alert className="mt-4" variant={"danger"}>
+                        Se debe completar todos los campos
+                      </Alert>
+                    ) : null
+                  }
                   <Button
                     className="mb-3 text-white amarillo"
                     type="submit"
@@ -101,4 +123,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default withRouter(Registro);
