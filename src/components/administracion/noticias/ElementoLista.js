@@ -94,7 +94,6 @@ const ElementoLista = (props) => {
 
   return (
     <tr>
-      <td>{props.noticia._id} </td>
       <td>{props.noticia.titulo}</td>
       <td>{props.noticia.categoria}</td>
       <td>

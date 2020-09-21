@@ -8,7 +8,6 @@ import { FormControl } from "react-bootstrap";
 import "./style/login.css";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
-import Alert from "react-bootstrap/Alert";
 
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");

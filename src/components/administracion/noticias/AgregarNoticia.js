@@ -12,6 +12,8 @@ const AgregarNoticia = (props) => {
   const [resumen, setResumen] = useState("");
   const [noticia, setNoticia] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [autor, setAutor] = useState("");
+  const [fecha, setFecha] = useState("");
   const [error, setError] = useState(false);
 
   const seleccionarCategoria = (e) => {
@@ -26,6 +28,8 @@ const AgregarNoticia = (props) => {
       imagenCabecera.trim() === "" ||
       resumen.trim() === "" ||
       noticia.trim() === "" ||
+      autor.trim() === "" ||
+      fecha.trim() === "" ||
       categoria === ""
     ) {
       // mostrar alert de error
@@ -42,9 +46,11 @@ const AgregarNoticia = (props) => {
       detalle: noticia,
       categoria,
       destacado: false,
-      autor: "",
-      fecha: ""
+      autor,
+      fecha
     };
+
+    console.log(noticiaNueva)
 
     try {
       const resultado = await fetch(
@@ -113,13 +119,30 @@ const AgregarNoticia = (props) => {
             onChange={(e) => setNoticia(e.target.value)}
           />
         </Form.Group>
+        <Form.Group>
+          <Form.Label>Autor</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Agregar el nombre del autor de la nota"
+            onChange={(e) => setAutor(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Fecha</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Fecha de la nota en formato dd/mm/aa"
+            onChange={(e) => setFecha(e.target.value)}
+          />
+        </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
           {props.categorias.map((categoria) => (
             <Form.Check
+              key={categoria._id}
               type="radio"
-              label={categoria.nombreCat}
-              value={categoria.nombreCat}
+              label={categoria.nombre}
+              value={categoria.nombre}
               name="categoria"
               inline
               className="mx-3"
