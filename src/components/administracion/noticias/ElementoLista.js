@@ -23,7 +23,7 @@ const ElementoLista = (props) => {
         // aquí eliminamos el producto
         try {
           const respuesta = await fetch(
-            `http://localhost:4000/noticias/${id}`,
+            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${id}`,
             {
               method: "DELETE",
               headers: {
@@ -94,7 +94,7 @@ const ElementoLista = (props) => {
 
   return (
     <tr>
-      <td>{props.noticia.id} </td>
+      <td>{props.noticia._id} </td>
       <td>{props.noticia.titulo}</td>
       <td>{props.noticia.categoria}</td>
       <td>
@@ -106,17 +106,14 @@ const ElementoLista = (props) => {
         >
           <FontAwesomeIcon icon={faCheckCircle} size="2x"></FontAwesomeIcon>
         </Button>
-        <Link
-          to={`/admin/editarNoti/${props.noticia.id}`}
-          className="btn btn-outline-primary mx-1 editar"
-        >
-          <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
+        <Link to={`/Administracion/Noticia/${props.noticia._id}`} className="btn btn-outline-primary mx-1 editar">
+            <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
         </Link>
         <Button
           variant="outline-danger"
           size="sm"
           className="mx-1 eliminar"
-          onClick={() => eliminarNoticia(props.noticia.id)}
+          onClick={() => eliminarNoticia(props.noticia._id)}
         >
           <FontAwesomeIcon icon={faTrashAlt} size="2x"></FontAwesomeIcon>
         </Button>

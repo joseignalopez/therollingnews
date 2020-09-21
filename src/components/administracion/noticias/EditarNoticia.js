@@ -50,7 +50,8 @@ const EditarNoticia = (props) => {
 
     try {
         const respuesta = await fetch(
-          `http://localhost:4000/noticias/${props.noticia.id}`,
+          /* `http://localhost:4000/noticias/${props.noticia.id}`, */
+          `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia.id}`,
           {
             method: "PUT",
             headers: {

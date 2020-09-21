@@ -23,7 +23,7 @@ const ElementoListaCat = (props) => {
       if (result.value) {
         try {
           const respuesta = await fetch(
-            `http://localhost:4000/categorias/${id}`,
+            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias/${id}`,
             {
               method: "DELETE",
               headers: {
@@ -52,11 +52,11 @@ const ElementoListaCat = (props) => {
   return (
     <ListGroup.Item className="d-flex align-items-center">
       <p className="pt-3">
-        <span className="font-weight-bold">{props.categoria.nombreCat} </span>
-        {props.categoria.descripcionCat}
+        <span className="font-weight-bold">{props.categoria.nombre} </span>
+        {props.categoria.descripcion}
       </p>
       <Link
-        to={`/admin/editarCat/${props.categoria.id}`}
+        to={`/Administracion/Categoria/${props.categoria._id}`}
         className="btn btn-outline-primary mx-1 editar ml-auto"
       >
         <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
@@ -65,7 +65,7 @@ const ElementoListaCat = (props) => {
         variant="outline-danger"
         size="sm"
         className="mx-1 eliminar"
-        onClick={() => eliminarCategoria(props.categoria.id)}
+        onClick={() => eliminarCategoria(props.categoria._id)}
       >
         <FontAwesomeIcon icon={faTrashAlt} size="2x"></FontAwesomeIcon>
       </Button>

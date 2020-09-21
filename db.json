@@ -87,5 +87,40 @@
       "descripcionCat": "galerías de imágenes de eventos o lugares",
       "id": 10
     }
+  ],
+  "usuarios": [
+    {
+      "nombre": "asd",
+      "apellido": "asd",
+      "email": "asdasd@asdasd.com",
+      "password": "asdasdlanjsdas",
+      "claseUsuario": "publico",
+      "id": 3
+    },
+    {
+      "nombre": "adsas",
+      "apellido": "sdfsdf",
+      "email": "sdfsdf@asda.com",
+      "password": "asdasdasd",
+      "claseUsuario": "publico",
+      "id": 4
+    },
+    {
+      "nombre": "adsfdgh",
+      "apellido": "adsfdbf",
+      "email": "dsfghfgj@pingo",
+      "password": "asdfvbsdas",
+      "claseUsuario": "publico",
+      "id": 5
+    },
+    {
+      "nombre": "qqqqq",
+      "apellido": "qqqqq",
+      "email": "dasd@asdjasd.com",
+      "password": "qqqqq",
+      "claseUsuario": "publico",
+      "statusLogin": true,
+      "id": 6
+    }
   ]
 }

@@ -37,21 +37,27 @@ const AgregarNoticia = (props) => {
     // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
-      imagenCabecera,
-      resumen,
-      noticia,
+      url: imagenCabecera,
+      detalleCorto: resumen,
+      detalle: noticia,
       categoria,
       destacado: false,
+      autor: "",
+      fecha: ""
     };
 
     try {
-      const resultado = await fetch("http://localhost:4000/noticias", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(noticiaNueva),
-      });
+      const resultado = await fetch(
+        /* "http://localhost:4000/noticias", */
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(noticiaNueva),
+        }
+      );
       if (resultado.status === 201) {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
         props.setRecargarNoticias(true);
