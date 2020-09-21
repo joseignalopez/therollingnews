@@ -1,10 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import './style/login.css';
+import { FormControl } from "react-bootstrap";
+import "./style/login.css";
+import { withRouter } from "react-router-dom";
+import Swal from "sweetalert2";
+import Alert from "react-bootstrap/Alert";
+
+const Registro = (props) => {
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
+  const [contraseña, setContraseña] = useState("");
+  const [error, setError] = useState(false);
+  const [terminos, setTerminos] = useState(false);
+  const [validarCorreo, setValidarCorreo] = useState(false);
+  const [errorCorreo, setErrorCorreo] = useState(false);
+
+  const aceptarTerminos = (e) => {
+    setTerminos(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      nombre === "" ||
+      apellido === "" ||
+      (email === email) === true ||
+      contraseña === "" ||
+      terminos === false
+    ) {
+      setError(true);
+      return;
+    }
+    setError(false);
+    const usuarioNuevo = {
+      nombre,
+      apellido,
+      email,
+      contraseña,
+      claseUsuario: "publico",
+      statusLogin: false,
+    };
+
+    try {
+      const resultado = await fetch("http://localhost:4000/usuarios", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuarioNuevo),
+      });
+      if (resultado.status === 201) {
+        Swal.fire("Listo!", "Usuario Creado Correctamente", "success");
+        props.history.push("/login/ingresar");
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>No se pudo crear el usuario.</p>",
+      });
+      console.log(error);
+    }
+  };
+
+  const validarEmail = (input) => {
+    const expresion = /\w+@\w+\.[a-z]{2,}$/;
+    if (input != "" && expresion.test(input)) {
+      setValidarCorreo(true);
+      setErrorCorreo(false);
+    } else {
+      setValidarCorreo(false);
+      setErrorCorreo(true);
+    }
+  };
 
   return (
     <div className="py-5">
@@ -57,6 +131,7 @@ import './style/login.css';
                   </Form.Group>
                   <Form.Group className="my-4" controlId="formBasicPassword">
                     <Form.Control
+                      onChange={(e) => setContraseña(e.target.value)}
                       type="password"
                       placeholder=" Ingrese una Contraseña"
                       name="password"
@@ -106,12 +181,12 @@ import './style/login.css';
               </Card.Text>
               <hr></hr>
               <div className="mt-4">
-                <Card.Link className="text-secondary" href="/error404/error404">
+                <Card.Link className="text-secondary" href="#">
                   ¿Ya tenés una cuenta?
                 </Card.Link>
               </div>
               <div className="mb-4">
-                <Card.Link className="text-danger" href="/login/ingresar">
+                <Card.Link className="text-danger" href="#">
                   Ingresar
                 </Card.Link>
               </div>

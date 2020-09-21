@@ -130,6 +130,8 @@ const Ingresar = (props) => {
         </Card.Body>
       </Card>
     </div>
+    </div>
+    </div>
   );
 };
 
