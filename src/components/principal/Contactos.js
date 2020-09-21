@@ -11,15 +11,22 @@ const Contactos = (props) => {
   const [email, setEmail] = useState("");
   const [consulta, setConsulta] = useState("");
   const [error, setError] = useState(false);
+  const [terminos, setTerminos] = useState(false);
+  const [validarCorreo, setValidarCorreo] = useState(false);
+  const [errorCorreo, setErrorCorreo] = useState(false);
+
+
+  const aceptarTerminos = (e) => {
+    setTerminos(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
     if(
       nomApe.trim()  === "" ||
       email.trim()   === "" ||
-      consulta.trim() === ""
+      consulta.trim() === ""||
+      terminos === false
     ){
       setError(true);
       return;
@@ -29,13 +36,23 @@ const Contactos = (props) => {
       nomApe,
       email,consulta  
     };
+    const validarEmail = (input) =>{
+      const expresion =  /\w+@\w+\.[a-z]{2,}$/;
+      if (input != "" && expresion.test(input)) {
+        setValidarCorreo(true);
+        setErrorCorreo(false);
+      } else {
+        setValidarCorreo(false);
+        setErrorCorreo(true);
+      }
+    };
 
     try{ 
       
       const resultado = await fetch(
         "http://localhost:4000/principal/contactos",
         {
-          method="PUT",
+          method="POST",
           headers:{
             "Content-Type": "application/json",
           }
