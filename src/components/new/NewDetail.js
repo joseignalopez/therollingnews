@@ -6,10 +6,6 @@ import NewTop from "./topNew/NewTop";
 import "./style/newDetail.css"; 
 
 
-
-
-
-
 const NewDetail = (props) => {
   return (
     <div className="pl-4 pr-4 newDetail">
@@ -19,7 +15,7 @@ const NewDetail = (props) => {
         { <div className="border pl-2 pr-2 mt-3 rounded-lg col-2 shadow bg-white rounded newDetail-col_publicity type-Future">
           <NewTop
             noticiasRelevantes={props.noticias.filter(
-              (n) => n.Destacado === true
+              (n) => n.destacado === true
             )}
           ></NewTop>
           <div className="mt-3 type-Future">
@@ -40,7 +36,7 @@ const NewDetail = (props) => {
       </div>
       <NewRelated
         noticiasRelacionadas={props.noticias.filter(
-          (n) => n.Categoria === props.noticia.Categoria && n.Id !== props.noticia.Id
+          (n) => n.categoria === props.noticia.categoria && n._id !== props.noticia._id
         )}
       ></NewRelated>
     </div>

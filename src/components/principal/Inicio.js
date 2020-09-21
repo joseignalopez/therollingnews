@@ -1,40 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Categories from "./Categories";
 import Destacadas from "./Destacadas";
 import BannerCovid from "./BannerCovid";
 import Publicidad from "./Publicidad";
 
 const Inicio = (props) => {
-  const [destacadaBig, setDestacadaBig] = useState({});
+  /* const [destacadaBig, setDestacadaBig] = useState({});
   const [destacadaSmall1, setDestacadaSmall1] = useState({});
-  const [destacadaSmall2, setDestacadaSmall2] = useState({});
-  const [categorias, setCategorias] = useState([
-    "Actualidad",
-    "Espectaculos",
-    "Tecnologia",
-    "Deportes",
-    "Politica",
-    "Economia",
-    "Salud",
-    "Fotografia",
-  ]);
+  const [destacadaSmall2, setDestacadaSmall2] = useState({}); */
+  /* const [bandera, setBandera] = useEffect(true) */
 
-  const cargaDest = async (e) => {
+  /*  useEffect(() => {
+    console.log("En useEffect inicio.js")
+    console.log(props.destacadas)
+    const big = props.destacadas[2];
+    console.log(big)
+    const small1 = props.destacadas[1];
+    const small2 = props.destacadas[0];
+    setDestacadaBig(big);
+    setDestacadaSmall1(small1);
+    setDestacadaSmall2(small2);
+
+  }, [destacadaBig, destacadaSmall1, destacadaSmall2]); */
+
+  /* const cargaDest = async (e) => {
+    console.log(props.destacadas[2])
+    const big = await props.destacadas[2];
+    console.log(big)
+    const small1 = await props.destacadas[1];
+    const small2 = await props.destacadas[0];
+    setDestacadaBig(big);
+    setDestacadaSmall1(small1);
+    setDestacadaSmall2(small2);
+  }; */
+
+  /* const cargaDest = async (e) => {
     const big = await props.destacadas[2];
     const small1 = await props.destacadas[1];
     const small2 = await props.destacadas[0];
     setDestacadaBig(big);
     setDestacadaSmall1(small1);
     setDestacadaSmall2(small2);
-  };
-  cargaDest();
+  }; */
+  /* cargaDest(); */
 
   return (
     <div className="container">
       <Destacadas
-        destacadaBig={destacadaBig}
-        destacadaSmall1={destacadaSmall1}
-        destacadaSmall2={destacadaSmall2}
+        destacada={props.destacadas}
+        destacadaBig={props.destacadas[2]}
+        destacadaSmall1={props.destacadas[1]}
+        destacadaSmall2={props.destacadas[0]}
       ></Destacadas>
       <section className="">
         <BannerCovid></BannerCovid>
@@ -43,7 +59,7 @@ const Inicio = (props) => {
         <Publicidad></Publicidad>
       </aside>
 
-      <Categories categorias={categorias}></Categories>
+      <Categories categorias={props.categorias}></Categories>
     </div>
   );
 };
