@@ -17,3 +17,11 @@
     color: #d00006;
     border: none;
 }
+
+.button {
+    font-size: 12px;
+    line-height: 50px;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+  }

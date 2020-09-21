@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FormControl } from "react-bootstrap";
 import './style/login.css';
 
 const Registro = () => {
@@ -44,7 +43,7 @@ const Registro = () => {
                   </Form.Group>
                   <Form.Group className="my-4" controlId="formBasicPassword">
                     <Form.Control
-                      type="Contraseña"
+                      type="password"
                       placeholder=" Ingrese una Contraseña"
                       name="password"
                     />
@@ -85,12 +84,12 @@ const Registro = () => {
               </Card.Text>
               <hr></hr>
               <div className="mt-4">
-                <Card.Link className="text-secondary" href="#">
+                <Card.Link className="text-secondary" href="/error404/error404">
                   ¿Ya tenés una cuenta?
                 </Card.Link>
               </div>
               <div className="mb-4">
-                <Card.Link className="text-danger" href="#">
+                <Card.Link className="text-danger" href="/login/ingresar">
                   Ingresar
                 </Card.Link>
               </div>

@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FormControl } from "react-bootstrap";
 import './style/login.css'
 
 
@@ -37,7 +36,7 @@ const Ingresar = () => {
               >
                 Ingresar
               </Button>
-              <Card.Link className="text-secondary" href="#">
+              <Card.Link className="text-secondary" href="/error404/error404">
                 ¿Necesitás ayuda?
               </Card.Link>
               <Button
@@ -57,12 +56,12 @@ const Ingresar = () => {
           </Card.Text>
           <hr></hr>
           <div className="mt-4">
-            <Card.Link className="text-secondary" href="#">
+            <Card.Link className="text-secondary" href="/error404/error404">
               ¿No tenés una cuenta?
             </Card.Link>
           </div>
           <div className="mb-4">
-            <Card.Link className="text-danger" href="#">
+            <Card.Link className="text-danger" href="/login/registro">
               Registrarme ahora
             </Card.Link>
           </div>

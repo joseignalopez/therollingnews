@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import MonedaExtr from "./components/Api/MonedaExtr";
 import Tiempo from "./components/Apiclima/Tiempo";
-import Reloj from "./components/Apiclima/Reloj";
-import Fecha from "./components/fecha/Fecha";
+/* import Reloj from "./components/Apiclima/Reloj";
+import Fecha from "./components/fecha/Fecha"; */
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import defaultNew from "./defaultNew";
@@ -19,6 +19,10 @@ import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
  import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
+import Contactos from './components/principal/Contactos';
+import Error404  from './components/error404/Error404';
+import Nosotros  from './components/principal/Nosotros';
+
 
 function App() {
   const noticias = defaultNew;
@@ -144,6 +148,15 @@ function App() {
         </Route>
         <Route exact path="/login/Registro">
           <Registro />
+        </Route>
+        <Route exact path="/principal/Contactos">
+          <Contactos></Contactos>
+        </Route>
+        <Route exact path="/principal/Nosotros">
+          <Nosotros></Nosotros>
+        </Route>
+        <Route exact path='*'>
+          <Error404></Error404>
         </Route>
       </Switch>
       <Footer></Footer>
