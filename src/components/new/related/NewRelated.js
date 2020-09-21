@@ -7,7 +7,7 @@ const NewRelated = (props) => {
       <h1 className="font-weight-bold">Relacionadas</h1>
       <div className="overflow-auto mt-4 mb-5 border border-light d-flex">
         {
-          props.noticiasRelacionadas.map((nota)=> <NewRelatedCard noticia = {nota}></NewRelatedCard>)
+          props.noticiasRelacionadas.map((nota)=> <NewRelatedCard key={nota._id} noticia = {nota}></NewRelatedCard>)
         }
         
       </div>

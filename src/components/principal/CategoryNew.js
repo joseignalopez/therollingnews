@@ -4,20 +4,26 @@ import CardDeck from "react-bootstrap/CardDeck";
 import "./style/category.css";
 
 const CategoryNew = (props) => {
-  return (
-    <Fragment>
-      <div className="border-bottom mb-3 pb-2">
-        <h2 className="mt-2 mb-3 font-weight-bolder type-Future">
-          {props.nombreCategoria}
-        </h2>
-        <CardDeck className="mb-3 categoryNew-cardDeck">
-          {props.noticiasDeCategoria.map((noticia, i) => (
-            <CardNew key={i} noticia={noticia} nombreCategoria={props.nombreCategoria}></CardNew>
-          ))}
-        </CardDeck>
-      </div>
-    </Fragment>
-  );
+  if(props.noticiasDeCategoria.length>0){
+
+    return (
+      
+      <Fragment>
+        <div className="border-bottom mb-3 pb-2">
+          <h2 className="mt-2 mb-3 font-weight-bolder type-Future">
+            {props.nombreCategoria}
+          </h2>
+          <CardDeck className="mb-3 categoryNew-cardDeck">
+            {props.noticiasDeCategoria.map((noticia, i) => (
+              <CardNew key={i} noticia={noticia} nombreCategoria={props.nombreCategoria}></CardNew>
+            ))}
+          </CardDeck>
+        </div>
+      </Fragment>
+    );
+  }else{
+    return null
+  }
 };
 
 export default CategoryNew;

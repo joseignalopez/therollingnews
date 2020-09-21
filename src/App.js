@@ -21,15 +21,16 @@ import ListadoCategorias from "./components/administracion/categorias/ListadoCat
 import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
 
 function App() {
-  const noticias = defaultNew;
+  /* const noticias = defaultNew;
   const destacadas = defaultNew.filter(
     (destacadas) => destacadas.Destacado === true
-  );
+  ); */
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
+  const [destacados, setDestacados] = useState([]);
   const [usuarios, setUsuarios] = useState("");
 
   useEffect(() => {
@@ -38,29 +39,39 @@ function App() {
       consultarAPI();
       setRecargarNoticias(false);
       setRecargarCategorias(false);
+      
     }
+    
   }, [recargarNoticias, recargarCategorias]);
 
   const consultarAPI = async () => {
     try {
       // operación GET
       /* const respuesta = await fetch("http://localhost:4000/noticias"); */
-      const respuesta = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew");
+      const respuesta = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew"
+      );
       /* const respuestaCat = await fetch("http://localhost:4000/categorias"); */
-      const respuestaCat = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias");
+      const respuestaCat = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias"
+      );
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
-      const respuestaUsuarios = await fetch("http://localhost:4000/usuarios");
-      const resultadoUsuarios = await respuestaUsuarios.json();
-
+      /* const destacadas = await resultado.filter((destacadas) => destacadas.destacado === true) */
       // guardar datos en el state
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
-      setUsuarios(resultadoUsuarios);
+      /* setDestacados(destacadas) */
+      console.log(resultado);
+      console.log(resultadoCat);
+      /* console.log(destacadas) */
     } catch (error) {
       console.log(error);
     }
   };
+  /* const destacadas = listadoNoticias.filter(
+    (destacadas) => destacadas.destacado === true
+  ); */
 
   return (
     <Router>
@@ -69,20 +80,32 @@ function App() {
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
-          <Inicio destacadas={destacadas}></Inicio>
+          <Inicio
+            destacadas={listadoNoticias.filter((destacadas) => destacadas.destacado === true)}
+            categorias={listadoCategorias}
+            noticias = {listadoNoticias}
+          ></Inicio>
         </Route>
         <Route
           path="/:categoria/nota/:id"
           render={(props) => {
-            const idParametro = parseInt(props.match.params.id);
+            const idParametro = props.match.params.id;
             const cat = props.match.params.categoria;
-            const notasCategoria = noticias.filter((n) => n.Categoria === cat);
-            const nota = notasCategoria.find((item) => item.Id === idParametro);
+            const notasCategoria = listadoNoticias.filter(
+              (n) => n.categoria === cat
+            );
+            const nota = notasCategoria.find(
+              (item) => item._id === idParametro
+            );
+            console.log(nota)
+            console.log(notasCategoria)
 
-            return <NewDetail noticia={nota} noticias={noticias}></NewDetail>;
+            return (
+              <NewDetail noticia={nota} noticias={listadoNoticias}></NewDetail>
+            );
           }}
         ></Route>
-        
+
         <Route exact path="/Administracion/Noticias">
           <ListaNoticias
             noticias={listadoNoticias}
@@ -101,11 +124,11 @@ function App() {
           render={(props) => {
             const idNoticia = props.match.params.id;
             console.log(idNoticia);
-            console.log(listadoNoticias)
+            console.log(listadoNoticias);
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia._id === idNoticia
             );
-            console.log(noticiaSeleccionada)
+            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}

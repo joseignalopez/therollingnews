@@ -6,19 +6,19 @@ const NewContent = (props) => {
   return (
     <div className="col-9 pr-5 newDetail-container_new type-Future">
       <NewContentHeader
-        titulo={props.noticia.Titulo}
-        categoria={props.noticia.Categoria}
-        fecha={props.noticia.Fecha}
+        titulo={props.noticia.titulo}
+        categoria={props.noticia.categoria}
+        fecha={props.noticia.fecha}
       ></NewContentHeader>
       <Card>
         <Card.Img
           variant="top"
-          src={props.noticia.Imagen}
-          alt={`imagen de noticia ${props.noticia.Id}`}
+          src={props.noticia.url}
+          alt={`imagen de noticia ${props.noticia._id}`}
         />
         <Card.Body>
           <Card.Text className="type-Future">
-            {props.noticia.Detalle}
+            {props.noticia.detalle}
           </Card.Text>
         </Card.Body>
       </Card>
