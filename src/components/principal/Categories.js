@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CategoryNew from "./CategoryNew";
 import defaultNew from "../../defaultNew";
 
 const Categories = (props) => {
-  const noticias = defaultNew;
+  /* const noticias = defaultNew; */
+  const[noticias, setNoticias] = useState([])
+  useEffect(()=>{
+    cargarNoticias();
+  },[])
+  const cargarNoticias = async()=>{
+    try {
+      const consultar = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/")
+      const resultado = await consultar.json();
+      console.log(resultado);
+      setNoticias(resultado);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
-      {props.categorias.map((valueCategory, i) => (
+      {props.categorias.map((valueCategory) => (
+        /* console.log(valueCategory) */
         <CategoryNew
-          key={i}
+          key={valueCategory._id}
           noticiasDeCategoria={noticias.filter(
-            (n) => n.Categoria === valueCategory
+            (n) => n.categoria === valueCategory.nombre
           )}
-          nombreCategoria={valueCategory}
+          nombreCategoria={valueCategory.nombre}
         ></CategoryNew>
       ))}
     </div>

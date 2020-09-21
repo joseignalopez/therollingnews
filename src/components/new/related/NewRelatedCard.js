@@ -7,12 +7,12 @@ const NewRelatedCard = (props) => {
       <Card style={{ width: "21rem" }} className="mr-2 .newDetail-relatedCard">
         <Card.Img
           variant="top"
-          src={props.noticia.Imagen}
+          src={props.noticia.url}
           className="cardNew-img"
         />
         <Card.Body>
           <Card.Title className="font-weight-bolder type-Future">
-            {props.noticia.Titulo}
+            {props.noticia.titulo}
           </Card.Title>
           {/* <Card.Text className="type-Future">
             {props.noticia.DetalleCorto}
