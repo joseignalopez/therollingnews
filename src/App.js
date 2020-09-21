@@ -132,12 +132,7 @@ function App() {
             const categoriaSeleccionada = listadoCategorias.find(
               (categoria) => categoria._id === idCategoria
             );
-<<<<<<< HEAD
             return (
-=======
-            console.log(categoriaSeleccionada)
-            return(
->>>>>>> b4f4faea0ed24866bff84eddefd1f775227a6c31
               <EditarCategoria
                 categoria={categoriaSeleccionada}
                 setRecargarCategorias={setRecargarCategorias}
