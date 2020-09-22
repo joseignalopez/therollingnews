@@ -10,15 +10,7 @@ import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
 
 
-
-/*  const categorias = [
-  "Deportes",
-  "Actualidad",
-  "salud",
-  "covid19"
-
-]; */ 
-const Header = () => {
+const Header = (props) => {
    const [seccionVisible,setSeccionVisible]= useState(false);
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
@@ -32,20 +24,6 @@ const Header = () => {
    const [emailSuscriptor, setemailSuscriptor] = useState("");
    const [error, setError] = useState(false);
 
- /*  const[searchTerm,setSearchTerm]= useState("");
-  const [searchResultado,setSearchResultado]=useState([]); */
-
-
-/*   const handleChange = event =>{
-    setSearchTerm(event.target.value);
-
-  };
-  useEffect(()=> {
-    const resultado = categorias.filter(noticias=>
-      noticias.toLocaleLowerCase().includes(searchTerm));
-      setSearchResultado(resultado);
-  },[searchTerm]); 
-  */
 
  const handleSubmit = async (e) => {
   e.preventDefault();
@@ -120,7 +98,7 @@ const Header = () => {
           <NavLink exact={true} to="/" className="nav-link " activeClassName="active">Home</NavLink>  
         <div className="subnav justify-content-center"> 
           <NavLink exact={true} to="" className="nav-link " activeClassName="active" onClick={()=>setSeccionVisible(!seccionVisible)}>Secciones<FontAwesomeIcon icon={faCaretDown} /></NavLink>
-            {seccionVisible && <SeccionesHeader></SeccionesHeader>}
+            {seccionVisible && <SeccionesHeader categorias = {props.categorias}></SeccionesHeader>}
            </div>
            </Nav>   
         <Form className=""  >

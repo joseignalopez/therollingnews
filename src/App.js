@@ -21,6 +21,7 @@ import ListadoCategorias from "./components/administracion/categorias/ListadoCat
  import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
 import Error404  from './components/error404/Error404';
 import Nosotros  from './components/principal/Nosotros';
+import Category from "./components/categoria/Category";
 
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
 
   return (
     <Router>
-      <Header></Header>
+      <Header categorias={listadoCategorias}></Header>
       <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
@@ -89,6 +90,23 @@ function App() {
             noticias = {listadoNoticias}
           ></Inicio>
         </Route>
+        <Route path="/Categoria/:categoria/"
+        render={
+          (props)=>{
+
+            const categoria = props.match.params.categoria;
+            console.log(categoria)
+            const notasCategoria = listadoNoticias.filter(
+              (n) => n.categoria === categoria
+            );
+            console.log(notasCategoria)
+            return(
+            <Category categoria = {categoria} noticias = {notasCategoria}></Category>
+            )
+          }
+        }>
+        </Route >
+        
         <Route
           path="/:categoria/nota/:id"
           render={(props) => {
@@ -182,7 +200,7 @@ function App() {
           <Error404></Error404>
         </Route>
       </Switch>
-      <Footer></Footer>
+      <Footer categorias={listadoCategorias}></Footer>
     </Router>
   );
 }

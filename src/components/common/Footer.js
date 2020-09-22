@@ -1,9 +1,14 @@
 import React from "react";
- import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
- import { faFacebookSquare,faInstagramSquare,faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
- import { faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookSquare,
+  faInstagramSquare,
+  faTwitterSquare,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <div className="rojo">
       <section className="container py-4">
@@ -103,41 +108,13 @@ const Footer = () => {
                 <b>Secciones:</b>
               </a>
             </li>
-            <li className="py-1">
-              <a href="" className="text-light">
-                Actualidad
-              </a>
-            </li>
-            <li className="py-1">
-              <a href="" className="text-light">
-                Espectáculos
-              </a>
-            </li>
-            <li className="py-1">
-              <a href="" className="text-light">
-                Tecnología
-              </a>
-            </li>
-            <li className="py-1">
-              <a href="" className="text-light">
-                Deportes
-              </a>
-            </li>
-            <li className="pt-1">
-              <a href="" className="text-light">
-                Política
-              </a>
-            </li>
-            <li className="pt-1">
-              <a href="" className="text-light">
-                Economía
-              </a>
-            </li>
-            <li className="pt-1">
-              <a href="" className="text-light">
-                Salud
-              </a>
-            </li>
+            {props.categorias.map((categoria) => (
+              <li key={categoria._id} className="py-1">
+                <Link to={`/Categoria/${categoria.nombre}`} className="text-light">
+                  {categoria.nombre}
+                </Link>
+              </li>
+            ))}
           </div>
         </div>
       </section>
