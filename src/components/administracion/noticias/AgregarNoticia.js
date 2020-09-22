@@ -29,7 +29,7 @@ const AgregarNoticia = (props) => {
       resumen.trim() === "" ||
       noticia.trim() === "" ||
       autor.trim() === "" ||
-      fecha.trim() === "" ||
+      /* fecha.trim() === "" || */
       categoria === ""
     ) {
       // mostrar alert de error
@@ -38,6 +38,8 @@ const AgregarNoticia = (props) => {
     }
     setError(false);
 
+    const fecha = new Date();
+    console.log(fecha)
     // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
@@ -47,7 +49,7 @@ const AgregarNoticia = (props) => {
       categoria,
       destacado: false,
       autor,
-      fecha
+      fecha: fecha
     };
 
     console.log(noticiaNueva)
@@ -67,7 +69,7 @@ const AgregarNoticia = (props) => {
       if (resultado.status === 201) {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
         props.setRecargarNoticias(true);
-        props.history.push("/admin/listanoticias");
+        props.history.push("/Administracion/Noticias");
       }
     } catch (error) {
       Swal.fire({
@@ -127,14 +129,14 @@ const AgregarNoticia = (props) => {
             onChange={(e) => setAutor(e.target.value)}
           />
         </Form.Group>
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label>Fecha</Form.Label>
           <Form.Control
             type="text"
             placeholder="Fecha de la nota en formato dd/mm/aa"
             onChange={(e) => setFecha(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group> */}
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
           {props.categorias.map((categoria) => (
