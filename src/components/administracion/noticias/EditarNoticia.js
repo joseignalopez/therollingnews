@@ -18,6 +18,9 @@ const EditarNoticia = (props) => {
   const fechaRef = useRef("");
   const destacado = props.noticia.destacado;
 
+  const fec = new Date();
+  console.log("Fecha = "+fec)
+
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
@@ -33,7 +36,7 @@ const EditarNoticia = (props) => {
         resumenRef.current.value.trim() === "" ||
         noticiaRef.current.value.trim() === "" ||
         autorRef.current.value.trim() === "" ||
-        fechaRef.current.value.trim() === "" ||
+        /* fechaRef.current.value.trim() === "" || */
         _categoria === ""
       ) {
         // mostrar alert de error
@@ -42,6 +45,7 @@ const EditarNoticia = (props) => {
       }
       setError(false);
 
+      const fecha = new Date()
     //   crear objeto a guardar en la DB
     const noticiaModificada = {
         titulo: tituloRef.current.value,
@@ -49,15 +53,16 @@ const EditarNoticia = (props) => {
         detalleCorto: resumenRef.current.value,
         detalle: noticiaRef.current.value,
         autor: autorRef.current.value,
-        fecha: fechaRef.current.value,
+        fecha: fecha,
         categoria: _categoria,
         destacado
     }
 
+    console.log(noticiaModificada)
     try {
         const respuesta = await fetch(
           /* `http://localhost:4000/noticias/${props.noticia.id}`, */
-          `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia.id}`,
+          `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia._id}`,
           {
             method: "PUT",
             headers: {
@@ -70,7 +75,7 @@ const EditarNoticia = (props) => {
         if (respuesta.status === 200) {
           props.setRecargarNoticias(true);
           Swal.fire("Listo!", "La noticia se modificó correctamente", "success");
-          props.history.push("/admin/listanoticias");
+          props.history.push("/Administracion/Noticias");
         }
       } catch (error) {
         Swal.fire({
@@ -136,7 +141,7 @@ const EditarNoticia = (props) => {
             defaultValue={props.noticia.autor}
           />
         </Form.Group>
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label>Fecha</Form.Label>
           <Form.Control
             type="text"
@@ -144,7 +149,7 @@ const EditarNoticia = (props) => {
             ref={fechaRef}
             defaultValue={props.noticia.fecha}
           />
-        </Form.Group>
+        </Form.Group> */}
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
         {
