@@ -9,14 +9,13 @@ const ListaNoticias = (props) => {
     <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Noticias</h1>
-        <Button className="boton ml-auto my-3" href="/admin/agregarnoticia">
+        <Button className="boton ml-auto my-3" href="/Administracion/Noticia">
           Agregar noticia
         </Button>{" "}
       </div>
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
             <th>Título</th>
             <th>Categoría</th>
             <th>Acciones</th>

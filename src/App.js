@@ -117,6 +117,7 @@ function App() {
         </Route>
         <Route exact path="/Administracion/Noticia">
           <AgregarNoticia
+            categorias={listadoCategorias}
             setRecargarNoticias={setRecargarNoticias}
           ></AgregarNoticia>
         </Route>
@@ -134,6 +135,7 @@ function App() {
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
+                categorias={listadoCategorias}
                 setRecargarNoticias={setRecargarNoticias}
               ></EditarNoticia>
             );

@@ -32,9 +32,18 @@
       "imagenCabecera": "https://img.lagaceta.com.ar/fotos/notas/2020/09/14/860362_202009132144320000001.jpg",
       "resumen": "“We are who we are”, del aclamado italiano Luca Guadagnino, y “The third day”, con Jude Law y Naomie Harris.",
       "noticia": "El director italiano Luca Guadagnino, nominado al Oscar por la película \"Llámame por tu nombre\" (2017), estrena hoy su primera serie: \"We are who we are\" (Somos quienes somos), que llega a las 23 a la pantalla de HBO. Viene precedida por elogiosos comentarios de la critica, que destacan su calidad cinematográfica, entre otras virtudes, con una serie de ocho episodios y el estilo cinematográfico que lo caracteriza.\n\nEn ocho episodios, la serie narra la historia de dos jóvenes americanos que viven en una base militar estadounidense en Italia. La trama explora temas como la amistad, el primer amor y la identidad, y refleja la euforia y la angustia de ser un adolescente.\n\nJack Dylan Grazer interpreta a Fraser, un chico de catorce años tímido e introvertido que se muda de Nueva York a una base militar en Véneto con sus madres, Sarah (Chloë Sevigny) y Maggie (Alice Braga), que están en el ejército de los EE. UU Tom Mercier (Jonathan) interpreta al asistente de Sarah.\n\nJordan Kristine Seamón interpreta a Caitlin, que vive con su familia en la base desde hace varios años y habla italiano. En Comparación con su hermano mayor Danny (Spence Moore II), Caitlin tiene una relación más estrecha con su padre Richard (Kid Cudi), y no se comunica bien con su madre Jenny (Faith Alabi).\n\nCaitlin es el eje central de su grupo de amigos que incluye a Britney (Francesca Scorsese), una niña abierta, ingeniosa y sexualmente desinhibida; el alegre y afable Craig (Corey Knight), un soldado de unos veinte años, Sam (Ben Taylor), el novio posesivo de Caitlin y el hermano menor de Craig; Enrico (Sebastiano Pigazzi) un juguetón de 8 años del Venado que está enamorado de Britney; y Valentina (Beatrice Barichella), una chica italiana.",
-      "categoria": "Espectaculos",
+      "categoria": "Espectáculos",
       "destacado": false,
       "id": 4
+    },
+    {
+      "titulo": "prueba",
+      "imagenCabecera": "prueba",
+      "resumen": "pruueba",
+      "noticia": "prueba",
+      "categoria": "Espectáculos",
+      "destacado": false,
+      "id": 5
     }
   ],
   "categorias": [
@@ -52,6 +61,31 @@
       "nombreCat": "Deportes",
       "descripcionCat": "Noticias de footbol, basket, tenis y más.",
       "id": 5
+    },
+    {
+      "nombreCat": "Actualidad",
+      "descripcionCat": "noticias diversas del día a día",
+      "id": 6
+    },
+    {
+      "nombreCat": "Tecnología",
+      "descripcionCat": "informática, gaming, redes sociales, etc.",
+      "id": 7
+    },
+    {
+      "nombreCat": "Política",
+      "descripcionCat": "noticias sobre acontecimientos de la política de la provincia y el país",
+      "id": 8
+    },
+    {
+      "nombreCat": "Economía",
+      "descripcionCat": "noticias sobre monedas extranjeras, mercados, políticas económicas, regulaciones del banco central, etc",
+      "id": 9
+    },
+    {
+      "nombreCat": "Fotografías",
+      "descripcionCat": "galerías de imágenes de eventos o lugares",
+      "id": 10
     }
   ],
   "usuarios": [
@@ -74,7 +108,7 @@
     {
       "nombre": "adsfdgh",
       "apellido": "adsfdbf",
-      "email": "dsfghfgj@pingo",
+      "email": "dsfghfgj@algo",
       "password": "asdfvbsdas",
       "claseUsuario": "publico",
       "id": 5

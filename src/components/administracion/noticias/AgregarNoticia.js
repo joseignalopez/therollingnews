@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import "../style/admin.css";
 import Swal from "sweetalert2";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 const AgregarNoticia = (props) => {
   const [titulo, setTitulo] = useState("");
@@ -12,12 +12,13 @@ const AgregarNoticia = (props) => {
   const [resumen, setResumen] = useState("");
   const [noticia, setNoticia] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [autor, setAutor] = useState("");
+  const [fecha, setFecha] = useState("");
   const [error, setError] = useState(false);
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,8 @@ const AgregarNoticia = (props) => {
       imagenCabecera.trim() === "" ||
       resumen.trim() === "" ||
       noticia.trim() === "" ||
+      autor.trim() === "" ||
+      fecha.trim() === "" ||
       categoria === ""
     ) {
       // mostrar alert de error
@@ -34,7 +37,7 @@ const AgregarNoticia = (props) => {
       return;
     }
     setError(false);
-    
+
     // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
@@ -43,9 +46,11 @@ const AgregarNoticia = (props) => {
       detalle: noticia,
       categoria,
       destacado: false,
-      autor: "",
-      fecha: ""
+      autor,
+      fecha
     };
+
+    console.log(noticiaNueva)
 
     try {
       const resultado = await fetch(
@@ -66,23 +71,23 @@ const AgregarNoticia = (props) => {
       }
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Ocurrió un error!',
-        footer: '<p>No se pudo cargar la noticia.</p>'
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>No se pudo cargar la noticia.</p>",
+      });
       console.log(error);
     }
   };
 
-
   return (
     <section className="container px-5">
-        <h1 className="text-center my-4">Agregar nueva noticia</h1>
+      <h1 className="text-center my-4">Agregar nueva noticia</h1>
       <Form onSubmit={handleSubmit} className="mt-5">
         <Form.Group>
           <Form.Label>Título de la nota</Form.Label>
           <Form.Control
+            autoFocus
             type="text"
             placeholder="Agregar el título de la nota"
             onChange={(e) => setTitulo(e.target.value)}
@@ -114,73 +119,38 @@ const AgregarNoticia = (props) => {
             onChange={(e) => setNoticia(e.target.value)}
           />
         </Form.Group>
+        <Form.Group>
+          <Form.Label>Autor</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Agregar el nombre del autor de la nota"
+            onChange={(e) => setAutor(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Fecha</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Fecha de la nota en formato dd/mm/aa"
+            onChange={(e) => setFecha(e.target.value)}
+          />
+        </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
-          <Form.Check
-            type="radio"
-            label="Actualidad"
-            value="Actualidad"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-          <Form.Check
-            type="radio"
-            label="Espectáculos"
-            value="Espectaculos"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-          <Form.Check
-            type="radio"
-            label="Tecnología"
-            value="Tecnologia"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-          <Form.Check
-            type="radio"
-            label="Deportes"
-            value="Deportes"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-          <Form.Check
-            type="radio"
-            label="Política"
-            value="Politica"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-          <Form.Check
-            type="radio"
-            label="Economía"
-            value="Economia"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
-          <Form.Check
-            type="radio"
-            label="Salud"
-            value="Salud"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-          />
+          {props.categorias.map((categoria) => (
+            <Form.Check
+              key={categoria._id}
+              type="radio"
+              label={categoria.nombre}
+              value={categoria.nombre}
+              name="categoria"
+              inline
+              className="mx-3"
+              onChange={seleccionarCategoria}
+            />
+          ))}
         </div>
-        
+
         {
           // alerta en caso de no completar los datos al intentar el submit
           error ? (

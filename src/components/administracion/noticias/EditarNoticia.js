@@ -14,6 +14,8 @@ const EditarNoticia = (props) => {
   const imagenCabeceraRef = useRef("");
   const resumenRef = useRef("");
   const noticiaRef = useRef("");
+  const autorRef = useRef("");
+  const fechaRef = useRef("");
   const destacado = props.noticia.destacado;
 
   const seleccionarCategoria = (e) => {
@@ -30,6 +32,8 @@ const EditarNoticia = (props) => {
         imagenCabeceraRef.current.value.trim() === "" ||
         resumenRef.current.value.trim() === "" ||
         noticiaRef.current.value.trim() === "" ||
+        autorRef.current.value.trim() === "" ||
+        fechaRef.current.value.trim() === "" ||
         _categoria === ""
       ) {
         // mostrar alert de error
@@ -41,9 +45,11 @@ const EditarNoticia = (props) => {
     //   crear objeto a guardar en la DB
     const noticiaModificada = {
         titulo: tituloRef.current.value,
-        imagenCabecera: imagenCabeceraRef.current.value,
-        resumen: resumenRef.current.value,
-        noticia: noticiaRef.current.value,
+        url: imagenCabeceraRef.current.value,
+        detalleCorto: resumenRef.current.value,
+        detalle: noticiaRef.current.value,
+        autor: autorRef.current.value,
+        fecha: fechaRef.current.value,
         categoria: _categoria,
         destacado
     }
@@ -98,7 +104,7 @@ const EditarNoticia = (props) => {
             type="text"
             placeholder="Agregar url de la imagen"
             ref={imagenCabeceraRef}
-            defaultValue={props.noticia.imagenCabecera}
+            defaultValue={props.noticia.url}
           />
         </Form.Group>
         <Form.Group>
@@ -108,7 +114,7 @@ const EditarNoticia = (props) => {
             rows="3"
             placeholder="Agregar un extracto de la nota"
             ref={resumenRef}
-            defaultValue={props.noticia.resumen}
+            defaultValue={props.noticia.detalleCorto}
           />
         </Form.Group>
         <Form.Group>
@@ -118,81 +124,43 @@ const EditarNoticia = (props) => {
             rows="10"
             placeholder="Agregar el cuerpo de la nota"
             ref={noticiaRef}
-            defaultValue={props.noticia.noticia}
+            defaultValue={props.noticia.detalle}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Autor</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Agregar el nombre del autor de la nota"
+            ref={autorRef}
+            defaultValue={props.noticia.autor}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Fecha</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Fecha de la nota en formato dd/mm/aa"
+            ref={fechaRef}
+            defaultValue={props.noticia.fecha}
           />
         </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
-          <Form.Check
+        {
+            props.categorias.map((categoria) =>(
+              <Form.Check
             type="radio"
-            label="Actualidad"
-            value="Actualidad"
+            label={categoria.nombre}
+            value={categoria.nombre}
             name="categoria"
             inline
             className="mx-3"
             onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Actualidad"}
+            defaultChecked={props.noticia.categoria === `${categoria.nombre}`}
           />
-          <Form.Check
-            type="radio"
-            label="Espectáculos"
-            value="Espectaculos"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Espectaculos"}
-          />
-          <Form.Check
-            type="radio"
-            label="Tecnología"
-            value="Tecnologia"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Tecnologia"}
-          />
-          <Form.Check
-            type="radio"
-            label="Deportes"
-            value="Deportes"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Deportes"}
-          />
-          <Form.Check
-            type="radio"
-            label="Política"
-            value="Politica"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Politica"}
-          />
-          <Form.Check
-            type="radio"
-            label="Economía"
-            value="Economia"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Economia"}
-          />
-          <Form.Check
-            type="radio"
-            label="Salud"
-            value="Salud"
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "Salud"}
-          />
+            ))
+          }
         </div>
 
         {

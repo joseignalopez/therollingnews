@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const ElementoLista = (props) => {
-
   const eliminarNoticia = (id) => {
     Swal.fire({
       title: "Estás seguro?",
@@ -50,13 +49,60 @@ const ElementoLista = (props) => {
     });
   };
 
+  const destacarNoticia = async (id) => {
+    if (props.noticia.destacado === false) {
+      props.noticia.destacado = true;
+    }else{
+      props.noticia.destacado = false;
+    }
+
+    const noticiaDest = {
+      titulo: props.noticia.titulo,
+      imagenCabecera: props.noticia.imagenCabecera,
+      resumen: props.noticia.resumen,
+      noticia: props.noticia.noticia,
+      categoria: props.noticia.categoria,
+      destacado: props.noticia.destacado
+    }
+
+    try {
+      const respuesta = await fetch(
+        `http://localhost:4000/noticias/${props.noticia.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(noticiaDest),
+        }
+      );
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        props.setRecargarNoticias(true);
+        Swal.fire("Listo!", "Se cambió el estado destacado", "success");
+      }
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>No se pudo eliminar la noticia</p>",
+      });
+    }
+  };
+
   return (
     <tr>
-      <td>{props.noticia._id} </td>
       <td>{props.noticia.titulo}</td>
       <td>{props.noticia.categoria}</td>
       <td>
-        <Button variant="outline-warning" size="sm" className="mx-1 destacar">
+        <Button
+          variant="outline-warning"
+          size="sm"
+          className="mx-1 destacar"
+          onClick={() => destacarNoticia(props.noticia.id)}
+        >
           <FontAwesomeIcon icon={faCheckCircle} size="2x"></FontAwesomeIcon>
         </Button>
         <Link to={`/Administracion/Noticia/${props.noticia._id}`} className="btn btn-outline-primary mx-1 editar">
