@@ -1,4 +1,4 @@
-import React,{useState/* ,useEffect */} from "react";
+import React,{useState,useEffect } from "react";
 import {Navbar, Nav,Form, Button }from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,21 +7,24 @@ import SeccionesHeader from "../principal/SeccionesHeader";
 
 
 
-/*  const categorias = [
+
+  const categorias = [
   "Deportes",
   "Actualidad",
   "salud",
   "covid19"
 
-]; */ 
+]; 
 const Header = () => {
    const [seccionVisible,setSeccionVisible]= useState(false);
- /*  const[searchTerm,setSearchTerm]= useState("");
-  const [searchResultado,setSearchResultado]=useState([]); */
+   const [buscadorVisible,setBuscadorVisible]=useState(false);
+   const[searchTerm,setSearchTerm]= useState("");
+  const [searchResultado,setSearchResultado]=useState([]); 
 
 
-/*   const handleChange = event =>{
-    setSearchTerm(event.target.value);
+  const handleChange = (e) =>{
+    e.preventDefault();
+    setSearchTerm(e.target.value);
 
   };
   useEffect(()=> {
@@ -29,7 +32,7 @@ const Header = () => {
       noticias.toLocaleLowerCase().includes(searchTerm));
       setSearchResultado(resultado);
   },[searchTerm]); 
-  */
+  
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
       <Navbar.Brand href="/"><img src={process.env.PUBLIC_URL +"/logo.png"} alt="logo" className="logo"/></Navbar.Brand>
@@ -38,7 +41,7 @@ const Header = () => {
         <div  className="subnav ">
         <Nav className="mr-auto">
           <NavLink exact={true} to="/login/ingresar" className="nav-link " activeClassName="active"> <FontAwesomeIcon icon={faUser} /> Ingresar</NavLink>
-          <NavLink exact={true} to="" className="nav-link" activeClassName="active"> <FontAwesomeIcon icon={faCheckSquare} /> Suscribir</NavLink>
+          <NavLink exact={true} to="/principal/buscar" className="nav-link" activeClassName="active"> <FontAwesomeIcon icon={faCheckSquare} /> Suscribir</NavLink>
         </Nav> 
         </div>
         <Nav className="ml-auto subnav">
@@ -48,19 +51,21 @@ const Header = () => {
             {seccionVisible && <SeccionesHeader></SeccionesHeader>}
            </div>
            </Nav>   
-        <Form className=""  >
+        <Form className=""  action="
+        ">
         <div className="">
-          <input type="text"  placeholder=" Buscar " id="icon" className="btn-sm "  />
-          <Button className=" azul btn-ms"  /* onChange={handleChange} */ >
+          <input type="text"  placeholder=" Buscar " id="icon" onChange={handleChange} className="btn-sm"/>
+          
+          <Button className=" azul btn-ms" type="submit" onClick={()=>setBuscadorVisible(!buscadorVisible)}>
             <FontAwesomeIcon icon={faSearch} /> 
           </Button>
-          {/* <ul> 
+          </div>
+        </Form>
+        {buscadorVisible && <ul className="nav-link"> 
             {searchResultado.map(item=>(
               <li>{item}</li>
             ))} 
-          </ul> */}
-          </div>
-        </Form>
+          </ul> }
       </Navbar.Collapse>
     </Navbar>
   );

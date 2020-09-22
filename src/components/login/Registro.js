@@ -161,7 +161,7 @@ const Registro = (props) => {
                   >
                     Registrarme
                   </Button>
-                  <Card.Link className="text-secondary" href="#">
+                  <Card.Link className="text-secondary" href="error404/Error404">
                     ¿Necesitás ayuda?
                   </Card.Link>
                   <Button
@@ -186,7 +186,7 @@ const Registro = (props) => {
                 </Card.Link>
               </div>
               <div className="mb-4">
-                <Card.Link className="text-danger" href="#">
+                <Card.Link className="text-danger" href="/login/ingresar">
                   Ingresar
                 </Card.Link>
               </div>
