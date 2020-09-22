@@ -12,7 +12,7 @@ const ElementoListaCat = (props) => {
   const eliminarCategoria = (id) => {
     Swal.fire({
       title: "Estás seguro?",
-      text: "La categoría no se podrá recuperar",
+      text: "La categoría no se podrá recuperar. Se eliminarán todas las noticias de esta categoría",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
