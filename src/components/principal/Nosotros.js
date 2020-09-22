@@ -27,7 +27,7 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/error404"
+                  href="/error404/Error404"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
@@ -52,7 +52,7 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/error404"
+                  href="/error404/Error404"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
@@ -77,7 +77,7 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/error404"
+                  href="/error404/Error404"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
@@ -102,7 +102,7 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/error404"
+                  href="/error404/Error404"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
@@ -127,7 +127,7 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/error404"
+                  href="/error404/Error404"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
@@ -152,7 +152,7 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/error404"
+                  href="https://ar.linkedin.com/in/nicolas-bertini-arga%C3%B1aras-9b634b189?trk=public_profile_samename_profile_profile-result-card_result-card_full-click&challengeId=AQEZ2u4yNptd4wAAAXSuSFgbwbqvn7ADQX1EQSUbQdDj2qCz8P7zLTv_ndUi3oA9oGi8bimCjs83jla4V1FBTfpvCLfqZDf31A&submissionId=43277056-57a8-3616-bad1-dc8d2d293829"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
@@ -177,8 +177,8 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="www.linkedin.com/in/mrosarioserrano" 
-                  target="_blank" >
+                  href="https://www.linkedin.com/in/mrosarioserrano/?trk=people-guest_people_search-card&originalSubdomain=ar" 
+                  target="_blank"> 
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
               </Card.Body>

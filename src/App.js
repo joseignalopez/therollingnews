@@ -19,7 +19,6 @@ import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
  import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
-import Contactos from './components/principal/Contactos';
 import Error404  from './components/error404/Error404';
 import Nosotros  from './components/principal/Nosotros';
 
@@ -173,9 +172,6 @@ function App() {
         </Route>
         <Route exact path="/login/Registro">
           <Registro />
-        </Route>
-        <Route exact path="/principal/Contactos">
-          <Contactos></Contactos>
         </Route>
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>

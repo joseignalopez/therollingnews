@@ -5,6 +5,9 @@ import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import './style/login.css'
+import { withRouter } from "react-router-dom";
+import Swal from "sweetalert2";
+import Alert from "react-bootstrap/Alert";
 
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
