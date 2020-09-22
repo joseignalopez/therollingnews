@@ -58,16 +58,18 @@ const ElementoLista = (props) => {
 
     const noticiaDest = {
       titulo: props.noticia.titulo,
-      imagenCabecera: props.noticia.imagenCabecera,
-      resumen: props.noticia.resumen,
-      noticia: props.noticia.noticia,
+      url: props.noticia.url,
+      detalleCorto: props.noticia.detalleCorto,
+      detalle: props.noticia.detalle,
       categoria: props.noticia.categoria,
+      autor: props.noticia.autor,
+      fecha: props.noticia.fecha,
       destacado: props.noticia.destacado
     }
 
     try {
       const respuesta = await fetch(
-        `http://localhost:4000/noticias/${props.noticia.id}`,
+        `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia._id}`,
         {
           method: "PUT",
           headers: {
