@@ -1,9 +1,11 @@
 import React from "react";
 import {Card} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NewRelatedCard = (props) => {
   return (
     <div className="cardNew-container ">
+      <Link to={`/${props.noticia.categoria}/nota/${props.noticia._id}`}>
       <Card style={{ width: "21rem" }} className="mr-2 .newDetail-relatedCard">
         <Card.Img
           variant="top"
@@ -19,6 +21,7 @@ const NewRelatedCard = (props) => {
           </Card.Text> */}
         </Card.Body>
       </Card>
+      </Link>
     </div>
   );
 };

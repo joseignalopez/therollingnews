@@ -12,7 +12,7 @@ const ElementoListaCat = (props) => {
   const eliminarCategoria = (id) => {
     Swal.fire({
       title: "Estás seguro?",
-      text: "La categoría no se podrá recuperar",
+      text: "La categoría no se podrá recuperar. Se eliminarán todas las noticias de esta categoría",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -23,7 +23,7 @@ const ElementoListaCat = (props) => {
       if (result.value) {
         try {
           const respuesta = await fetch(
-            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias/${id}`,
+            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria/${id}`,
             {
               method: "DELETE",
               headers: {

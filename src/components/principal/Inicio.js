@@ -42,16 +42,29 @@ const Inicio = (props) => {
     setDestacadaSmall1(small1);
     setDestacadaSmall2(small2);
   }; */
-  /* cargaDest(); */
+  // /* cargaDest(); */
 
   return (
     <div className="container">
-    {/*   <Destacadas
-        destacada={props.destacadas}
-        destacadaBig={props.destacadas[2]}
-        destacadaSmall1={props.destacadas[1]}
-        destacadaSmall2={props.destacadas[0]}
-      ></Destacadas> */}
+      <section className="row my-5">
+        {props.destacadas.map((destacada) => (
+          <Destacadas
+            key={destacada._id}
+            id={destacada._id}
+            categoria={destacada.categoria}
+            titulo={destacada.titulo}
+            imagen={destacada.url}
+            detalleCorto={destacada.detalleCorto}
+            categorias={props.categorias}
+          ></Destacadas>
+        ))}
+        {/* <Destacadas
+              destacadas={props.destacadas}
+              destacadaBig={props.destacadas[2]}
+              destacadaSmall1={props.destacadas[1]}
+              destacadaSmall2={props.destacadas[0]}
+            ></Destacadas> */}
+      </section>
       <section className="">
         <BannerCovid></BannerCovid>
       </section>

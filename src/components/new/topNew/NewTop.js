@@ -15,7 +15,7 @@ const NewTop = (props) => {
     <div className=" bk-naranja">
       {
         props.noticiasRelevantes.map((noticia, i)=>
-        <NewTopCard key={noticia._id} titulo={noticia.titulo} imagen={noticia.url}></NewTopCard>)
+        <NewTopCard key={noticia._id} titulo={noticia.titulo} imagen={noticia.url} noticia = {noticia}></NewTopCard>)
 
       }
       {/* {noticias.map((noticia, i)=>

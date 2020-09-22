@@ -1,60 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-
-const SeccionesHeader = () => {
+const SeccionesHeader = (props) => {
+  console.log(props.categorias);
   return (
-
-      <div className="subnav-content d-flex justify-content-center">
-        <ul className="d-flex  flex-column flex-lg-row">
-        
-          <li className="nav-item my-1  ">
-              <a className="nav-link " href="session/actualidad">
-            Actualidad
-               </a>
-          </li> 
-          <li className="nav-item my-1">
-              <a className=" nav-link" href="session/espectaculo" >
-            Espectáculos
-               </a>
+    <div className="subnav-content d-flex justify-content-center">
+      <ul className="d-flex  flex-column flex-lg-row">
+        {props.categorias.map((categoria) => (
+          <li key={categoria._id} className="nav-item my-1  ">
+            <Link to={`/Categoria/${categoria.nombre}`} className="nav-link">
+              {categoria.nombre}
+            </Link>
           </li>
-          <li className="nav-item my-1 ">
-              <a className="nav-link" href="session/tecnologia">
-            Tecnología
-               </a>
-          </li>
-          <li className="nav-item my-1">
-              <a className=" nav-link" href="session/deportes">
-            Deportes
-               </a>
-          </li>
-          <li className="nav-item my-1">
-              <a className=" nav-link" href="session/politica">
-            Política
-               </a>
-          </li>
-          <li className="nav-item my-1">
-              <a className="nav-link " href="session/economia" >
-            Economía
-               </a>
-          </li>
-          <li className="nav-item my-1">
-              <a className="nav-link "href="session/salud">
-                         Salud
-               </a>
-          </li>
-          <li className="nav-item my-1 ">
-              <a className="nav-link " href="session/fotografia">
-                       Fotografía
-               </a>
-          </li>
-          <li className="nav-item my-1" >
-              <a className="nav-link "href="session/covid19" >
+        ))}
+        <li className="nav-item my-1">
+          <a className="nav-link " href="session/covid19">
             Covid-19
-               </a>
-          </li>
-        
-        </ul>
-      </div>
+          </a>
+        </li>
+      </ul>
+    </div>
   );
 };
 

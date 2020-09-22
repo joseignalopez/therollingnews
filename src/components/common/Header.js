@@ -4,6 +4,10 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faCaretDown,faCheckSquare,faSearch } from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
+import Modal from "react-bootstrap/Modal";
+import Alert from "react-bootstrap/Alert";
+import warning from "react-bootstrap/Alert";
+import Swal from "sweetalert2";
 
 
 
@@ -26,6 +30,14 @@ const Header = () => {
     e.preventDefault();
     setSearchTerm(e.target.value);
 
+  const nuevoSuscriptor = {
+    nombreSuscriptor,
+    apellidoSuscriptor,
+    direccionSuscriptor,
+    localidadSuscriptor,
+    codigoPostalSuscriptor,
+    telefonoSuscriptor,
+    emailSuscriptor,
   };
   useEffect(()=> {
     const resultado = categorias.filter(noticias=>
@@ -41,14 +53,14 @@ const Header = () => {
         <div  className="subnav ">
         <Nav className="mr-auto">
           <NavLink exact={true} to="/login/ingresar" className="nav-link " activeClassName="active"> <FontAwesomeIcon icon={faUser} /> Ingresar</NavLink>
-          <NavLink exact={true} to="/principal/buscar" className="nav-link" activeClassName="active"> <FontAwesomeIcon icon={faCheckSquare} /> Suscribir</NavLink>
+          <NavLink exact={true} to="" className="nav-link" activeClassName="active"> <FontAwesomeIcon icon={faCheckSquare} /> Suscribir</NavLink>
         </Nav> 
         </div>
         <Nav className="ml-auto subnav">
           <NavLink exact={true} to="/" className="nav-link " activeClassName="active">Home</NavLink>  
         <div className="subnav justify-content-center"> 
           <NavLink exact={true} to="" className="nav-link " activeClassName="active" onClick={()=>setSeccionVisible(!seccionVisible)}>Secciones<FontAwesomeIcon icon={faCaretDown} /></NavLink>
-            {seccionVisible && <SeccionesHeader></SeccionesHeader>}
+            {seccionVisible && <SeccionesHeader categorias = {props.categorias}></SeccionesHeader>}
            </div>
            </Nav>   
         <Form className=""  action="
@@ -69,6 +81,7 @@ const Header = () => {
       </Navbar.Collapse>
     </Navbar>
   );
+ }
 };
 
 export default Header;
