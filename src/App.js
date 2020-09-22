@@ -36,6 +36,7 @@ function App() {
   const [recargarCategorias, setRecargarCategorias] = useState(true);
   const [destacados, setDestacados] = useState([]);
   const [usuarios, setUsuarios] = useState("");
+  const [sesion, setSesion] = useState({})
 
   useEffect(() => {
     // llamar a la api
@@ -59,12 +60,17 @@ function App() {
       const respuestaCat = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias"
       );
+      const respuestaUsu= await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Sesion/Login"
+      )
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
+      const resultadoUsu = await respuestaUsu.json();
       /* const destacadas = await resultado.filter((destacadas) => destacadas.destacado === true) */
       // guardar datos en el state
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
+      setUsuarios(resultadoUsu)
       /* setDestacados(destacadas) */
       console.log(resultado);
       console.log(resultadoCat);
@@ -79,7 +85,7 @@ function App() {
 
   return (
     <Router>
-      <Header categorias={listadoCategorias}></Header>
+      <Header categorias={listadoCategorias} sesion={sesion} setSesion ={setSesion}></Header>
       <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
@@ -188,7 +194,7 @@ function App() {
         ></Route>
         <Route exact path="/login/Ingresar">
           <Ingresar
-          usuarios={usuarios}></Ingresar>
+          usuarios={usuarios} sesion ={setSesion}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
           <Registro />

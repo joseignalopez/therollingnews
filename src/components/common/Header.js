@@ -1,118 +1,163 @@
-import React,{useState/* ,useEffect */} from "react";
-import {Navbar, Nav,Form, Button, Col, Row }from "react-bootstrap";
+import React, { useEffect, useState /* ,useEffect */ } from "react";
+import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser,faCaretDown,faCheckSquare,faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faCaretDown,
+  faCheckSquare,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
 
-
 const Header = (props) => {
-   const [seccionVisible,setSeccionVisible]= useState(false);
-   const [show, setShow] = useState(false);
-   const handleClose = () => setShow(false);
-   const handleShow = () => setShow(true);
-   const [nombreSuscriptor, setnombreSuscriptor] = useState("");
-   const [apellidoSuscriptor, setapellidoSuscriptor] = useState("");
-   const [direccionSuscriptor, setdireccionSuscriptor] = useState("");
-   const [localidadSuscriptor, setlocalidadSuscriptor] = useState("");
-   const [codigoPostalSuscriptor, setcodigoPostalSuscriptor] = useState("");
-   const [telefonoSuscriptor, settelefonoSuscriptor] = useState("");
-   const [emailSuscriptor, setemailSuscriptor] = useState("");
-   const [error, setError] = useState(false);
+  const [seccionVisible, setSeccionVisible] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [nombreSuscriptor, setnombreSuscriptor] = useState("");
+  const [apellidoSuscriptor, setapellidoSuscriptor] = useState("");
+  const [direccionSuscriptor, setdireccionSuscriptor] = useState("");
+  const [localidadSuscriptor, setlocalidadSuscriptor] = useState("");
+  const [codigoPostalSuscriptor, setcodigoPostalSuscriptor] = useState("");
+  const [telefonoSuscriptor, settelefonoSuscriptor] = useState("");
+  const [emailSuscriptor, setemailSuscriptor] = useState("");
+  const [error, setError] = useState(false);
+  const [sesion, setSesion]=useState({usuario:"Ingresar"})
 
+ /*  if(props.sesion !== undefined){
+    setSesion(props.sesion)
+  } */
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (
-    nombreSuscriptor.trim() === "" ||
-    apellidoSuscriptor.trim() === "" ||
-    direccionSuscriptor.trim() === "" ||
-    localidadSuscriptor.trim() === "" ||
-    codigoPostalSuscriptor.trim() === "" ||
-    telefonoSuscriptor.trim() === "" ||
-    emailSuscriptor.trim() === ""
-  ) {
-    setError(true);
-    return;
-  }
-  setError(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      nombreSuscriptor.trim() === "" ||
+      apellidoSuscriptor.trim() === "" ||
+      direccionSuscriptor.trim() === "" ||
+      localidadSuscriptor.trim() === "" ||
+      codigoPostalSuscriptor.trim() === "" ||
+      telefonoSuscriptor.trim() === "" ||
+      emailSuscriptor.trim() === ""
+    ) {
+      setError(true);
+      return;
+    }
+    setError(false);
 
-  const nuevoSuscriptor = {
-    nombreSuscriptor,
-    apellidoSuscriptor,
-    direccionSuscriptor,
-    localidadSuscriptor,
-    codigoPostalSuscriptor,
-    telefonoSuscriptor,
-    emailSuscriptor,
-  };
-
-  try {
-    const cabecera = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(nuevoSuscriptor),
+    const nuevoSuscriptor = {
+      nombreSuscriptor,
+      apellidoSuscriptor,
+      direccionSuscriptor,
+      localidadSuscriptor,
+      codigoPostalSuscriptor,
+      telefonoSuscriptor,
+      emailSuscriptor,
     };
 
-    const resultado = await fetch(
-      "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
-      cabecera
-    );
-    console.log(resultado);
-    if (resultado.status === 201) {
-      Swal.fire(
-        "Datos enviados correctamente",
-        "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
-        "success"
+    try {
+      const cabecera = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoSuscriptor),
+      };
+
+      const resultado = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
+        cabecera
       );
+      console.log(resultado);
+      if (resultado.status === 201) {
+        Swal.fire(
+          "Datos enviados correctamente",
+          "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
+          "success"
+        );
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-};
+  };
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
-      <Navbar.Brand href="/"><img src={process.env.PUBLIC_URL +"/logo.png"} alt="logo" className="logo"/></Navbar.Brand>
+      <Navbar.Brand href="/">
+        <img
+          src={process.env.PUBLIC_URL + "/logo.png"}
+          alt="logo"
+          className="logo"
+        />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <div  className="subnav ">
-        <Nav className="mr-auto">
-          <NavLink exact={true} to="/login/ingresar" className="nav-link " activeClassName="active"> <FontAwesomeIcon icon={faUser} /> Ingresar</NavLink>
-          <Button
+        <div className="subnav ">
+          <Nav className="mr-auto">
+            <NavLink
+              exact={true}
+              to="/login/ingresar"
+              className="nav-link "
+              activeClassName="active"
+            >
+              {" "}
+              <FontAwesomeIcon icon={faUser} /> Ingresar
+            </NavLink>
+            <Button
               className="nav-Link warning text-white"
               onClick={handleShow}
               variant="warning"
             >
               Suscribirse
             </Button>
-        </Nav> 
+          </Nav>
         </div>
         <Nav className="ml-auto subnav">
-          <NavLink exact={true} to="/" className="nav-link " activeClassName="active">Home</NavLink>  
-        <div className="subnav justify-content-center"> 
-          <NavLink exact={true} to="" className="nav-link " activeClassName="active" onClick={()=>setSeccionVisible(!seccionVisible)}>Secciones<FontAwesomeIcon icon={faCaretDown} /></NavLink>
-            {seccionVisible && <SeccionesHeader categorias = {props.categorias}></SeccionesHeader>}
-           </div>
-           </Nav>   
-        <Form className=""  >
-        <div className="">
-          <input type="text"  placeholder=" Buscar " id="icon" className="btn-sm "  />
-          <Button className=" azul btn-ms"  /* onChange={handleChange} */ >
-            <FontAwesomeIcon icon={faSearch} /> 
-          </Button>
-          {/* <ul> 
+          <NavLink
+            exact={true}
+            to="/"
+            className="nav-link "
+            activeClassName="active"
+          >
+            Home
+          </NavLink>
+          <div className="subnav justify-content-center">
+            <NavLink
+              exact={true}
+              to=""
+              className="nav-link "
+              activeClassName="active"
+              onClick={() => setSeccionVisible(!seccionVisible)}
+            >
+              Secciones
+              <FontAwesomeIcon icon={faCaretDown} />
+            </NavLink>
+            {seccionVisible && (
+              <SeccionesHeader categorias={props.categorias}></SeccionesHeader>
+            )}
+          </div>
+        </Nav>
+        <Form className="">
+          <div className="">
+            <input
+              type="text"
+              placeholder=" Buscar "
+              id="icon"
+              className="btn-sm "
+            />
+            <Button className=" azul btn-ms" /* onChange={handleChange} */>
+              <FontAwesomeIcon icon={faSearch} />
+            </Button>
+            {/* <ul> 
             {searchResultado.map(item=>(
               <li>{item}</li>
             ))} 
           </ul> */}
-        <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title classname="text-center">Suscribite</Modal.Title>
               </Modal.Header>
