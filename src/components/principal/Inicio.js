@@ -47,29 +47,24 @@ const Inicio = (props) => {
   return (
     <div className="container">
       <section className="row my-5">
-        {
-          props.destacadas.map((destacada) =>(
-            <Destacadas key={destacada._id} titulo={destacada.titulo} imagen={destacada.url} detalleCorto={destacada.detalleCorto}></Destacadas>
-          ))
-        }
-      </section>
-      {/* { () => {
-        if (
-          props.destacadas[0] !== undefined &&
-          props.destacadas[1] !== undefined &&
-          props.destacadas[2] !== undefined
-        ) {
-          return (
-            <Destacadas
-              destacada={props.destacadas}
+        {props.destacadas.map((destacada) => (
+          <Destacadas
+            key={destacada._id}
+            id={destacada._id}
+            categoria={destacada.categoria}
+            titulo={destacada.titulo}
+            imagen={destacada.url}
+            detalleCorto={destacada.detalleCorto}
+            categorias={props.categorias}
+          ></Destacadas>
+        ))}
+        {/* <Destacadas
+              destacadas={props.destacadas}
               destacadaBig={props.destacadas[2]}
               destacadaSmall1={props.destacadas[1]}
               destacadaSmall2={props.destacadas[0]}
-            ></Destacadas>
-          );
-        }else{
-          console.log("no funciona")
-      }}} */}
+            ></Destacadas> */}
+      </section>
       <section className="">
         <BannerCovid></BannerCovid>
       </section>

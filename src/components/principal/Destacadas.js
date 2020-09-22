@@ -1,22 +1,30 @@
-import React, { Fragment/* , useState */ } from "react";
+import React, { Fragment /* , useState */ } from "react";
 import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button'
+import Button from "react-bootstrap/Button";
 import "./style/destacadas.css";
+import { Link } from "react-router-dom";
 
 const Destacadas = (props) => {
   return (
     <Fragment>
       <section className="col-md-4 col-sm-12">
-        <Card style={{height: "100%"}} className="shadow mb-5 bg-white rounded">
-          <Card.Img variant="top" src={props.imagen} alt={props.titulo} style={{height: "193px"}}/>
-          <Card.Body className="flex-column">
-            <Card.Title>{props.titulo}</Card.Title>
-            <Card.Text>
-              {props.detalleCorto}
-            </Card.Text>
-            <Button className="azul w-100">Ir a la nota</Button>
-          </Card.Body>
-        </Card>
+        <Link to={`/${props.categoria}/nota/${props.id}`}>
+          <Card
+            style={{ height: "100%" }}
+            className="shadow mb-5 bg-white rounded grow"
+          >
+            <Card.Img
+              variant="top"
+              src={props.imagen}
+              alt={props.titulo}
+              style={{ height: "193px" }}
+            />
+            <Card.Body className="row">
+              <Card.Title className="px-2">{props.titulo}</Card.Title>
+              <Card.Text className="px-2">{props.detalleCorto}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
       </section>
       {/* <section className="container justify-content-center row my-5 d-none d-md-block">
         <div className="col-lg-12 col-md-12 row">
