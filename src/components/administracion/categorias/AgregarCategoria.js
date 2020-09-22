@@ -39,7 +39,7 @@ const AgregarCategoria = (props) => {
       if (resultado.status === 201) {
         Swal.fire("Listo!", "La categoría se cargó correctamente", "success");
         props.setRecargarCategorias(true);
-        props.history.push("/admin/listacategorias");
+        props.history.push("/Administracion/Categorias");
       }
       
   } catch (error) {
