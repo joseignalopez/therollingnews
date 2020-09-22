@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CategoryNew from "./CategoryNew";
-import defaultNew from "../../defaultNew";
 
 const Categories = (props) => {
-  /* const noticias = defaultNew; */
   const[noticias, setNoticias] = useState([])
   useEffect(()=>{
     cargarNoticias();

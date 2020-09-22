@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import MonedaExtr from "./components/Api/MonedaExtr";
-import Tiempo from "./components/Apiclima/Tiempo";
-/* import Reloj from "./components/Apiclima/Reloj";
-import Fecha from "./components/fecha/Fecha"; */
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import defaultNew from "./defaultNew";
 import NewDetail from "./components/new/NewDetail";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
@@ -30,7 +26,6 @@ function App() {
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
-  const [destacados, setDestacados] = useState([]);
   const [usuarios, setUsuarios] = useState("");
   const [sesion, setSesion] = useState({usuario: "Ingresar"})
 
@@ -48,11 +43,9 @@ function App() {
   const consultarAPI = async () => {
     try {
       // operación GET
-      /* const respuesta = await fetch("http://localhost:4000/noticias"); */
       const respuesta = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew"
       );
-      /* const respuestaCat = await fetch("http://localhost:4000/categorias"); */
       const respuestaCat = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias"
       );
