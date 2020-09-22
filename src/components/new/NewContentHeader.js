@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* import {faFacebookSquare, faInstagramSquare, faTwitterSquare} from "@fortawesome /free-brands-svg-icons"; */
+/* import {faEnvelope} from '@fortawesome/free-solid-svg-icons' */
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { instagram } from '@fortawesome/free-solid-svg-icons';
+
 
 const NewContentHeader = (props) => {
   return (
@@ -23,6 +28,7 @@ const NewContentHeader = (props) => {
             <FontAwesomeIcon icon={["fab", "instagram"]}></FontAwesomeIcon>
             <FontAwesomeIcon icon={["fab", "twitter"]}></FontAwesomeIcon>
             <FontAwesomeIcon icon={["fab", "whatsapp"]}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={["fab", "github"]} />
           </Link>
         </div>
       </div>

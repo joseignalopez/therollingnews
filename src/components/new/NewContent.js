@@ -1,6 +1,6 @@
 import React from "react";
 import NewContentHeader from "./NewContentHeader";
-import {Card} from 'react-bootstrap'
+import { Card } from "react-bootstrap";
 
 const NewContent = (props) => {
   return (
@@ -17,9 +17,8 @@ const NewContent = (props) => {
           alt={`imagen de noticia ${props.noticia._id}`}
         />
         <Card.Body>
-          <Card.Text className="type-Future">
-            {props.noticia.detalle}
-          </Card.Text>
+          <Card.Text>Nota desarrollada por: {props.noticia.autor}</Card.Text>
+          <Card.Text className="type-Future">{props.noticia.detalle}</Card.Text>
         </Card.Body>
       </Card>
     </div>
