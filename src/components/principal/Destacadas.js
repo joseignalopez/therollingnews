@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment/* , useState */ } from "react";
 import Card from "react-bootstrap/Card";
 import "./style/destacadas.css";
 
@@ -7,7 +7,7 @@ const Destacadas = (props) => {
   return (
     <Fragment>
       <section className="container justify-content-center row my-5 d-none d-md-block">
-  <h1>{props.destacada._id}</h1>
+      <h1>{props.destacada._id}</h1>
         <div className="col-lg-12 col-md-12 row">
           <div className="col-lg-8 col-md-12 col-sm-12">
             <Card className="bg-dark text-white mb-lg-4 mb-3">

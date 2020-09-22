@@ -10,32 +10,32 @@ const Footer = () => {
         <div className="text-center row text-light">
           <div className="col-sm-12 col-md-4 list-unstyled mb-4 d-flex flex-column justify-content-around">
             <li className="pb-1">
-              <a href="#" className="text-light">
+              <a href="/principal/nosotros" className="text-light">
                 Acerca de nosotros
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="error404/error" className="text-light">
                 Términos y condiciones
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="error404/error" className="text-light">
                 Cookies
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="error404/error" className="text-light">
                 Contacto
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="error404/error" className="text-light">
                 Publicitar con nosotros
               </a>
             </li>
             <li className="pt-1">
-              <a href="#" className="text-light">
+              <a href="error404/error" className="text-light">
                 Políticas de privacidad
               </a>
             </li>
@@ -99,42 +99,42 @@ const Footer = () => {
           </div>
           <div className="col-sm-12 col-md-4 list-unstyled d-flex flex-column justify-content-around">
             <li className="pb-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 <b>Secciones:</b>
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Actualidad
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Espectáculos
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Tecnología
               </a>
             </li>
             <li className="py-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Deportes
               </a>
             </li>
             <li className="pt-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Política
               </a>
             </li>
             <li className="pt-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Economía
               </a>
             </li>
             <li className="pt-1">
-              <a href="#" className="text-light">
+              <a href="" className="text-light">
                 Salud
               </a>
             </li>

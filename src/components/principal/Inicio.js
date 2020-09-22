@@ -46,12 +46,12 @@ const Inicio = (props) => {
 
   return (
     <div className="container">
-      {/* <Destacadas
+     <Destacadas
         destacada={props.destacadas}
         destacadaBig={props.destacadas[2]}
         destacadaSmall1={props.destacadas[1]}
         destacadaSmall2={props.destacadas[0]}
-      ></Destacadas> */}
+      ></Destacadas> 
       <section className="">
         <BannerCovid></BannerCovid>
       </section>
