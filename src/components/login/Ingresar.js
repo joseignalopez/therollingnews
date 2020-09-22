@@ -16,9 +16,6 @@ const Ingresar = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(props.usuarios);
-    console.log(email);
-    console.log(password);
     if (password === "" || email === "") {
       Swal.fire({
         icon: "error",
@@ -32,7 +29,6 @@ const Ingresar = (props) => {
       const usuarioBuscado = props.usuarios.find(
         (usuario) => usuario.correo === email
       );
-      console.log(usuarioBuscado);
       if (usuarioBuscado) {
         if (
           email === usuarioBuscado.correo &&
@@ -40,7 +36,6 @@ const Ingresar = (props) => {
         ) {
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
-          console.log("Usuario encontrado");
         }
       } else {
         Swal.fire({

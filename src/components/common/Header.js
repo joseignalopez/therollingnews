@@ -1,6 +1,6 @@
 import React, { useEffect, useState /* ,useEffect */ } from "react";
 import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, Route, Switch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -13,6 +13,8 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
+import Dropdown from "react-bootstrap/Dropdown";
+import { render } from "@testing-library/react";
 
 const Header = (props) => {
   const [seccionVisible, setSeccionVisible] = useState(false);
@@ -27,10 +29,26 @@ const Header = (props) => {
   const [telefonoSuscriptor, settelefonoSuscriptor] = useState("");
   const [emailSuscriptor, setemailSuscriptor] = useState("");
   const [error, setError] = useState(false);
-  const [sesion, setSesion]=useState({usuario:"Ingresar"})
+  /*   const [sesion, setSesion] = useState({ usuario: "Ingresar" }); */
 
- /*  if(props.sesion !== undefined){
+  /*  if(props.sesion !== undefined){
     setSesion(props.sesion)
+  } */
+  /*  const renderSwitch=(param) =>{
+    console.log(param)
+    switch(param) {
+      case "Ingresar": 
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        </Dropdown.Menu>
+        break
+        
+     
+      default:
+        return "Ingresar";
+    }
   } */
 
   const handleSubmit = async (e) => {
@@ -72,7 +90,7 @@ const Header = (props) => {
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
         cabecera
       );
-      console.log(resultado);
+      
       if (resultado.status === 201) {
         Swal.fire(
           "Datos enviados correctamente",
@@ -87,12 +105,14 @@ const Header = (props) => {
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
-      <Navbar.Brand href="/">
-        <img
-          src={process.env.PUBLIC_URL + "/logo.png"}
-          alt="logo"
-          className="logo"
-        />
+      <Navbar.Brand>
+        <Link to="/">
+          <img
+            src={process.env.PUBLIC_URL + "/logo.png"}
+            alt="logo"
+            className="logo"
+          />
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -105,7 +125,8 @@ const Header = (props) => {
               activeClassName="active"
             >
               {" "}
-              <FontAwesomeIcon icon={faUser} /> Ingresar
+              <FontAwesomeIcon key="15" icon={faUser} /> {props.sesion.usuario}
+              
             </NavLink>
             <Button
               className="nav-Link warning text-white"

@@ -12,7 +12,6 @@ const Categories = (props) => {
     try {
       const consultar = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/")
       const resultado = await consultar.json();
-      console.log(resultado);
       setNoticias(resultado);
     } catch (error) {
       console.log(error)
@@ -21,7 +20,6 @@ const Categories = (props) => {
   return (
     <div>
       {props.categorias.map((valueCategory) => (
-        /* console.log(valueCategory) */
         <CategoryNew
           key={valueCategory._id}
           noticiasDeCategoria={noticias.filter(

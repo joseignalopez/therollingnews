@@ -31,7 +31,7 @@ const ElementoListaCat = (props) => {
               },
             }
           );
-          console.log(respuesta);
+          
           if (respuesta.status === 200) {
             props.setRecargarCategorias(true);
             Swal.fire("Listo!", "La categoría ha sido eliminada", "success");

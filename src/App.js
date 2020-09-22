@@ -25,10 +25,6 @@ import Category from "./components/categoria/Category";
 
 
 function App() {
-  /* const noticias = defaultNew;
-  const destacadas = defaultNew.filter(
-    (destacadas) => destacadas.Destacado === true
-  ); */
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
@@ -36,7 +32,7 @@ function App() {
   const [recargarCategorias, setRecargarCategorias] = useState(true);
   const [destacados, setDestacados] = useState([]);
   const [usuarios, setUsuarios] = useState("");
-  const [sesion, setSesion] = useState({})
+  const [sesion, setSesion] = useState({usuario: "Ingresar"})
 
   useEffect(() => {
     // llamar a la api
@@ -66,22 +62,14 @@ function App() {
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
       const resultadoUsu = await respuestaUsu.json();
-      /* const destacadas = await resultado.filter((destacadas) => destacadas.destacado === true) */
-      // guardar datos en el state
+
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
       setUsuarios(resultadoUsu)
-      /* setDestacados(destacadas) */
-      console.log(resultado);
-      console.log(resultadoCat);
-      /* console.log(destacadas) */
     } catch (error) {
       console.log(error);
     }
   };
-  /* const destacadas = listadoNoticias.filter(
-    (destacadas) => destacadas.destacado === true
-  ); */
 
   return (
     <Router>
@@ -101,11 +89,11 @@ function App() {
           (props)=>{
 
             const categoria = props.match.params.categoria;
-            console.log(categoria)
+
             const notasCategoria = listadoNoticias.filter(
               (n) => n.categoria === categoria
             );
-            console.log(notasCategoria)
+
             return(
             <Category categoria = {categoria} noticias = {notasCategoria}></Category>
             )
@@ -124,8 +112,6 @@ function App() {
             const nota = notasCategoria.find(
               (item) => item._id === idParametro
             );
-            console.log(nota)
-            console.log(notasCategoria)
 
             return (
               <NewDetail noticia={nota} noticias={listadoNoticias}></NewDetail>
@@ -150,12 +136,9 @@ function App() {
           path="/Administracion/Noticia/:id"
           render={(props) => {
             const idNoticia = props.match.params.id;
-            console.log(idNoticia);
-            console.log(listadoNoticias);
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia._id === idNoticia
             );
-            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}

@@ -5,7 +5,7 @@ import "../style/admin.css";
 import ElementoListaCat from "./ElementoListaCat";
 
 const ListadoCategorias = (props) => {
-  console.log(props.categorias)
+  
   return (
     <section className="container my-5 px-5">
       <div className="row">

@@ -11,8 +11,6 @@ const NewTopCard = (props) => {
           <Card.Title className="p-1 font-weight-bold">
             {props.titulo}
           </Card.Title>
-          {/* <Card.Body>
-        </Card.Body> */}
         </div>
       </Link>
     </div>

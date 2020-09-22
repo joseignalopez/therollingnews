@@ -39,7 +39,7 @@ const AgregarNoticia = (props) => {
     setError(false);
 
     const fecha = new Date();
-    console.log(fecha)
+    
     // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
@@ -52,7 +52,7 @@ const AgregarNoticia = (props) => {
       fecha: fecha
     };
 
-    console.log(noticiaNueva)
+    
 
     try {
       const resultado = await fetch(

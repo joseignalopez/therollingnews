@@ -23,7 +23,6 @@ const NewContentHeader = (props) => {
           <small className="text-muted">{props.fecha}</small>
         </p>
         <div>
-          {/* <p className="type-Future">COMPARTIR</p> */}
           <Link variant="light" to={`/error`} className="mr-1">
             <FontAwesomeIcon
               icon={faFacebookSquare}

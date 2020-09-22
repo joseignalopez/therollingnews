@@ -19,7 +19,7 @@ const EditarNoticia = (props) => {
   const destacado = props.noticia.destacado;
 
   const fec = new Date();
-  console.log("Fecha = "+fec)
+  
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
@@ -58,7 +58,7 @@ const EditarNoticia = (props) => {
         destacado
     }
 
-    console.log(noticiaModificada)
+    
     try {
         const respuesta = await fetch(
           /* `http://localhost:4000/noticias/${props.noticia.id}`, */
@@ -71,7 +71,7 @@ const EditarNoticia = (props) => {
             body: JSON.stringify(noticiaModificada),
           }
         );
-        console.log(respuesta);
+        
         if (respuesta.status === 200) {
           props.setRecargarNoticias(true);
           Swal.fire("Listo!", "La noticia se modificó correctamente", "success");
