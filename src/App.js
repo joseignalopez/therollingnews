@@ -22,13 +22,10 @@ import ListadoCategorias from "./components/administracion/categorias/ListadoCat
 import Error404  from './components/error404/Error404';
 import Nosotros  from './components/principal/Nosotros';
 import Category from "./components/categoria/Category";
+import Administrar from "./components/administracion/Administrar";
 
 
 function App() {
-  /* const noticias = defaultNew;
-  const destacadas = defaultNew.filter(
-    (destacadas) => destacadas.Destacado === true
-  ); */
 
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
@@ -36,6 +33,7 @@ function App() {
   const [recargarCategorias, setRecargarCategorias] = useState(true);
   const [destacados, setDestacados] = useState([]);
   const [usuarios, setUsuarios] = useState("");
+  const [sesion, setSesion] = useState({usuario: "Ingresar"})
 
   useEffect(() => {
     // llamar a la api
@@ -59,27 +57,24 @@ function App() {
       const respuestaCat = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias"
       );
+      const respuestaUsu= await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Sesion/Login"
+      )
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
-      /* const destacadas = await resultado.filter((destacadas) => destacadas.destacado === true) */
-      // guardar datos en el state
+      const resultadoUsu = await respuestaUsu.json();
+
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
-      /* setDestacados(destacadas) */
-      console.log(resultado);
-      console.log(resultadoCat);
-      /* console.log(destacadas) */
+      setUsuarios(resultadoUsu)
     } catch (error) {
       console.log(error);
     }
   };
-  /* const destacadas = listadoNoticias.filter(
-    (destacadas) => destacadas.destacado === true
-  ); */
 
   return (
     <Router>
-      <Header categorias={listadoCategorias}></Header>
+      <Header categorias={listadoCategorias} sesion={sesion} setSesion ={setSesion}></Header>
       <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
@@ -95,11 +90,11 @@ function App() {
           (props)=>{
 
             const categoria = props.match.params.categoria;
-            console.log(categoria)
+
             const notasCategoria = listadoNoticias.filter(
               (n) => n.categoria === categoria
             );
-            console.log(notasCategoria)
+
             return(
             <Category categoria = {categoria} noticias = {notasCategoria}></Category>
             )
@@ -118,8 +113,6 @@ function App() {
             const nota = notasCategoria.find(
               (item) => item._id === idParametro
             );
-            console.log(nota)
-            console.log(notasCategoria)
 
             return (
               <NewDetail noticia={nota} noticias={listadoNoticias}></NewDetail>
@@ -144,12 +137,9 @@ function App() {
           path="/Administracion/Noticia/:id"
           render={(props) => {
             const idNoticia = props.match.params.id;
-            console.log(idNoticia);
-            console.log(listadoNoticias);
             const noticiaSeleccionada = listadoNoticias.find(
               (noticia) => noticia._id === idNoticia
             );
-            console.log(noticiaSeleccionada);
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
@@ -188,13 +178,16 @@ function App() {
         ></Route>
         <Route exact path="/login/Ingresar">
           <Ingresar
-          usuarios={usuarios}></Ingresar>
+          usuarios={usuarios} sesion ={setSesion}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
           <Registro />
         </Route>
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>
+        </Route>
+        <Route exact path="/administracion/Administrar">
+          <Administrar></Administrar>
         </Route>
         <Route exact path='*'>
           <Error404></Error404>

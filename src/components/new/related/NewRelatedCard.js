@@ -16,9 +16,6 @@ const NewRelatedCard = (props) => {
           <Card.Title className="font-weight-bolder type-Future">
             {props.noticia.titulo}
           </Card.Title>
-          {/* <Card.Text className="type-Future">
-            {props.noticia.DetalleCorto}
-          </Card.Text> */}
         </Card.Body>
       </Card>
       </Link>

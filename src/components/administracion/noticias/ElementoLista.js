@@ -31,7 +31,7 @@ const ElementoLista = (props) => {
               },
             }
           );
-          console.log(respuesta);
+          
           if (respuesta.status === 200) {
             props.setRecargarNoticias(true);
             Swal.fire("Listo!", "La noticia ha sido eliminada", "success");
@@ -78,7 +78,7 @@ const ElementoLista = (props) => {
           body: JSON.stringify(noticiaDest),
         }
       );
-      console.log(respuesta);
+      
       if (respuesta.status === 200) {
         props.setRecargarNoticias(true);
         Swal.fire("Listo!", "Se cambió el estado destacado", "success");

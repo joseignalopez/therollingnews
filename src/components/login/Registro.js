@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FormControl } from "react-bootstrap";
+/* import { FormControl } from "react-bootstrap"; */
 import "./style/login.css";
 import { withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -47,7 +47,7 @@ const Registro = (props) => {
     };
 
     try {
-      const resultado = await fetch("http://localhost:4000/usuarios", {
+      const resultado = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const Registro = (props) => {
 
   const validarEmail = (input) => {
     const expresion = /\w+@\w+\.[a-z]{2,}$/;
-    if (input != "" && expresion.test(input)) {
+    if (input !== "" && expresion.test(input)) {
       setValidarCorreo(true);
       setErrorCorreo(false);
     } else {

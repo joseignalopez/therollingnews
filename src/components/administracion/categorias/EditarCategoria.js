@@ -40,7 +40,7 @@ const EditarCategoria = (props) => {
               body: JSON.stringify(categoriaModificada),
             }
           );
-          console.log(respuesta);
+          
           if (respuesta.status === 200) {
             props.setRecargarCategorias(true);
             Swal.fire("Listo!", "La categoría se modificó correctamente", "success");

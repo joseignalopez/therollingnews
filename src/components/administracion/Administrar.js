@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import './style/admin.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faNewspaper, faList,faUserCog, faPlusSquare} from "@fortawesome/free-solid-svg-icons";
+import {faNewspaper, faList,faUserCog,faPlusSquare} from "@fortawesome/free-solid-svg-icons";
 
 const Administrar = () => {
   return (
