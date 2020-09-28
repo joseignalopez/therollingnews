@@ -1,6 +1,6 @@
-import React, { useEffect, useState /* ,useEffect */ } from "react";
+import React, { useState /* ,useEffect */ } from "react";
 import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
-import { Link, NavLink, Route, Switch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -13,106 +13,79 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
-import Dropdown from "react-bootstrap/Dropdown";
-import { render } from "@testing-library/react";
 
-const Header = (props) => {
+/*  const categorias = [
+  "Deportes",
+  "Actualidad",
+  "salud",
+  "covid19"
+
+]; */
+const Header = () => {
   const [seccionVisible, setSeccionVisible] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [nombreSuscriptor, setnombreSuscriptor] = useState("");
-  const [apellidoSuscriptor, setapellidoSuscriptor] = useState("");
-  const [direccionSuscriptor, setdireccionSuscriptor] = useState("");
-  const [localidadSuscriptor, setlocalidadSuscriptor] = useState("");
-  const [codigoPostalSuscriptor, setcodigoPostalSuscriptor] = useState("");
-  const [telefonoSuscriptor, settelefonoSuscriptor] = useState("");
-  const [emailSuscriptor, setemailSuscriptor] = useState("");
+  const [nombre, setnombreSuscriptor] = useState("");
+  const [apellido, setapellidoSuscriptor] = useState("");
+  const [direccion, setdireccionSuscriptor] = useState("");
+  const [localidad, setlocalidadSuscriptor] = useState("");
+  const [codPostal, setcodigoPostalSuscriptor] = useState("");
+  const [telefono, settelefonoSuscriptor] = useState("");
+  const [correo, setemailSuscriptor] = useState("");
   const [error, setError] = useState(false);
-  /*   const [sesion, setSesion] = useState({ usuario: "Ingresar" }); */
 
-  /*  if(props.sesion !== undefined){
-    setSesion(props.sesion)
-  } */
-  /*  const renderSwitch=(param) =>{
-    console.log(param)
-    switch(param) {
-      case "Ingresar": 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </Dropdown.Menu>
-        break
-        
-     
-      default:
-        return "Ingresar";
-    }
-  } */
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      nombreSuscriptor.trim() === "" ||
-      apellidoSuscriptor.trim() === "" ||
-      direccionSuscriptor.trim() === "" ||
-      localidadSuscriptor.trim() === "" ||
-      codigoPostalSuscriptor.trim() === "" ||
-      telefonoSuscriptor.trim() === "" ||
-      emailSuscriptor.trim() === ""
-    ) {
-      setError(true);
-      return;
-    }
-    setError(false);
-
     const nuevoSuscriptor = {
-      nombreSuscriptor,
-      apellidoSuscriptor,
-      direccionSuscriptor,
-      localidadSuscriptor,
-      codigoPostalSuscriptor,
-      telefonoSuscriptor,
-      emailSuscriptor,
+      nombre,
+      apellido,
+      direccion,
+      localidad,
+      codPostal,
+      telefono,
+      correo,
     };
 
-    try {
-      const cabecera = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuevoSuscriptor),
-      };
+    console.log(nuevoSuscriptor);
 
-      const resultado = await fetch(
-        "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
-        cabecera
-      );
-      
-      if (resultado.status === 201) {
+    const requestInfo = {
+      method: "POST",
+      body: JSON.stringify(nuevoSuscriptor),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    };
+
+    fetch(
+      "https://the-rolling-new.herokuapp.com/api/theRollingNew/Suscripcion",
+      requestInfo
+      )
+     
+      .then((res) => res.json())
+      .then((resp) => {
+        if (resp.mensaje === "Suscripcion almacenada con exito") {
         Swal.fire(
           "Datos enviados correctamente",
           "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
           "success"
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
+          );
+        }
+
+        console.log(resp);
+      })
+      .catch(console.warn);
   };
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
-      <Navbar.Brand>
-        <Link to="/">
-          <img
-            src={process.env.PUBLIC_URL + "/logo.png"}
-            alt="logo"
-            className="logo"
-          />
-        </Link>
+      <Navbar.Brand href="/">
+        <img
+          src={process.env.PUBLIC_URL + "/logo.png"}
+          alt="logo"
+          className="logo"
+        />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -125,8 +98,7 @@ const Header = (props) => {
               activeClassName="active"
             >
               {" "}
-              <FontAwesomeIcon key="15" icon={faUser} /> {props.sesion.usuario}
-              
+              <FontAwesomeIcon icon={faUser} /> Ingresar
             </NavLink>
             <Button
               className="nav-Link warning text-white"
@@ -157,9 +129,7 @@ const Header = (props) => {
               Secciones
               <FontAwesomeIcon icon={faCaretDown} />
             </NavLink>
-            {seccionVisible && (
-              <SeccionesHeader categorias={props.categorias}></SeccionesHeader>
-            )}
+            {seccionVisible && <SeccionesHeader></SeccionesHeader>}
           </div>
         </Nav>
         <Form className="">
@@ -280,3 +250,11 @@ const Header = (props) => {
 };
 
 export default Header;
+
+
+
+
+
+
+
+
