@@ -16,6 +16,42 @@ const Ingresar = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+const usuarioAdmin={
+  email,
+  password
+}
+console.log(usuarioAdmin);
+
+const requestInfo = {
+  method: "POST",
+  body: JSON.stringify(usuarioAdmin),
+  headers: new Headers({
+    "Content-Type": "application/json",
+  }),
+};
+fetch(
+  "",
+  requestInfo
+  )
+ 
+  .then((res) => res.json())
+  .then((resp) => {
+    if (resp.mensaje === "") {
+    Swal.fire(
+      "Datos enviados correctamente",
+      "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
+      "success"
+      );
+    }
+
+    console.log(resp);
+  })
+  .catch(console.warn);
+
+
+
+
+
     if (password === "" || email === "") {
       Swal.fire({
         icon: "error",
