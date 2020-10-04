@@ -9,6 +9,7 @@ import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import Alert from "react-bootstrap/Alert";
 
+
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,42 +17,6 @@ const Ingresar = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-const usuarioAdmin={
-  email,
-  password
-}
-console.log(usuarioAdmin);
-
-const requestInfo = {
-  method: "POST",
-  body: JSON.stringify(usuarioAdmin),
-  headers: new Headers({
-    "Content-Type": "application/json",
-  }),
-};
-fetch(
-  "",
-  requestInfo
-  )
- 
-  .then((res) => res.json())
-  .then((resp) => {
-    if (resp.mensaje === "") {
-    Swal.fire(
-      "Datos enviados correctamente",
-      "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
-      "success"
-      );
-    }
-
-    console.log(resp);
-  })
-  .catch(console.warn);
-
-
-
-
-
     if (password === "" || email === "") {
       Swal.fire({
         icon: "error",
@@ -69,9 +34,12 @@ fetch(
         if (
           email === usuarioBuscado.correo &&
           password === usuarioBuscado.contrasenia
+
         ) {
+          props.history.push("/Administracion/Noticias/")
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
+         
         }
       } else {
         Swal.fire({
