@@ -13,11 +13,11 @@ const Administrar = () => {
          </div>
          <hr/>
          <div  className= "col-md-12 col-sm-12  mb-2 text-center ">
-          <Button  variant="primary" size="lg" className=" azul"  href="/administracion/Noticias" >
+          <Button  variant="primary" size="lg" className=" azul" type= 'button' href="/administracion/Noticias" >
             <FontAwesomeIcon icon={faNewspaper} />{" "}
             Administrar Noticias
           </Button>{" "}
-          <Button  variant="primary" size="lg" className= "azul"  href="/admin/agregarnoticia" >
+          <Button  variant="primary" size="lg" className= "azul" type= 'button' href="/administracion/Noticia" >
             <FontAwesomeIcon icon={faPlusSquare} />{" "}
             Agregar Noticia 
           </Button></div>
@@ -28,7 +28,7 @@ const Administrar = () => {
             <FontAwesomeIcon icon={faList} />{" "}
             Administrar Categorias
           </Button>{" "}
-          <Button  variant="primary" size="lg" type= 'button' className="azul" href="/admin/agregarcategoria" >
+          <Button  variant="primary" size="lg" type= 'button' className="azul" href="/administracion/Categoria" >
             <FontAwesomeIcon icon={faPlusSquare} />{" "}
             Agregar categoria 
           </Button></div>
