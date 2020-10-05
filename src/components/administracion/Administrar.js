@@ -13,28 +13,28 @@ const Administrar = () => {
          </div>
          <hr/>
          <div  className= "col-md-12 col-sm-12  mb-2 text-center ">
-          <Button  variant="primary" size="lg" className="button azul"  href="/admin/listanoticias" >
+          <Button  variant="primary" size="lg" className=" azul"  href="/administracion/Noticias" >
             <FontAwesomeIcon icon={faNewspaper} />{" "}
             Administrar Noticias
           </Button>{" "}
-          <Button  variant="primary" size="lg" className="button azul" href="/admin/agregarnoticia" >
+          <Button  variant="primary" size="lg" className= "azul"  href="/admin/agregarnoticia" >
             <FontAwesomeIcon icon={faPlusSquare} />{" "}
             Agregar Noticia 
           </Button></div>
         
         <br/>
        <div className="col-md-12 col-sm-12 text-center mb-2">
-          <Button  variant="primary" size="lg" className="button azul" href="/admin/listacategorias">
+          <Button  variant="primary" size="lg" className=" azul" type='button' href="/administracion/Categorias">
             <FontAwesomeIcon icon={faList} />{" "}
             Administrar Categorias
           </Button>{" "}
-          <Button  variant="primary" size="lg" className="button azul" href="/admin/agregarcategoria" >
+          <Button  variant="primary" size="lg" type= 'button' className="azul" href="/admin/agregarcategoria" >
             <FontAwesomeIcon icon={faPlusSquare} />{" "}
             Agregar categoria 
           </Button></div>
           <br/>
           <div className="col-sm-12  text-center ">
-          <Button  variant="primary" size="lg" className="button azul" >
+          <Button  variant="primary" size="lg" type='button' className="azul" >
             <FontAwesomeIcon icon={faUserCog} />{" "}
             Administrar Usuarios
           </Button></div>
