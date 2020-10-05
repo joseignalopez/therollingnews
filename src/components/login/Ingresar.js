@@ -36,6 +36,7 @@ const Ingresar = (props) => {
         ) {
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
+          props.history.push('/administracion/Administrar');
         }
       } else {
         Swal.fire({

@@ -29,6 +29,10 @@ const Header = (props) => {
   const [telefonoSuscriptor, settelefonoSuscriptor] = useState("");
   const [emailSuscriptor, setemailSuscriptor] = useState("");
   const [error, setError] = useState(false);
+
+
+console.log(props.sesion)
+
   /*   const [sesion, setSesion] = useState({ usuario: "Ingresar" }); */
 
   /*  if(props.sesion !== undefined){
