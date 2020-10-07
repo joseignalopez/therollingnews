@@ -26,7 +26,7 @@ const Footer = (props) => {
               </a>
             </li>
             <li className="py-1">
-              <a href="/principal/contactos" className="text-light">
+              <a href="error404/error" className="text-light">
                 Contacto
               </a>
             </li>

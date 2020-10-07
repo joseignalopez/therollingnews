@@ -40,6 +40,7 @@ const AgregarCategoria = (props) => {
         Swal.fire("Listo!", "La categoría se cargó correctamente", "success");
         props.setRecargarCategorias(true);
         props.history.push("/Administracion/Categorias");
+      
       }
       
   } catch (error) {

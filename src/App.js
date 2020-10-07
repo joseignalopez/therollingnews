@@ -21,7 +21,7 @@ import ListadoCategorias from "./components/administracion/categorias/ListadoCat
  import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
 import Error404  from './components/error404/Error404';
 import Nosotros  from './components/principal/Nosotros';
-import Contactos  from './components/principal/Contactos';
+import Busqueda  from './components/principal/Busqueda';
 import Category from "./components/categoria/Category";
 import Administrar from "./components/administracion/Administrar";
 
@@ -187,10 +187,10 @@ function App() {
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>
         </Route>
-        <Route exact path="/principal/Contactos">
-          <Contactos></Contactos>
-        </Route>
         <Route exact path="/administracion/Administrar">
+          <Administrar></Administrar>
+        </Route>
+        <Route exact path="/principal/Busqueda">
           <Administrar></Administrar>
         </Route>
         <Route exact path='*'>

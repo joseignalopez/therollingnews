@@ -70,6 +70,7 @@ const AgregarNoticia = (props) => {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
         props.setRecargarNoticias(true);
         props.history.push("/Administracion/Noticias");
+        
       }
     } catch (error) {
       Swal.fire({

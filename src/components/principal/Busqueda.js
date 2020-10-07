@@ -17,10 +17,15 @@ const Busqueda = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleChange = e =>{
+  const handleChange= (e)=> {
     e.preventDefault();
+
+   if(!searchTerm){
+      return setSearchTerm({error:'por favor escriba texto valido'})
+    }
+   fetch(searchTerm)
     setSearchTerm(e.target.value);
-  };
+  }; 
   useEffect(()=> {
     const results = categoria.filter(categoria  => categoria.toLowerCase().includes(searchTerm.toLowerCase()));
     setSearchResults(results);
@@ -38,11 +43,11 @@ const Busqueda = (props) => {
   <Button className=" azul btn-ms" type='submit' >
     <FontAwesomeIcon icon={faSearch} />
   </Button>
-{/*  <ul> 
+{<ul> 
   {searchResults.map(item=>(
     <li>{item}</li>
   ))} 
-</ul> */}
+</ul> }
 </Form>
 </div>
   );
