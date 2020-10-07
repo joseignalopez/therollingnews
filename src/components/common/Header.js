@@ -34,27 +34,6 @@ const Header = (props) => {
 
   console.log(props.sesion);
 
-  /*   const [sesion, setSesion] = useState({ usuario: "Ingresar" }); */
-
-  /*  if(props.sesion !== undefined){
-    setSesion(props.sesion)
-  } */
-  /*  const renderSwitch=(param) =>{
-    console.log(param)
-    switch(param) {
-      case "Ingresar": 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </Dropdown.Menu>
-        break
-        
-     
-      default:
-        return "Ingresar";
-    }
-  } */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,6 +102,7 @@ const Header = (props) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="subnav ">
           <Nav className="mr-auto">
+            {/* boton para ingresar o dropdown de usuario */}
             {props.sesion.usuario !== "Ingresar" ? (
               <Dropdown>
                 <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white">
@@ -133,11 +113,9 @@ const Header = (props) => {
                   <Dropdown.Item>
                     <Link to="/administracion/Administrar">Administración</Link>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
+                  <Dropdown.Divider />
+                  <Dropdown.Item href="/" onClick={()=> props.setSesion({usuario: "Ingresar"})}>
+                    Cerrar sesión
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
