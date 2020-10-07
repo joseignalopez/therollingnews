@@ -14,21 +14,19 @@ import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
- import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
-import Error404  from './components/error404/Error404';
-import Nosotros  from './components/principal/Nosotros';
+import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
+import Error404 from "./components/error404/Error404";
+import Nosotros from "./components/principal/Nosotros";
 import Category from "./components/categoria/Category";
-import Administrar from "./components/administracion/Administrar"
-
+import Administrar from "./components/administracion/Administrar";
 
 function App() {
-
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
   const [usuarios, setUsuarios] = useState("");
-  const [sesion, setSesion] = useState({usuario: "Ingresar"})
+  const [sesion, setSesion] = useState({ usuario: "Ingresar" });
 
   useEffect(() => {
     // llamar a la api
@@ -36,9 +34,7 @@ function App() {
       consultarAPI();
       setRecargarNoticias(false);
       setRecargarCategorias(false);
-      
     }
-    
   }, [recargarNoticias, recargarCategorias]);
 
   const consultarAPI = async () => {
@@ -50,16 +46,16 @@ function App() {
       const respuestaCat = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias"
       );
-      const respuestaUsu= await fetch(
+      const respuestaUsu = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Sesion/Login"
-      )
+      );
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
       const resultadoUsu = await respuestaUsu.json();
 
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
-      setUsuarios(resultadoUsu)
+      setUsuarios(resultadoUsu);
     } catch (error) {
       console.log(error);
     }
@@ -67,34 +63,41 @@ function App() {
 
   return (
     <Router>
-      <Header categorias={listadoCategorias} sesion={sesion} setSesion ={setSesion}></Header>
+      <Header
+        categorias={listadoCategorias}
+        sesion={sesion}
+        setSesion={setSesion}
+      ></Header>
       <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
           <Inicio
-            destacadas={listadoNoticias.filter((destacadas) => destacadas.destacado === true)}
+            destacadas={listadoNoticias.filter(
+              (destacadas) => destacadas.destacado === true
+            )}
             categorias={listadoCategorias}
-            noticias = {listadoNoticias}
+            noticias={listadoNoticias}
           ></Inicio>
         </Route>
-        <Route path="/Categoria/:categoria/"
-        render={
-          (props)=>{
-
+        <Route
+          path="/Categoria/:categoria/"
+          render={(props) => {
             const categoria = props.match.params.categoria;
 
             const notasCategoria = listadoNoticias.filter(
               (n) => n.categoria === categoria
             );
 
-            return(
-            <Category categoria = {categoria} noticias = {notasCategoria}></Category>
-            )
-          }
-        }>
-        </Route >
-        
+            return (
+              <Category
+                categoria={categoria}
+                noticias={notasCategoria}
+              ></Category>
+            );
+          }}
+        ></Route>
+
         <Route
           path="/:categoria/nota/:id"
           render={(props) => {
@@ -170,8 +173,7 @@ function App() {
           }}
         ></Route>
         <Route exact path="/login/Ingresar">
-          <Ingresar
-          usuarios={usuarios} sesion ={setSesion}></Ingresar>
+          <Ingresar usuarios={usuarios} sesion={setSesion}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
           <Registro />
@@ -182,7 +184,7 @@ function App() {
         <Route exact path="/administracion/Administrar">
           <Administrar></Administrar>
         </Route>
-        <Route exact path='*'>
+        <Route exact path="*">
           <Error404></Error404>
         </Route>
       </Switch>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState /* ,useEffect */ } from "react";
-import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
+import { Navbar, Nav, Button, Col, Row } from "react-bootstrap";
 import { Link, NavLink, Route, Switch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,7 +13,9 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
+import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import { render } from "@testing-library/react";
 
 const Header = (props) => {
@@ -30,8 +32,7 @@ const Header = (props) => {
   const [emailSuscriptor, setemailSuscriptor] = useState("");
   const [error, setError] = useState(false);
 
-
-console.log(props.sesion)
+  console.log(props.sesion);
 
   /*   const [sesion, setSesion] = useState({ usuario: "Ingresar" }); */
 
@@ -94,7 +95,7 @@ console.log(props.sesion)
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
         cabecera
       );
-      
+
       if (resultado.status === 201) {
         Swal.fire(
           "Datos enviados correctamente",
@@ -122,16 +123,37 @@ console.log(props.sesion)
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="subnav ">
           <Nav className="mr-auto">
-            <NavLink
-              exact={true}
-              to="/login/ingresar"
-              className="nav-link "
-              activeClassName="active"
-            >
-              {" "}
-              <FontAwesomeIcon key="15" icon={faUser} /> {props.sesion.usuario}
-              
-            </NavLink>
+            {props.sesion.usuario !== "Ingresar" ? (
+              <Dropdown>
+                <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white">
+                {props.sesion.usuario}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item>
+                    <Link to="/administracion/Administrar">Administración</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">
+                    Another action
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    Something else
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : (
+              <NavLink
+                exact={true}
+                to="/login/ingresar"
+                className="nav-link mr-3"
+                activeClassName="active"
+              >
+                {" "}
+                <FontAwesomeIcon key="15" icon={faUser} />{" "}
+                {props.sesion.usuario}
+              </NavLink>
+            )}
+
             <Button
               className="nav-Link warning text-white"
               onClick={handleShow}
@@ -151,133 +173,131 @@ console.log(props.sesion)
           >
             Home
           </NavLink>
-          <div className="subnav justify-content-center">
-            <NavLink
-              exact={true}
-              to=""
-              className="nav-link "
+          <div className="subnav">
+            <Button
+              className="btn-nav"
               activeClassName="active"
               onClick={() => setSeccionVisible(!seccionVisible)}
             >
               Secciones
-              <FontAwesomeIcon icon={faCaretDown} />
-            </NavLink>
+              <FontAwesomeIcon className="ml-1" icon={faCaretDown} />
+            </Button>
             {seccionVisible && (
-              <SeccionesHeader categorias={props.categorias}></SeccionesHeader>
+              <SeccionesHeader
+                setSeccionVisible={setSeccionVisible}
+                seccionVisible={seccionVisible}
+                categorias={props.categorias}
+              ></SeccionesHeader>
             )}
           </div>
         </Nav>
-        <Form className="">
-          <div className="">
-            <input
+        <Form inline>
+          <div>
+            <Form.Control
               type="text"
               placeholder=" Buscar "
               id="icon"
-              className="btn-sm "
+              className="btn-sm"
             />
-            <Button className=" azul btn-ms" /* onChange={handleChange} */>
+            <Button className=" btn-nav btn-ms" /* onChange={handleChange} */>
               <FontAwesomeIcon icon={faSearch} />
             </Button>
             {/* <ul> 
             {searchResultado.map(item=>(
               <li>{item}</li>
-            ))} 
-          </ul> */}
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title classname="text-center">Suscribite</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <div>
-                  <Form.Label className="lead font-weight-bold text-warning">
-                    Datos personales
-                  </Form.Label>
-                  <Form onSubmit={handleSubmit}>
-                    <Row className="mb-3">
-                      <Col>
-                        <Form.Control
-                          placeholder="Nombre"
-                          onChange={(e) => setnombreSuscriptor(e.target.value)}
-                        />
-                      </Col>
-                      <Col>
-                        <Form.Control
-                          placeholder="Apellido"
-                          onChange={(e) =>
-                            setapellidoSuscriptor(e.target.value)
-                          }
-                        />
-                      </Col>
-                    </Row>
-                    <Form.Control
-                      type="text"
-                      placeholder="Direccion"
-                      onChange={(e) => setdireccionSuscriptor(e.target.value)}
-                    />
-                    <br />
-                    <Form.Control
-                      type="text"
-                      placeholder="Localidad"
-                      onChange={(e) => setlocalidadSuscriptor(e.target.value)}
-                    />
-                    <br />
-                    <Form.Control
-                      type="text"
-                      placeholder="Codigo postal"
-                      onChange={(e) =>
-                        setcodigoPostalSuscriptor(e.target.value)
-                      }
-                    />
-                    <br />
-                    <Form.Control
-                      type="text"
-                      placeholder="Telefono"
-                      onChange={(e) => settelefonoSuscriptor(e.target.value)}
-                    />
-                    <br />
-                    <Form.Group controlId="formBasicEmail">
-                      <Form.Label
-                        className="lead font-weight-bold text-warning"
-                        required
-                        onChange={(e) => setnombreSuscriptor(e.target.value)}
-                      >
-                        Email
-                      </Form.Label>
-                      <Form.Control
-                        type="email"
-                        placeholder="Ingrese una direccion de Email"
-                        onChange={(e) => setemailSuscriptor(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                      <Form.Check
-                        type="checkbox"
-                        label="Estoy de acuerdo con los terminos y condiciones"
-                      />
-                    </Form.Group>
-                  </Form>
-                </div>
-              </Modal.Body>
-              {error ? (
-                <Alert
-                  variant={warning}
-                  className="lead font-weight-bold bg-warning text-white text-center w-80"
-                >
-                  Todos los campos son obligatorios!
-                </Alert>
-              ) : null}
-              <Modal.Footer>
-                <Button
-                  variant="warning"
-                  className="text-white"
-                  onClick={handleSubmit}
-                  type="submit"
-                >
-                  Guardar
-                </Button>
-              </Modal.Footer>
-            </Modal>
+              ))} 
+            </ul> */}
           </div>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title classname="text-center">Suscribite</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div>
+                <Form.Label className="lead font-weight-bold text-warning">
+                  Datos personales
+                </Form.Label>
+                <Form onSubmit={handleSubmit}>
+                  <Row className="mb-3">
+                    <Col>
+                      <Form.Control
+                        placeholder="Nombre"
+                        onChange={(e) => setnombreSuscriptor(e.target.value)}
+                      />
+                    </Col>
+                    <Col>
+                      <Form.Control
+                        placeholder="Apellido"
+                        onChange={(e) => setapellidoSuscriptor(e.target.value)}
+                      />
+                    </Col>
+                  </Row>
+                  <Form.Control
+                    type="text"
+                    placeholder="Direccion"
+                    onChange={(e) => setdireccionSuscriptor(e.target.value)}
+                  />
+                  <br />
+                  <Form.Control
+                    type="text"
+                    placeholder="Localidad"
+                    onChange={(e) => setlocalidadSuscriptor(e.target.value)}
+                  />
+                  <br />
+                  <Form.Control
+                    type="text"
+                    placeholder="Codigo postal"
+                    onChange={(e) => setcodigoPostalSuscriptor(e.target.value)}
+                  />
+                  <br />
+                  <Form.Control
+                    type="text"
+                    placeholder="Telefono"
+                    onChange={(e) => settelefonoSuscriptor(e.target.value)}
+                  />
+                  <br />
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label
+                      className="lead font-weight-bold text-warning"
+                      required
+                      onChange={(e) => setnombreSuscriptor(e.target.value)}
+                    >
+                      Email
+                    </Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Ingrese una direccion de Email"
+                      onChange={(e) => setemailSuscriptor(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check
+                      type="checkbox"
+                      label="Estoy de acuerdo con los terminos y condiciones"
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+            </Modal.Body>
+            {error ? (
+              <Alert
+                variant={warning}
+                className="lead font-weight-bold bg-warning text-white text-center w-80"
+              >
+                Todos los campos son obligatorios!
+              </Alert>
+            ) : null}
+            <Modal.Footer>
+              <Button
+                variant="warning"
+                className="text-white"
+                onClick={handleSubmit}
+                type="submit"
+              >
+                Guardar
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Form>
       </Navbar.Collapse>
     </Navbar>
