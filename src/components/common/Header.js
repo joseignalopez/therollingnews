@@ -71,7 +71,7 @@ const Header = (props) => {
       };
 
       const resultado = await fetch(
-        "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Suscripcion",
         cabecera
       );
 
@@ -223,13 +223,13 @@ const Header = (props) => {
                   />
                   <br />
                   <Form.Control
-                    type="text"
+                    type="number"
                     placeholder="Codigo postal"
                     onChange={(e) => setcodigoPostalSuscriptor(e.target.value)}
                   />
                   <br />
                   <Form.Control
-                    type="text"
+                    type="number"
                     placeholder="Telefono"
                     onChange={(e) => settelefonoSuscriptor(e.target.value)}
                   />
@@ -254,27 +254,26 @@ const Header = (props) => {
                       label="Estoy de acuerdo con los terminos y condiciones"
                     />
                   </Form.Group>
-                </Form>
-              </div>
-            </Modal.Body>
+
             {error ? (
               <Alert
-                variant={warning}
-                className="lead font-weight-bold bg-warning text-white text-center w-80"
+              variant={warning}
+              className="lead font-weight-bold bg-warning text-white text-center w-80"
               >
                 Todos los campos son obligatorios!
               </Alert>
             ) : null}
-            <Modal.Footer>
               <Button
                 variant="warning"
                 className="text-white"
                 onClick={handleSubmit}
                 type="submit"
-              >
+                >
                 Guardar
               </Button>
-            </Modal.Footer>
+              </Form>
+              </div>
+                </Modal.Body>
           </Modal>
         </Form>
       </Navbar.Collapse>
