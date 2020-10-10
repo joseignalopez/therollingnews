@@ -68,6 +68,7 @@ useEffect(()=> {
           <NavLink exact={true} to="" className="nav-link" activeClassName="active"> <FontAwesomeIcon icon={faCheckSquare} /> Suscribir</NavLink>
         </Nav> 
         </div>
+
         <Nav className="ml-auto subnav">
           <NavLink exact={true} to="/" className="nav-link " activeClassName="active">Home</NavLink>  
         <div className="subnav justify-content-center"> 

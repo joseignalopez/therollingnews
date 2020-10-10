@@ -9,16 +9,26 @@ import "./style/login.css";
 import { withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import Alert from "react-bootstrap/Alert";
+import { faDiceThree } from "@fortawesome/free-solid-svg-icons";
 
 const Registro = (props) => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
+  const [repContraña, setRepContraseña] = useState("");
   const [error, setError] = useState(false);
+  const [errorTxt, setErrorTxt] = useState(
+    "Se debe completar todos los campos"
+  );
   const [terminos, setTerminos] = useState(false);
   const [validarCorreo, setValidarCorreo] = useState(false);
   const [errorCorreo, setErrorCorreo] = useState(false);
+  const [localidad, setLocalidad] = useState("");
+  const [codPostal, setCodPostal] = useState(0);
+  const [telefono, setTelefono] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [usuario, setUsuario] = useState("");
 
   const aceptarTerminos = (e) => {
     setTerminos(e.target.value);
@@ -26,13 +36,25 @@ const Registro = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
+    const condicion =
       nombre === "" ||
       apellido === "" ||
-      (email === email) === true ||
+      (email === "") === true ||
       contraseña === "" ||
-      terminos === false
-    ) {
+      terminos === false ||
+      repContraña === "" ||
+      localidad === "" ||
+      codPostal === "" ||
+      telefono === "" ||
+      direccion === "" ||
+      usuario === "";
+    if (condicion) {
+      setError(true);
+      return;
+    }
+
+    if (contraseña !== repContraña) {
+      setErrorTxt("Las contraseñas NO coinciden");
       setError(true);
       return;
     }
@@ -40,20 +62,28 @@ const Registro = (props) => {
     const usuarioNuevo = {
       nombre,
       apellido,
-      email,
-      contraseña,
-      claseUsuario: "publico",
-      statusLogin: false,
+      direccion,
+      localidad,
+      codPostal,
+      telefono,
+      correo: email,
+      perfil: "publico",
+      usuario,
+      contrasenia: contraseña,
+      estado: false,
     };
-
+    console.log(usuarioNuevo);
     try {
-      const resultado = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(usuarioNuevo),
-      });
+      const resultado = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(usuarioNuevo),
+        }
+      );
       if (resultado.status === 201) {
         Swal.fire("Listo!", "Usuario Creado Correctamente", "success");
         props.history.push("/login/ingresar");
@@ -99,7 +129,7 @@ const Registro = (props) => {
                     <Form.Control
                       onChange={(e) => setNombre(e.target.value)}
                       type="text"
-                      placeholder="Ingrese su Nombre completo"
+                      placeholder="Ingrese su Nombre"
                       name="nombre"
                     />
                   </Form.Group>
@@ -110,6 +140,38 @@ const Registro = (props) => {
                       type="text"
                       placeholder="Ingrese su Apellido"
                       name="apellido"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicDireccion">
+                    <Form.Control
+                      onChange={(e) => setDireccion(e.target.value)}
+                      type="text"
+                      placeholder="Ingrese su Direccion"
+                      name="Direccion"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicLocalidad">
+                    <Form.Control
+                      onChange={(e) => setLocalidad(e.target.value)}
+                      type="text"
+                      placeholder="Ingrese su Localidad"
+                      name="localidad"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicCodPostal">
+                    <Form.Control
+                      onChange={(e) => setCodPostal(e.target.value)}
+                      type="number"
+                      placeholder="Ingrese su Codigo Postal"
+                      name="codPostal"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicTelefono">
+                    <Form.Control
+                      onChange={(e) => setTelefono(e.target.value)}
+                      type="text"
+                      placeholder="Ingrese su Telefono"
+                      name="telefono"
                     />
                   </Form.Group>
                   <Form.Group controlId="formBasicEmail">
@@ -129,12 +191,31 @@ const Registro = (props) => {
                       ) : null
                     }
                   </Form.Group>
+                  <Form.Group controlId="formBasicUsuario">
+                    <Form.Control
+                      onChange={(e) => setUsuario(e.target.value)}
+                      type="text"
+                      placeholder="Ingrese su Usuario"
+                      name="usuario"
+                    />
+                  </Form.Group>
                   <Form.Group className="my-4" controlId="formBasicPassword">
                     <Form.Control
                       onChange={(e) => setContraseña(e.target.value)}
                       type="password"
                       placeholder=" Ingrese una Contraseña"
                       name="password"
+                    />
+                  </Form.Group>
+                  <Form.Group
+                    className="my-4"
+                    controlId="formBasicRepeatPassword"
+                  >
+                    <Form.Control
+                      onChange={(e) => setRepContraseña(e.target.value)}
+                      type="password"
+                      placeholder=" Repita la Contraseña"
+                      name="repeatPassword"
                     />
                   </Form.Group>
                   <Form.Group controlId="formBasicCheckbox">
@@ -149,7 +230,7 @@ const Registro = (props) => {
                     // alerta en caso de no completar los datos al intentar el submit
                     error ? (
                       <Alert className="mt-4" variant={"danger"}>
-                        Se debe completar todos los campos
+                        {errorTxt}
                       </Alert>
                     ) : null
                   }
