@@ -1,10 +1,9 @@
-import React,{useState/* ,useEffect  */} from "react";
+import React,{useState ,useEffect  } from "react";
 import {Navbar, Nav,Form, Button }from "react-bootstrap";
-import { NavLink,Link} from "react-router-dom";
+import { NavLink,Link,useHistory} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faCaretDown,faCheckSquare, faSearch} from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
-import Busqueda from "../principal/Busqueda";
 import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 import warning from "react-bootstrap/Alert";
@@ -12,7 +11,12 @@ import Swal from "sweetalert2";
 import Dropdown from "react-bootstrap/Dropdown";
 import { render } from "@testing-library/react";
 
-
+const categorias = [
+  "Deportes",
+  "Actualidad",
+  "salud",
+  "covid19"
+]; 
 
 const Header = (props) => {
 /*   const nuevoSuscriptor = {
@@ -25,8 +29,25 @@ const Header = (props) => {
     emailSuscriptor
   }; 
  */
+const [seccionVisible,setSeccionVisible]= useState(false);
+const[searchTerm,setSearchTerm]= useState("");
+const [searchResultado,setSearchResultado]=useState([]);
+let history = useHistory();
 
-   const [seccionVisible,setSeccionVisible]= useState(false);
+const handleSubmit = (e)=> {
+  e.preventDefault();
+  history.push(`/Categoria/${searchTerm}`);
+};
+const handleChange = event =>{
+  setSearchTerm(event.target.value);
+
+};
+useEffect(()=> {
+  const resultado = categorias.filter(noticias=>
+    noticias.toLocaleLowerCase().includes(searchTerm));
+    setSearchResultado(resultado);
+},[searchTerm]);
+   
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
@@ -54,12 +75,18 @@ const Header = (props) => {
             {seccionVisible && <SeccionesHeader categorias = {props.categorias}></SeccionesHeader>}
            </div>
            </Nav>   
-        <Form className="">
+        <Form className=""  onSubmit={handleSubmit}>
         <div className="">
-          <input type="text"  placeholder=" Buscar " className="btn-sm"/>
-          <Button className=" azul btn-ms" type="submit">
+          <input type="text"  placeholder=" Buscar "  onChange={handleChange}  className="btn-sm"/>
+          <Button className=" azul btn-ms" type="submit" >
             <FontAwesomeIcon icon={faSearch} /> 
+
           </Button>
+          {/*     { <ul> 
+            {searchResultado.map(item=>(
+              <li>{item}</li>
+            ))} 
+          </ul> } */}
           </div>
         </Form>
       </Navbar.Collapse>
