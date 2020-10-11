@@ -53,7 +53,7 @@ const Footer = (props) => {
               <li>
                 <a
                   href="https://facebook.com"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   className="text-light mr-2"
                 >
                   <FontAwesomeIcon
@@ -65,7 +65,7 @@ const Footer = (props) => {
               <li>
                 <a
                   href="https://instagram.com"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   className="text-light mx-2"
                 >
                   <FontAwesomeIcon
@@ -77,7 +77,7 @@ const Footer = (props) => {
               <li>
                 <a
                   href="https://twitter.com"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   className="text-light mx-2"
                 >
                   <FontAwesomeIcon
@@ -89,7 +89,7 @@ const Footer = (props) => {
               <li>
                 <a
                   href="https://gmail.com"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   className="text-light ml-2"
                 >
                   <FontAwesomeIcon
