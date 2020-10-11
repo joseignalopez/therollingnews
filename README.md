@@ -24,28 +24,31 @@ The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ## Commands used to publish react files in github:
-https://github.com/rserrano20/therollingnews
+URL:https://github.com/rserrano20/therollingnews
 
+
+## Commands clone
+
+```javascript
+git clone URL
+npm install
+npm start
+```
 
 
 ##  Authors
-Mauricio G. Castro,
+- Mauricio G. Castro,
+- Jose Ignacio Lopez,
+- Luciano Chipolina, 
+- Nicolas Bertini Argañaraz,
+- Pablo Gabriel Cativa,
+- Carlos Rodriguez, 
+- Maria del Rosario Serrano.
 
-Jose Ignacio Lopez,
-
-Luciano Chipolina, 
-
-Nicolas Bertini Argañaraz,
-
-Pablo Gabriel Cativa,
-
-Carlos Rodriguez, 
-
-Maria del Rosario Serrano.
 
 
 ## Link web site
-plin plin....
+
 
 
 
