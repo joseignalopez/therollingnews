@@ -9,6 +9,13 @@ Created in front-end with Technology Reactjs,nodejs,express,mongoose,Bootstrap.
 And Back-end technology used Mongo db ,heroku, Postman.
 ## Install
 You need to install Visual Studio Code, then clone GitHub repository.
+## Commands clone
+
+```javascript
+git clone URL
+npm install
+npm start
+```
 In the project directory, you can run:
 
 In Front-end
@@ -26,14 +33,6 @@ You will also see any lint errors in the console.
 ## Commands used to publish react files in github:
 URL:https://github.com/rserrano20/therollingnews
 
-
-## Commands clone
-
-```javascript
-git clone URL
-npm install
-npm start
-```
 
 
 ##  Authors
