@@ -11,12 +11,7 @@ import Swal from "sweetalert2";
 import Dropdown from "react-bootstrap/Dropdown";
 import { render } from "@testing-library/react";
 
-const categorias = [
-  "Deportes",
-  "Actualidad",
-  "salud",
-  "covid19"
-]; 
+
 
 const Header = (props) => {
 /*   const nuevoSuscriptor = {
@@ -29,9 +24,10 @@ const Header = (props) => {
     emailSuscriptor
   }; 
  */
+
 const [seccionVisible,setSeccionVisible]= useState(false);
 const[searchTerm,setSearchTerm]= useState("");
-const [searchResultado,setSearchResultado]=useState([]);
+
 let history = useHistory();
 
 const handleSubmit = (e)=> {
@@ -42,11 +38,7 @@ const handleChange = event =>{
   setSearchTerm(event.target.value);
 
 };
-useEffect(()=> {
-  const resultado = categorias.filter(noticias=>
-    noticias.toLocaleLowerCase().includes(searchTerm));
-    setSearchResultado(resultado);
-},[searchTerm]);
+
    
 
   return (
@@ -81,13 +73,7 @@ useEffect(()=> {
           <input type="text"  placeholder=" Buscar "  onChange={handleChange}  className="btn-sm"/>
           <Button className=" azul btn-ms" type="submit" >
             <FontAwesomeIcon icon={faSearch} /> 
-
           </Button>
-          {/*     { <ul> 
-            {searchResultado.map(item=>(
-              <li>{item}</li>
-            ))} 
-          </ul> } */}
           </div>
         </Form>
       </Navbar.Collapse>

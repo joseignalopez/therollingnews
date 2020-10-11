@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, CardDeck } from "react-bootstrap";
+import { Button, Card} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "./style/publicidad.css";
@@ -17,7 +17,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/pablo.png"}
-                  alt="Photo Pablo Cativa"
+                  alt="foto Pablo Cativa"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
@@ -42,7 +42,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/luciano.png"}
-                  alt="Photo Luciano Chipolina"
+                  alt="Luciano Chipolina"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
@@ -67,7 +67,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/jose.png"}
-                  alt="Photo Jose Lopez"
+                  alt="Jose Lopez"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
@@ -117,7 +117,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/carlos.png"}
-                  alt="Photo Carlos Rodriguez"
+                  alt="Carlos Rodriguez"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
@@ -142,7 +142,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/nico.png"}
-                  alt="Photo Nicolas Bertini"
+                  alt=" Nicolas Bertini"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
@@ -167,7 +167,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/ro.png"}
-                  alt="Photo Rosario Serrano"
+                  alt=" Rosario Serrano"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
