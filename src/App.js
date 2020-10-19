@@ -23,10 +23,14 @@ import Error404  from './components/error404/Error404';
 import Nosotros  from './components/principal/Nosotros';
 import Category from "./components/categoria/Category";
 import Administrar from "./components/administracion/Administrar";
-
+ import ListadoUsuarios from "./components/administracion/usuarios/ListadoUsuarios";
+import EditarUsuarios from "./components/administracion/usuarios/EditarUsuarios"; 
+ 
 
 function App() {
 
+  const [listadoUsuarios, setListadoUsuarios] = useState([]);
+  const [recargarUsuarios, setRecargarUsuarios] = useState(true);   
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
@@ -37,18 +41,23 @@ function App() {
 
   useEffect(() => {
     // llamar a la api
-    if (recargarNoticias || recargarCategorias) {
+    if (recargarNoticias || recargarCategorias || recargarUsuarios) {
       consultarAPI();
       setRecargarNoticias(false);
       setRecargarCategorias(false);
-      
+     setRecargarUsuarios(false); 
+    
     }
     
-  }, [recargarNoticias, recargarCategorias]);
+  }, [recargarNoticias, recargarCategorias,recargarUsuarios]);
 
   const consultarAPI = async () => {
     try {
       // operación GET
+      const respuestaU = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario"
+      );
+       
       /* const respuesta = await fetch("http://localhost:4000/noticias"); */
       const respuesta = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew"
@@ -59,11 +68,14 @@ function App() {
       );
       const respuestaUsu= await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Sesion/Login"
-      )
+      );
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
       const resultadoUsu = await respuestaUsu.json();
+     const resultadoU = await respuestaU.json();   
+     
 
+     setListadoUsuarios(resultadoU);  
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
       setUsuarios(resultadoUsu)
@@ -186,6 +198,26 @@ function App() {
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>
         </Route>
+      <Route exact path="/administracion/Usuarios">
+          <ListadoUsuarios  usuario={listadoUsuarios}
+           setRecargarUsuarios={setRecargarUsuarios} ></ListadoUsuarios>
+        </Route>   
+       <Route
+          exact
+          path="/Administracion/Usuario/:id"
+          render={(props) => {
+            const idUsuario = props.match.params.id;
+            const usuarioSeleccionado = listadoUsuarios.find(
+              (usuario) => usuario._id === idUsuario
+            );
+            return (
+              <EditarUsuarios
+                usuario={usuarioSeleccionado}
+                setRecargarUsuarios={setRecargarUsuarios}
+              ></EditarUsuarios>
+            );
+          }}
+        ></Route> 
         <Route exact path="/administracion/Administrar">
           <Administrar></Administrar>
         </Route>

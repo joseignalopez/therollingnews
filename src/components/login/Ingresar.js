@@ -54,7 +54,7 @@ const Ingresar = (props) => {
       <div className="fixed-bg">
         <img
           src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"
-          className="bglogin"
+          className="bglogin" alt="background login"
         ></img>
       </div>
       <div className="container">

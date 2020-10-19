@@ -10,14 +10,14 @@ const Nosotros = () => {
   return (
     <div className="container ">
       <h1 className="disply-4 ">Acerca de Nosotros </h1>
-      <section className="container d-flex justify-content-center ">
+      <section className="containernos d-flex justify-content-center ">
         <div className="row d-flex justify-content-center mt-3">
-          <div className="col-lg-3 col-md-6 text-center mb-3">
+        <div className="col-lg-3 col-md-6 text-center mb-3">
             <Card className="card bg-light text-center">
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/pablo.png"}
-                  alt="foto Pablo Cativa"
+                  alt="Photo Cativa Pablo"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
@@ -37,7 +37,8 @@ const Nosotros = () => {
               </Card.Body>
             </Card>
           </div>
-          <div className="col-lg-3 col-md-6 text-center mb-3">
+        
+           <div className="col-lg-3 col-md-6 text-center mb-3">
             <Card className="card bg-light text-center">
               <div>
                 <img
@@ -180,13 +181,12 @@ const Nosotros = () => {
                   variant="primary"
                   className="azul rounded-circle"
                   type="button"
-                  href="/error404/Error404" 
-                  target="_blank"> 
+                  href="/error404/Error404"> 
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Button>
               </Card.Body>
             </Card>
-          </div>
+          </div> 
         </div>
       </section>
     </div>

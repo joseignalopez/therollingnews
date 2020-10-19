@@ -34,7 +34,7 @@ const Administrar = () => {
           </Button></div>
           <br/>
           <div className="col-sm-12  text-center ">
-          <Button  variant="primary" size="lg" type='button' className="azul" >
+          <Button  variant="primary" size="lg" type='button' className="azul" href="/administracion/Usuarios" >
             <FontAwesomeIcon icon={faUserCog} />{" "}
             Administrar Usuarios
           </Button></div>
