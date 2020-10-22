@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import "./style/admin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,7 +12,7 @@ import { Link } from "react-router-dom";
 const Administrar = () => {
   return (
     <div className="container bg-dark-transparent d-flex justify-content-center py-3 mb-2">
-      <div className="row shadow text-center pb-4">
+      <div className="row shadow text-center  ">
         <div className="col-sm-12  text-center mb-3">
           <h3 className="text-center py-3 ">Bienvenido Administrador!</h3>
         </div>
@@ -58,7 +57,12 @@ const Administrar = () => {
         </div>
         <br />
         <div className="col-sm-12  text-center ">
-          <Link variant="primary" size="lg" className="btn text-light button azul m-1 py-1">
+          <Link
+            variant="primary"
+            size="lg"
+            className="btn text-light button azul m-1 py-1 mb-4"
+            to="/administracion/Usuarios"
+          >
             <FontAwesomeIcon icon={faUserCog} /> Administrar Usuarios
           </Link>
         </div>

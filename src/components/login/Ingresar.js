@@ -7,7 +7,6 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./style/login.css";
 import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
-import Alert from "react-bootstrap/Alert";
 
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
@@ -34,9 +33,9 @@ const Ingresar = (props) => {
           email === usuarioBuscado.correo &&
           password === usuarioBuscado.contrasenia
         ) {
+          props.history.push("/administracion/Administrar");
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
-          props.history.push('/administracion/Administrar');
         }
       } else {
         Swal.fire({
@@ -50,11 +49,12 @@ const Ingresar = (props) => {
   };
 
   return (
-    <div className="py-5">
+    <div className="py-2 pb-5">
       <div className="fixed-bg">
         <img
           src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"
           className="bglogin"
+          alt="background login"
         ></img>
       </div>
       <div className="container">
@@ -88,9 +88,9 @@ const Ingresar = (props) => {
                   >
                     Ingresar
                   </Button>
-                  <Card.Link className="text-secondary" href="/error404">
+                  <Link className="text-secondary" to="error404/Error404">
                     ¿Necesitás ayuda?
-                  </Card.Link>
+                  </Link>
                   <Button
                     className="my-4 text-white rojo d-flex align-content-center justify-content-center"
                     size="lg"
@@ -107,14 +107,10 @@ const Ingresar = (props) => {
               </Card.Text>
               <hr></hr>
               <div className="mt-4">
-                <Card.Link className="text-secondary" href="/error404">
-                  ¿No tenés una cuenta?
-                </Card.Link>
+                <p className="text-secondary">¿No tenés una cuenta?</p>
               </div>
               <div className="mb-4">
-                <Card.Link className="text-danger" href="/login/registro">
-                  Registrarme ahora
-                </Card.Link>
+                <Link className="text-danger" to="/login/registro">Registrarme ahora</Link>
               </div>
             </Card.Body>
           </Card>

@@ -8,7 +8,7 @@ const Precio = () => {
 
   useEffect(() => {
     consultarDolar();
-    setInterval(consultarDolar, 900000); //cada media hora
+    setInterval(consultarDolar, 900000);
   }, []);
 
   const consultarDolar = async () => {
@@ -16,7 +16,6 @@ const Precio = () => {
     const data = await respuesta.json();
     setprecio(data);
   };
-  // col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo
   return (
     <div className="d-flex container-fluid justify-content-center shadow amarillo text-white">
       <section className="row w-75 d-flex justify-content-around">

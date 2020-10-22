@@ -1,6 +1,5 @@
 import React from "react";
 import NewContent from "./NewContent";
-import NewHeader from "./NewHeader";
 import NewRelated from "./related/NewRelated";
 import NewTop from "./topNew/NewTop";
 import "./style/newDetail.css";
@@ -40,7 +39,7 @@ const NewDetail = (props) => {
               </div>
             </div>
             <div className="bk-naranja mt-3">
-              <h1></h1>
+              <h1> </h1>
             </div>
           </div>
         }

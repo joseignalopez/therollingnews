@@ -16,7 +16,6 @@ const ListadoCategorias = (props) => {
       </div>
       <ListGroup>
         {
-          // dibujar filas de la lista
           props.categorias.map((categoria) => (
             <ElementoListaCat
               key={categoria._id}

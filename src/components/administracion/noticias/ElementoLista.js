@@ -20,7 +20,6 @@ const ElementoLista = (props) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.value) {
-        // aquí eliminamos el producto
         try {
           const respuesta = await fetch(
             `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${id}`,
