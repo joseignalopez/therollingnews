@@ -36,17 +36,14 @@ const EditarNoticia = (props) => {
         resumenRef.current.value.trim() === "" ||
         noticiaRef.current.value.trim() === "" ||
         autorRef.current.value.trim() === "" ||
-        /* fechaRef.current.value.trim() === "" || */
         _categoria === ""
       ) {
-        // mostrar alert de error
         setError(true);
         return;
       }
       setError(false);
 
       const fecha = new Date()
-    //   crear objeto a guardar en la DB
     const noticiaModificada = {
         titulo: tituloRef.current.value,
         url: imagenCabeceraRef.current.value,
@@ -61,7 +58,6 @@ const EditarNoticia = (props) => {
     
     try {
         const respuesta = await fetch(
-          /* `http://localhost:4000/noticias/${props.noticia.id}`, */
           `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia._id}`,
           {
             method: "PUT",
@@ -141,15 +137,6 @@ const EditarNoticia = (props) => {
             defaultValue={props.noticia.autor}
           />
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label>Fecha</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Fecha de la nota en formato dd/mm/aa"
-            ref={fechaRef}
-            defaultValue={props.noticia.fecha}
-          />
-        </Form.Group> */}
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
         {
@@ -169,7 +156,6 @@ const EditarNoticia = (props) => {
         </div>
 
         {
-          // alerta en caso de no completar los datos al intentar el submit
           error ? (
             <Alert className="mt-4" variant={"danger"}>
               Debes completar todos los campos

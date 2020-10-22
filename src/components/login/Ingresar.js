@@ -5,10 +5,8 @@ import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./style/login.css";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
-import Alert from "react-bootstrap/Alert";
-
 
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
@@ -34,12 +32,10 @@ const Ingresar = (props) => {
         if (
           email === usuarioBuscado.correo &&
           password === usuarioBuscado.contrasenia
-
         ) {
-          props.history.push("/Administracion/Noticias/")
+          props.history.push("/Administracion/Noticias/");
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
-         
         }
       } else {
         Swal.fire({
@@ -58,6 +54,7 @@ const Ingresar = (props) => {
         <img
           src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"
           className="bglogin"
+          alt="background login"
         ></img>
       </div>
       <div className="container">

@@ -23,7 +23,6 @@ const ListaNoticias = (props) => {
         </thead>
         <tbody>
           {
-            // dibujar la filas de la tabla de noticias
             props.noticias.map((noticia) => (
               <ElementoLista
                 key={noticia._id}

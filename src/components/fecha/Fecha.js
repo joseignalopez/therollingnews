@@ -13,12 +13,11 @@ const Fecha = () => {
   }, []);
 
   return (
-  
-<Card>
-<Card.Body>
-<h5>{fechaje}</h5>
-</Card.Body>
-</Card>
+    <Card>
+      <Card.Body>
+        <h5>{fechaje}</h5>
+      </Card.Body>
+    </Card>
   );
 };
 
