@@ -6,7 +6,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 const Error404 = () => {
   return (
-    <div className="container d-flex justify-content-center  my-3">
+    <div className="container d-flex justify-content-center  my-5">
       <Card className="bg-dark text-white">
         <Card.Img
           src={process.env.PUBLIC_URL + "/error.png"}
