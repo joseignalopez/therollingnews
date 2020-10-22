@@ -2,7 +2,6 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-/* import { faCheckCircle } from "@fortawesome/free-regular-svg-icons"; */
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
@@ -37,13 +36,13 @@ const ElementoListaCat = (props) => {
             Swal.fire("Listo!", "La categoría ha sido eliminada", "success");
           }
         } catch (error) {
-          console.log(error);
           Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Ocurrió un error!",
             footer: "<p>No se pudo eliminar la categoría</p>",
           });
+          console.log(error);
         }
       }
     });

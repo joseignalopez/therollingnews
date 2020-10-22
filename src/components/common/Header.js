@@ -1,11 +1,10 @@
-import React, { useEffect, useState /* ,useEffect */ } from "react";
-import { Navbar, Nav, Button, Col, Row } from "react-bootstrap";
-import { Link, NavLink, Route, Switch } from "react-router-dom";
+import React, { useState } from "react";
+import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faCaretDown,
-  faCheckSquare,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
@@ -13,147 +12,91 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
-import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import { render } from "@testing-library/react";
 
 const Header = (props) => {
   const [seccionVisible, setSeccionVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [nombreSuscriptor, setnombreSuscriptor] = useState("");
-  const [apellidoSuscriptor, setapellidoSuscriptor] = useState("");
-  const [direccionSuscriptor, setdireccionSuscriptor] = useState("");
-  const [localidadSuscriptor, setlocalidadSuscriptor] = useState("");
-  const [codigoPostalSuscriptor, setcodigoPostalSuscriptor] = useState("");
-  const [telefonoSuscriptor, settelefonoSuscriptor] = useState("");
-  const [emailSuscriptor, setemailSuscriptor] = useState("");
+  const [nombre, setnombreSuscriptor] = useState("");
+  const [apellido, setapellidoSuscriptor] = useState("");
+  const [direccion, setdireccionSuscriptor] = useState("");
+  const [localidad, setlocalidadSuscriptor] = useState("");
+  const [codPostal, setcodigoPostalSuscriptor] = useState("");
+  const [telefono, settelefonoSuscriptor] = useState("");
+  const [correo, setemailSuscriptor] = useState("");
   const [error, setError] = useState(false);
 
-  console.log(props.sesion);
-
-  /*   const [sesion, setSesion] = useState({ usuario: "Ingresar" }); */
-
-  /*  if(props.sesion !== undefined){
-    setSesion(props.sesion)
-  } */
-  /*  const renderSwitch=(param) =>{
-    console.log(param)
-    switch(param) {
-      case "Ingresar": 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </Dropdown.Menu>
-        break
-        
-     
-      default:
-        return "Ingresar";
-    }
-  } */
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      nombreSuscriptor.trim() === "" ||
-      apellidoSuscriptor.trim() === "" ||
-      direccionSuscriptor.trim() === "" ||
-      localidadSuscriptor.trim() === "" ||
-      codigoPostalSuscriptor.trim() === "" ||
-      telefonoSuscriptor.trim() === "" ||
-      emailSuscriptor.trim() === ""
-    ) {
-      setError(true);
-      return;
-    }
-    setError(false);
-
     const nuevoSuscriptor = {
-      nombreSuscriptor,
-      apellidoSuscriptor,
-      direccionSuscriptor,
-      localidadSuscriptor,
-      codigoPostalSuscriptor,
-      telefonoSuscriptor,
-      emailSuscriptor,
+      nombre,
+      apellido,
+      direccion,
+      localidad,
+      codPostal,
+      telefono,
+      correo,
     };
 
-    try {
-      const cabecera = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuevoSuscriptor),
-      };
+    const requestInfo = {
+      method: "POST",
+      body: JSON.stringify(nuevoSuscriptor),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    };
 
-      const resultado = await fetch(
-        "https://the-rolling-new.herokuapp.com/api/theRollingNew/",
-        cabecera
-      );
-
-      if (resultado.status === 201) {
-        Swal.fire(
-          "Datos enviados correctamente",
-          "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
-          "success"
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    fetch(
+      "https://the-rolling-new.herokuapp.com/api/theRollingNew/Suscripcion",
+      requestInfo
+    )
+      .then((res) => res.json())
+      .then((resp) => {
+        if (resp.mensaje === "Suscripcion almacenada con exito") {
+          Swal.fire(
+            "Datos enviados correctamente",
+            "Próximamente nos pondremos en contacto con vos para terminar tu suscripción",
+            "success"
+          );
+        }
+      })
+      .catch(console.warn);
+  };
+  let history = useHistory();
+  const handleSubmitSearch = (e) => {
+    e.preventDefault();
+    history.push(`/Categoria/${searchTerm}`);
+  };
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
       <Navbar.Brand>
-        <Link to="/">
+        <NavLink to="/">
           <img
             src={process.env.PUBLIC_URL + "/logo.png"}
             alt="logo"
             className="logo"
           />
-        </Link>
+        </NavLink>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="subnav ">
           <Nav className="mr-auto">
-            {props.sesion.usuario !== "Ingresar" ? (
-              <Dropdown>
-                <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white">
-                {props.sesion.usuario}
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item>
-                    <Link to="/administracion/Administrar">Administración</Link>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            ) : (
-              <NavLink
-                exact={true}
-                to="/login/ingresar"
-                className="nav-link mr-3"
-                activeClassName="active"
-              >
-                {" "}
-                <FontAwesomeIcon key="15" icon={faUser} />{" "}
-                {props.sesion.usuario}
-              </NavLink>
-            )}
-
+            <NavLink
+              exact={true}
+              to="/login/ingresar"
+              className="nav-link "
+              activeClassName="active"
+            >
+              {" "}
+              <FontAwesomeIcon icon={faUser} /> Ingresar
+            </NavLink>
             <Button
               className="nav-Link warning text-white"
               onClick={handleShow}
@@ -163,25 +106,25 @@ const Header = (props) => {
             </Button>
           </Nav>
         </div>
-
         <Nav className="ml-auto subnav">
-          <NavLink
+          <Link
             exact={true}
             to="/"
             className="nav-link "
             activeClassName="active"
           >
             Home
-          </NavLink>
-          <div className="subnav">
-            <Button
-              className="btn-nav"
+          </Link>
+          <div className="subnav justify-content-center">
+            <Link
+              exact={true}
+              className="nav-link "
               activeClassName="active"
               onClick={() => setSeccionVisible(!seccionVisible)}
             >
               Secciones
-              <FontAwesomeIcon className="ml-1" icon={faCaretDown} />
-            </Button>
+              <FontAwesomeIcon icon={faCaretDown} />
+            </Link>
             {seccionVisible && (
               <SeccionesHeader
                 setSeccionVisible={setSeccionVisible}
@@ -191,23 +134,20 @@ const Header = (props) => {
             )}
           </div>
         </Nav>
-        <Form inline>
-          <div>
-            <Form.Control
+        <Form className="" onSubmit={handleSubmitSearch}>
+          <div className="">
+            <input
               type="text"
               placeholder=" Buscar "
-              id="icon"
+              onChange={handleChange}
               className="btn-sm"
             />
-            <Button className=" btn-nav btn-ms" /* onChange={handleChange} */>
+            <Button className=" azul btn-ms" type="submit">
               <FontAwesomeIcon icon={faSearch} />
             </Button>
-            {/* <ul> 
-            {searchResultado.map(item=>(
-              <li>{item}</li>
-              ))} 
-            </ul> */}
           </div>
+        </Form>
+        <Form className="">
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title classname="text-center">Suscribite</Modal.Title>
@@ -265,16 +205,15 @@ const Header = (props) => {
                       Email
                     </Form.Label>
                     <Form.Control
-                      type="email"
-                      placeholder="Ingrese una direccion de Email"
-                      onChange={(e) => setemailSuscriptor(e.target.value)}
+                      placeholder="Nombre"
+                      onChange={(e) => setnombreSuscriptor(e.target.value)}
                     />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check
-                      type="checkbox"
-                      label="Estoy de acuerdo con los terminos y condiciones"
-                    />
+                    <Col>
+                      <Form.Control
+                        placeholder="Apellido"
+                        onChange={(e) => setapellidoSuscriptor(e.target.value)}
+                      />
+                    </Col>
                   </Form.Group>
                 </Form>
               </div>

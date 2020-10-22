@@ -13,26 +13,21 @@ const AgregarNoticia = (props) => {
   const [noticia, setNoticia] = useState("");
   const [categoria, setCategoria] = useState("");
   const [autor, setAutor] = useState("");
-  const [fecha, setFecha] = useState("");
   const [error, setError] = useState(false);
-
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // validar la carga de la noticia
     if (
       titulo.trim() === "" ||
       imagenCabecera.trim() === "" ||
       resumen.trim() === "" ||
       noticia.trim() === "" ||
       autor.trim() === "" ||
-      /* fecha.trim() === "" || */
       categoria === ""
     ) {
-      // mostrar alert de error
       setError(true);
       return;
     }
@@ -40,7 +35,6 @@ const AgregarNoticia = (props) => {
 
     const fecha = new Date();
     
-    // crear el objeto a enviar
     const noticiaNueva = {
       titulo,
       url: imagenCabecera,
@@ -56,7 +50,6 @@ const AgregarNoticia = (props) => {
 
     try {
       const resultado = await fetch(
-        /* "http://localhost:4000/noticias", */
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia",
         {
           method: "POST",
@@ -70,6 +63,7 @@ const AgregarNoticia = (props) => {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
         props.setRecargarNoticias(true);
         props.history.push("/Administracion/Noticias");
+        
       }
     } catch (error) {
       Swal.fire({
@@ -129,14 +123,6 @@ const AgregarNoticia = (props) => {
             onChange={(e) => setAutor(e.target.value)}
           />
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label>Fecha</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Fecha de la nota en formato dd/mm/aa"
-            onChange={(e) => setFecha(e.target.value)}
-          />
-        </Form.Group> */}
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
           {props.categorias.map((categoria) => (
@@ -152,9 +138,7 @@ const AgregarNoticia = (props) => {
             />
           ))}
         </div>
-
         {
-          // alerta en caso de no completar los datos al intentar el submit
           error ? (
             <Alert className="mt-4" variant={"danger"}>
               Se debe completar todos los campos

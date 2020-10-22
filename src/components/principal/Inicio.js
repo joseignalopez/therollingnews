@@ -5,7 +5,6 @@ import BannerCovid from "./BannerCovid";
 import Publicidad from "./Publicidad";
 
 const Inicio = (props) => {
-
   return (
     <div className="container">
       <section className="row my-5">

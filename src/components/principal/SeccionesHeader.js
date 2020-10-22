@@ -3,7 +3,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 
 const SeccionesHeader = (props) => {
-  console.log(props.categorias);
   return (
     <div className="subnav-content d-flex justify-content-center">
       <ListGroup horizontal className="d-flex flex-lg-row justify-content-between">

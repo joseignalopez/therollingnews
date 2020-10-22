@@ -4,9 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FormControl } from "react-bootstrap";
 import "./style/login.css";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import Alert from "react-bootstrap/Alert";
 import { faDiceThree } from "@fortawesome/free-solid-svg-icons";
@@ -72,7 +71,6 @@ const Registro = (props) => {
       contrasenia: contraseña,
       estado: false,
     };
-    console.log(usuarioNuevo);
     try {
       const resultado = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario",
@@ -111,7 +109,7 @@ const Registro = (props) => {
   };
 
   return (
-    <div className="py-5">
+    <div className="py-2">
       <div className="fixed-bg">
         <img
           src={process.env.PUBLIC_URL + "/bglogin.jpg"}
@@ -182,14 +180,11 @@ const Registro = (props) => {
                       placeholder="Ingrese un Email"
                       name="email"
                     />
-                    {
-                      // alerta en caso de no completar los datos al intentar el submit
-                      errorCorreo ? (
-                        <Alert className="mt-4" variant={"danger"}>
-                          Debe ingresar una dirección de Correo Válida.
-                        </Alert>
-                      ) : null
-                    }
+                    {errorCorreo ? (
+                      <Alert className="mt-4" variant={"danger"}>
+                        Debe ingresar una dirección de Correo Válida.
+                      </Alert>
+                    ) : null}
                   </Form.Group>
                   <Form.Group controlId="formBasicUsuario">
                     <Form.Control
@@ -226,14 +221,11 @@ const Registro = (props) => {
                       label="Estoy de Acuerdo con los Términos y Condiciones"
                     />
                   </Form.Group>
-                  {
-                    // alerta en caso de no completar los datos al intentar el submit
-                    error ? (
-                      <Alert className="mt-4" variant={"danger"}>
-                        {errorTxt}
-                      </Alert>
-                    ) : null
-                  }
+                  {error ? (
+                    <Alert className="mt-4" variant={"danger"}>
+                      {errorTxt}
+                    </Alert>
+                  ) : null}
                   <Button
                     className="mb-3 text-white amarillo"
                     type="submit"
@@ -242,9 +234,9 @@ const Registro = (props) => {
                   >
                     Registrarme
                   </Button>
-                  <Card.Link className="text-secondary" href="#">
+                  <Link className="text-secondary" to="error404/Error404">
                     ¿Necesitás ayuda?
-                  </Card.Link>
+                  </Link>
                   <Button
                     className="my-4 text-white rojo d-flex align-content-center justify-content-center"
                     type="submit"
@@ -262,14 +254,12 @@ const Registro = (props) => {
               </Card.Text>
               <hr></hr>
               <div className="mt-4">
-                <Card.Link className="text-secondary" href="#">
-                  ¿Ya tenés una cuenta?
-                </Card.Link>
+                <p className="text-secondary">¿Ya tenés una cuenta?</p>
               </div>
               <div className="mb-4">
-                <Card.Link className="text-danger" href="#">
+                <Link className="text-danger" to="/login/ingresar">
                   Ingresar
-                </Card.Link>
+                </Link>
               </div>
             </Card.Body>
           </Card>

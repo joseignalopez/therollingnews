@@ -1,18 +1,17 @@
-import React from 'react';
+import React from "react";
 import { Card } from "react-bootstrap";
 import { Link, Route, Switch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
-
-
 const Error404 = () => {
-    return (
-        <div className="container d-flex justify-content-center  my-3">
+  return (
+    <div className="container d-flex justify-content-center  my-5">
       <Card className="bg-dark text-white">
         <Card.Img
           src={process.env.PUBLIC_URL + "/error.png"}
-          alt="pagina error"/>
+          alt="pagina error"
+        />
         <Card.ImgOverlay>
           <Card.Text>
             <Link type="button" variant="primary" className="azul text-white p-3 rounded" to="/">
@@ -20,8 +19,9 @@ const Error404 = () => {
             </Link>
           </Card.Text>
         </Card.ImgOverlay>
-      </Card></div>
-    );
+      </Card>
+    </div>
+  );
 };
 
 export default Error404;

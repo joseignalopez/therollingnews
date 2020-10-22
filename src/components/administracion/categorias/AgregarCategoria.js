@@ -26,7 +26,6 @@ const AgregarCategoria = (props) => {
 
   try {
     const resultado = await fetch(
-        /* "http://localhost:4000/categorias", */
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria",
         {
           method: "POST",
@@ -40,6 +39,7 @@ const AgregarCategoria = (props) => {
         Swal.fire("Listo!", "La categoría se cargó correctamente", "success");
         props.setRecargarCategorias(true);
         props.history.push("/Administracion/Categorias");
+      
       }
       
   } catch (error) {

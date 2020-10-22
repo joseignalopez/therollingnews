@@ -30,7 +30,6 @@ const EditarCategoria = (props) => {
 
     try {
         const respuesta = await fetch(
-            /* `http://localhost:4000/categorias/${props.categoria.id}`, */
             `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,
             {
               method: "PUT",
@@ -81,7 +80,6 @@ const EditarCategoria = (props) => {
           />
         </Form.Group>
         {
-          // alerta en caso de no completar los datos al intentar el submit
           error ? (
             <Alert className="mt-4" variant={"danger"}>
               Se debe completar todos los campos

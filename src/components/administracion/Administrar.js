@@ -12,25 +12,27 @@ import {
 const Administrar = () => {
   return (
     <div className="container bg-dark-transparent d-flex justify-content-center py-3 mb-2">
-      <div className="row shadow text-center pb-4">
+      <div className="row shadow text-center  ">
         <div className="col-sm-12  text-center mb-3">
-          <h3 className="text-center py-3 ">Bienvenido Administrador!</h3>
+          <h3 className="text-center py-3 ">Bienvenidos Administrador!</h3>
         </div>
         <hr />
-        <div className="col-md-12 col-sm-12 mb-2 text-center ">
+        <div className="col-md-12 col-sm-12  mb-2 text-center ">
           <Button
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/admin/listanoticias"
+            className=" azul"
+            type="button"
+            href="/administracion/Noticias"
           >
             <FontAwesomeIcon icon={faNewspaper} /> Administrar Noticias
           </Button>{" "}
           <Button
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/admin/agregarnoticia"
+            className="azul"
+            type="button"
+            href="/administracion/Noticia"
           >
             <FontAwesomeIcon icon={faPlusSquare} /> Agregar Noticia
           </Button>
@@ -41,23 +43,31 @@ const Administrar = () => {
           <Button
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/Administracion/Categorias/"
+            className=" azul"
+            type="button"
+            href="/administracion/Categorias"
           >
             <FontAwesomeIcon icon={faList} /> Administrar Categorias
           </Button>{" "}
           <Button
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/admin/agregarcategoria"
+            type="button"
+            className="azul"
+            href="/administracion/Categoria"
           >
             <FontAwesomeIcon icon={faPlusSquare} /> Agregar categoria
           </Button>
         </div>
         <br />
         <div className="col-sm-12  text-center ">
-          <Button variant="primary" size="lg" className="button azul w-auto m-1 py-1">
+          <Button
+            variant="primary"
+            size="lg"
+            type="button"
+            className="azul"
+            href="/administracion/Usuarios"
+          >
             <FontAwesomeIcon icon={faUserCog} /> Administrar Usuarios
           </Button>
         </div>
