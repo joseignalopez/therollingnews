@@ -8,6 +8,7 @@ import {
   faUserCog,
   faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Administrar = () => {
   return (
@@ -18,48 +19,48 @@ const Administrar = () => {
         </div>
         <hr />
         <div className="col-md-12 col-sm-12 mb-2 text-center ">
-          <Button
+          <Link
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/admin/listanoticias"
+            className="btn text-light button azul m-1 py-1"
+            to="/Administracion/Noticias"
           >
             <FontAwesomeIcon icon={faNewspaper} /> Administrar Noticias
-          </Button>{" "}
-          <Button
+          </Link>{" "}
+          <Link
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/admin/agregarnoticia"
+            className="btn text-light button azul m-1 py-1"
+            to="/Administracion/Noticia"
           >
             <FontAwesomeIcon icon={faPlusSquare} /> Agregar Noticia
-          </Button>
+          </Link>
         </div>
 
         <br />
         <div className="col-md-12 col-sm-12 text-center mb-2">
-          <Button
+          <Link
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/Administracion/Categorias/"
+            className="btn text-light button azul m-1 py-1"
+            to="/Administracion/Categorias/"
           >
             <FontAwesomeIcon icon={faList} /> Administrar Categorias
-          </Button>{" "}
-          <Button
+          </Link>{" "}
+          <Link
             variant="primary"
             size="lg"
-            className="button azul w-auto m-1 py-1"
-            href="/admin/agregarcategoria"
+            className="btn text-light button azul m-1 py-1"
+            to="/Administracion/Categoria"
           >
             <FontAwesomeIcon icon={faPlusSquare} /> Agregar categoria
-          </Button>
+          </Link>
         </div>
         <br />
         <div className="col-sm-12  text-center ">
-          <Button variant="primary" size="lg" className="button azul w-auto m-1 py-1">
+          <Link variant="primary" size="lg" className="btn text-light button azul m-1 py-1">
             <FontAwesomeIcon icon={faUserCog} /> Administrar Usuarios
-          </Button>
+          </Link>
         </div>
       </div>
     </div>

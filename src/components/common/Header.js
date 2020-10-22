@@ -32,8 +32,6 @@ const Header = (props) => {
   const [emailSuscriptor, setemailSuscriptor] = useState("");
   const [error, setError] = useState(false);
 
-  console.log(props.sesion);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();

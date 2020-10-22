@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
 import Tiempo from "../Apiclima/Tiempo";
 import "./Moneda.css";
 
