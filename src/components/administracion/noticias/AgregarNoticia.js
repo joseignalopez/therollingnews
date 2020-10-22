@@ -13,7 +13,6 @@ const AgregarNoticia = (props) => {
   const [noticia, setNoticia] = useState("");
   const [categoria, setCategoria] = useState("");
   const [autor, setAutor] = useState("");
-  const [fecha, setFecha] = useState("");
   const [error, setError] = useState(false);
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);

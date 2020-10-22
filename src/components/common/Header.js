@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -15,6 +15,7 @@ import Swal from "sweetalert2";
 
 const Header = (props) => {
   const [seccionVisible, setSeccionVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -63,6 +64,14 @@ const Header = (props) => {
       })
       .catch(console.warn);
   };
+  let history = useHistory();
+  const handleSubmitSearch = (e)=> {
+    e.preventDefault();
+    history.push(`/Categoria/${searchTerm}`);
+  };
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
@@ -98,41 +107,38 @@ const Header = (props) => {
           </Nav>
         </div>
         <Nav className="ml-auto subnav">
-          <NavLink
+          <Link
             exact={true}
             to="/"
             className="nav-link "
             activeClassName="active"
           >
             Home
-          </NavLink>
+          </Link>
           <div className="subnav justify-content-center">
-            <NavLink
+            <Link
               exact={true}
-              to=""
               className="nav-link "
               activeClassName="active"
               onClick={() => setSeccionVisible(!seccionVisible)}
             >
               Secciones
               <FontAwesomeIcon icon={faCaretDown} />
-            </NavLink>
+            </Link>
             {seccionVisible && (
               <SeccionesHeader categorias={props.categorias}></SeccionesHeader>
             )}
           </div>
         </Nav>
+        <Form className=""  onSubmit={handleSubmitSearch}>
+        <div className="">
+          <input type="text"  placeholder=" Buscar "  onChange={handleChange}  className="btn-sm"/>
+          <Button className=" azul btn-ms" type="submit" >
+            <FontAwesomeIcon icon={faSearch} /> 
+          </Button>
+          </div>
+        </Form>
         <Form className="">
-          <div className="">
-            <input
-              type="text"
-              placeholder=" Buscar "
-              id="icon"
-              className="btn-sm "
-            />
-            <Button className=" azul btn-ms" /* onChange={handleChange} */>
-              <FontAwesomeIcon icon={faSearch} />
-            </Button>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title classname="text-center">Suscribite</Modal.Title>
@@ -227,7 +233,6 @@ const Header = (props) => {
                 </Button>
               </Modal.Footer>
             </Modal>
-          </div>
         </Form>
       </Navbar.Collapse>
     </Navbar>

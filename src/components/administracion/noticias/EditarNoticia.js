@@ -15,10 +15,7 @@ const EditarNoticia = (props) => {
   const resumenRef = useRef("");
   const noticiaRef = useRef("");
   const autorRef = useRef("");
-  const fechaRef = useRef("");
   const destacado = props.noticia.destacado;
-
-  const fec = new Date();
   
 
   const seleccionarCategoria = (e) => {
