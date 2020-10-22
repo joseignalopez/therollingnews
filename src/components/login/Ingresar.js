@@ -33,7 +33,7 @@ const Ingresar = (props) => {
           email === usuarioBuscado.correo &&
           password === usuarioBuscado.contrasenia
         ) {
-          props.history.push("/Administracion/Noticias/");
+          props.history.push("/Administracion/administrar");
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
         }
