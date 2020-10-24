@@ -65,12 +65,15 @@ const Header = (props) => {
       .catch(console.warn);
   };
   let history = useHistory();
+ 
   const handleSubmitSearch = (e)=> {
     e.preventDefault();
     history.push(`/Categoria/${searchTerm}`);
   };
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value); 
+    
+    
   };
 
   return (
