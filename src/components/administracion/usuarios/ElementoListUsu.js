@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const ElementoListUsu = (props) => {
   const eliminarUsuario = (id) => {
-     console.log("este id es"+id,props.usuario.usuario); 
+    
     Swal.fire({
       title: "Estás seguro?",
       text: `El usuario ${props.usuario.usuario} no se podrá recuperar.`,
@@ -24,7 +24,7 @@ const ElementoListUsu = (props) => {
         try {
           const respuestaU = await fetch(
             `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario/${id}`,
-         /*   `http://localhost:4000/api/theRollingNew/Administracion/Usuario/${id}`, */
+        
             {
               method: "DELETE",
               headers: {
