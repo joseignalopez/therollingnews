@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faCaretDown,
-  faSearch,
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 import Modal from "react-bootstrap/Modal";
@@ -163,7 +163,7 @@ const Header = (props) => {
           <div className="">
             <input
               type="text"
-              placeholder=" Buscar "
+              placeholder=" Buscar por Secciones"
               onChange={handleChange} value={searchTerm}
               className="btn-sm"
             />
