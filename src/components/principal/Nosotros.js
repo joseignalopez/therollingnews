@@ -14,8 +14,7 @@ const Nosotros = () => {
             <Card className="card bg-light text-center">
               <div>
                 <img
-                  src={process.env.PUBLIC_URL + "/foto/pablo.png"}
-                  alt="Photo Cativa Pablo"
+                  src={process.env.PUBLIC_URL + "/foto/pablo.png"}   
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"

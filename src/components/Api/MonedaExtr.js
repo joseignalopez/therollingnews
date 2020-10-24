@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
 import Tiempo from "../Apiclima/Tiempo";
 import "./Moneda.css";
 
@@ -18,7 +17,7 @@ const Precio = () => {
     setprecio(data);
   };
   return (
-    <div className="d-flex container-fluid justify-content-center shadow rounded amarillo text-white">
+    <div className="d-flex container-fluid justify-content-center shadow amarillo text-white">
       <section className="row w-75 d-flex justify-content-around">
         <div className="d-flex align-items-center col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
           <small>

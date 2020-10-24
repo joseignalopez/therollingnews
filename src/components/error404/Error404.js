@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,9 +14,9 @@ const Error404 = () => {
         />
         <Card.ImgOverlay>
           <Card.Text>
-            <Button type="button" variant="primary" className="azul" href="/">
+            <Link type="button" variant="primary" className="azul text-white p-3 rounded" to="/">
               <FontAwesomeIcon icon={faHome} /> Home
-            </Button>
+            </Link>
           </Card.Text>
         </Card.ImgOverlay>
       </Card>

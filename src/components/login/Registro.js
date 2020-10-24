@@ -84,6 +84,7 @@ const Registro = (props) => {
       );
       if (resultado.status === 201) {
         Swal.fire("Listo!", "Usuario Creado Correctamente", "success");
+        props.setRecargarUsuarios(true)
         props.history.push("/login/ingresar");
       }
     } catch (error) {

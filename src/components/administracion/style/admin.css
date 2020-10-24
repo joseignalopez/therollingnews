@@ -19,9 +19,9 @@
 }
 
 .button {
-    font-size: 12px;
+    font-size: large;
     line-height: 50px;
     text-align: center;
-    width: 100px;
+    width: 30% !important;
     height: 50px;
   }

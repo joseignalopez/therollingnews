@@ -185,7 +185,7 @@ function App() {
           <Ingresar usuarios={usuarios} sesion={setSesion}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
-          <Registro />
+          <Registro setRecargarUsuarios={setRecargarUsuarios}/>
         </Route>
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>
