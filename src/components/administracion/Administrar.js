@@ -5,7 +5,7 @@ import {
   faNewspaper,
   faList,
   faUserCog,
-  faPlusSquare
+  faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const Administrar = () => {
             className="btn text-light button azul m-1 py-1"
             to="/Administracion/Categoria"
           >
-            <FontAwesomeIcon icon={faPlusSquare}/> Agregar categoria
+            <FontAwesomeIcon icon={faPlusSquare} /> Agregar categoria
           </Link>
         </div>
         <br />
