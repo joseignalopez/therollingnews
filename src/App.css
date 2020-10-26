@@ -1,98 +1,94 @@
-@import url("https://allfont.es/allfont.css?fonts=futura-normal");
+@import url('https://allfont.es/allfont.css?fonts=futura-normal');
 
-.btn-nav {
-  background-color: transparent !important;
-  border: none !important;
-  margin-top: 2px;
+
+.logo{
+    height: 30px;
 }
 
-.nav-item {
-  border: none !important;
-  padding: 5px !important;
+.contenidoSeccion{
+    border: 0;
+    color: black;
+  
 }
 
-.logo {
-  height: 30px;
+body{
+  font-family: 'Futura';
 }
 
-.contenidoSeccion {
-  border: 0;
-  color: black;
-}
-
-body {
-  font-family: "Futura";
-}
-
-.rojo {
-  background-image: linear-gradient(15deg, #7f000d 0%, #d00006 100%);
+.rojo{
+background-image: linear-gradient(15deg, #7F000D 0%, #D00006 100%);
 }
 
 .azul {
-  background-image: linear-gradient(0deg, #000752 0%, #002682 100%);
+background-image: linear-gradient(0deg, #000752 0%, #002682 100%);
 }
 
-.amarillo {
-  background-image: linear-gradient(0deg, #ec5b09 0%, #ff9605 100%);
+.amarillo{
+background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
 }
+
 
 .subnav .subnavbtn {
-  font-size: 12px;
-  outline: none;
-  color: white;
-  margin: 0;
-  position: absolute;
-}
+    font-size: 12px;  
+    outline: none;
+    color: white;
+     margin: 0;
+     position: absolute;  
+     
+  }
+ 
+  .subnav-content {  
+    font-size: 14px; 
+    color: white;
+    left:0;
+    background-color:#EC5B09;
+    width: 100%;
+    z-index: 1;
+    display:inline-block;
+    position: absolute; 
+    
+  }
+  
+ 
+  
+   .subnav  a:hover{
+    background-color:#EC5B09;  
 
-.subnav-content {
-  font-size: 14px;
-  color: white;
-  left: 0;
-  background-image: linear-gradient(0deg, #ec5b09 0%, #ff9605 100%);
-  width: 100%;
-  z-index: 1;
-  display: inline-block;
-  position: absolute;
-}
+  }
+  .subnav-content ul:hover  {
+    text-decoration: none;
+    list-style: none; 
+    color:white;  
+  }
+  
+  .subnav-content ul { 
+    list-style: none;
+    color:white;
+    line-height: 2px;
+    
+    display:inline-block;
 
-.subnav a:hover {
-  /* background-image: linear-gradient(0deg, #ec5b09 0%, #ff9605 100%); */
-  border-radius: 3px;
-}
-
-.drop-item:hover{
-  background-color: transparent !important;
-}
-
-.subnav-content ul:hover {
-  text-decoration: none;
-  list-style: none;
-  color: white;
-}
-
-.subnav-content ul {
-  list-style: none;
-  color: white;
-  line-height: 2px;
-
-  display: inline-block;
-}
-.subnav-content li a {
-  list-style: none;
-  color: white;
-  display: block;
-  position: relative;
-  align-items: center;
-}
-.fixed-bg {
-  /* position: fixed; */
-  /* background: url("/public/bglogin.jpg"); */
-  z-index: -1 !important;
-  background-position: center center !important;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  width: 100% !important;
-}
-.btn.ms {
+    
+    
+  }
+  .subnav-content li a{ 
+    list-style: none;
+    color:white; 
+    display: block;
+    position: relative;
+    align-items: center;
+   
+  }
+  .fixed-bg{
+    /* position: fixed; */
+    /* background: url("/public/bglogin.jpg"); */
+    z-index: -1 !important;
+    background-position: center center !important;;
+    background-attachment: fixed !important;;
+    background-size: cover !important;;
+    width: 100% !important;;
+    margin-top: -10px;
+  }
+.btn.ms{
   background: transparent;
 }
