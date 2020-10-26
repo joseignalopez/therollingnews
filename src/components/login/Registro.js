@@ -84,7 +84,6 @@ const Registro = (props) => {
       );
       if (resultado.status === 201) {
         Swal.fire("Listo!", "Usuario Creado Correctamente", "success");
-        props.setRecargarUsuarios(true)
         props.history.push("/login/ingresar");
       }
     } catch (error) {
@@ -111,30 +110,27 @@ const Registro = (props) => {
 
   return (
     <div className="py-2">
-      <div className="fixed-bg">
+      <div className="fixed-bg d-none d-md-block d-lg-block">
         <img
           src={process.env.PUBLIC_URL + "/bglogin.jpg"}
           className="bglogin"
-        ></img>
+        ></img> 
       </div>
       <div className="container">
         <div className="row">
-          <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5 mt-5">
+          <Card className="border ml-auto col-sm-12 col-md-8 col-lg-8 my-3">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Registrarse</Card.Title>
               <Card.Text>
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group controlId="formBasicNombre">
-                    <Form.Control
+                  <Form.Group className="d-flex" >
+                    <Form.Control className="mr-1" controlId="formBasicNombre"
                       onChange={(e) => setNombre(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Nombre"
                       name="nombre"
                     />
-                  </Form.Group>
-
-                  <Form.Group controlId="formBasicApellido">
-                    <Form.Control
+                    <Form.Control className="ml-1" controlId="formBasicApellido"
                       onChange={(e) => setApellido(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Apellido"
@@ -157,22 +153,22 @@ const Registro = (props) => {
                       name="localidad"
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicCodPostal">
-                    <Form.Control
+
+                  <Form.Group className="d-flex">
+                    <Form.Control className="mr-1" controlId="formBasicCodPostal"
                       onChange={(e) => setCodPostal(e.target.value)}
                       type="number"
                       placeholder="Ingrese su Codigo Postal"
                       name="codPostal"
                     />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicTelefono">
-                    <Form.Control
+                     <Form.Control className="ml-1" controlId="formBasicTelefono"
                       onChange={(e) => setTelefono(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Telefono"
                       name="telefono"
                     />
                   </Form.Group>
+               
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control
                       onBlur={(e) => validarEmail(e.target.value)}
@@ -195,25 +191,32 @@ const Registro = (props) => {
                       name="usuario"
                     />
                   </Form.Group>
-                  <Form.Group className="my-4" controlId="formBasicPassword">
-                    <Form.Control
+                  <Form.Group className="d-flex my-4" >
+                    <Form.Control className="mr-1" controlId="formBasicPassword"
                       onChange={(e) => setContraseña(e.target.value)}
                       type="password"
                       placeholder=" Ingrese una Contraseña"
                       name="password"
                     />
-                  </Form.Group>
-                  <Form.Group
-                    className="my-4"
-                    controlId="formBasicRepeatPassword"
-                  >
-                    <Form.Control
+                     <Form.Control className="ml-1" controlId="formBasicRepeatPassword"
                       onChange={(e) => setRepContraseña(e.target.value)}
                       type="password"
                       placeholder=" Repita la Contraseña"
                       name="repeatPassword"
                     />
                   </Form.Group>
+{/* 
+                  <Form.Group
+                    className="my-4"
+                    
+                  >
+                    <Form.Control controlId="formBasicRepeatPassword"
+                      onChange={(e) => setRepContraseña(e.target.value)}
+                      type="password"
+                      placeholder=" Repita la Contraseña"
+                      name="repeatPassword"
+                    />
+                  </Form.Group> */}
                   <Form.Group controlId="formBasicCheckbox">
                     <Form.Check
                       onChange={aceptarTerminos}
@@ -235,9 +238,6 @@ const Registro = (props) => {
                   >
                     Registrarme
                   </Button>
-                  <Link className="text-secondary" to="error404/Error404">
-                    ¿Necesitás ayuda?
-                  </Link>
                   <Button
                     className="my-4 text-white rojo d-flex align-content-center justify-content-center"
                     type="submit"
@@ -254,14 +254,19 @@ const Registro = (props) => {
                 </Form>
               </Card.Text>
               <hr></hr>
-              <div className="mt-4">
+              <div className="d-flex justify-content-around mt-4">
+              <Link className="text-secondary" to="error404/Error404">
+                    ¿Necesitás ayuda?
+                  </Link>
+
                 <p className="text-secondary">¿Ya tenés una cuenta?</p>
-              </div>
-              <div className="mb-4">
+                <div>
                 <Link className="text-danger" to="/login/ingresar">
                   Ingresar
                 </Link>
               </div>
+              </div>
+
             </Card.Body>
           </Card>
         </div>
