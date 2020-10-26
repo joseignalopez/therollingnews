@@ -87,6 +87,7 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
     background-attachment: fixed !important;;
     background-size: cover !important;;
     width: 100% !important;;
+    margin-top: -10px;
   }
 .btn.ms{
   background: transparent;

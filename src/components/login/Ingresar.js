@@ -50,7 +50,7 @@ const Ingresar = (props) => {
 
   return (
     <div className="py-2 pb-5">
-      <div className="fixed-bg">
+      <div className="fixed-bg d-none d-md-block d-lg-block">
         <img
           src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"
           className="bglogin"
@@ -59,7 +59,7 @@ const Ingresar = (props) => {
       </div>
       <div className="container">
         <div className="row">
-          <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5 mt-5">
+          <Card className="border ml-auto col-sm-12 col-md-8 col-lg-6 mt-5">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Ingresar</Card.Title>
               <Card.Text>
