@@ -10,7 +10,7 @@ const Tiempo = () => {
 
   const obtenerDatosApi = async () => {
     const preguntaApi = await fetch(
-      "http://api.openweathermap.org/data/2.5/weather?id=3836873&appid=96032c389497cd446dfb602f4d3dbebd&units=metric&lang=es"
+      "https://api.openweathermap.org/data/2.5/weather?id=3836873&appid=96032c389497cd446dfb602f4d3dbebd&units=metric&lang=es"
     );
 
     const respuestaApi = await preguntaApi.json();
