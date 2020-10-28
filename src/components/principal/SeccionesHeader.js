@@ -2,9 +2,11 @@ import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 
+
+
 const SeccionesHeader = (props) => {
   return (
-    <div className="subnav-content d-flex justify-content-center">
+    <div className="subnav-content d-flex justify-content-center text-white" >
       <ListGroup horizontal className="d-flex flex-lg-row justify-content-between">
       {props.categorias.map((categoria) => (
           <ListGroup.Item key={categoria._id} className="nav-item bg-transparent active">

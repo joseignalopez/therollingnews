@@ -96,12 +96,14 @@ const Ingresar = (props) => {
                     size="lg"
                     block
                   >
-                    Ingresa con Google
-                    <FontAwesomeIcon
-                      className="mx-2 mt-1"
+                     <Link 
+                    to="error404/Error404" className=" text-white">
+                  Ingresar con Google <FontAwesomeIcon
+                      className="mx-2 mt-1  text-white "
                       icon={faGoogle}
                       size="1x"
                     ></FontAwesomeIcon>
+                </Link>
                   </Button>
                 </Form>
               </Card.Text>

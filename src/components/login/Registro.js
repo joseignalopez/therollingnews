@@ -236,18 +236,19 @@ const Registro = (props) => {
                   >
                     Registrarme
                   </Button>
-                  <Button
-                    className="my-4 text-white rojo d-flex align-content-center justify-content-center"
-                    type="submit"
-                    size="lg"
-                    block
-                  >
-                    Registrarme con Google
-                    <FontAwesomeIcon
-                      className="mx-2 mt-1"
+                 
+                  <Button size="lg"
+                    block className="my-4 text-white rojo d-flex align-content-center justify-content-center" 
+                  > <Link 
+                    to="error404/Error404" className=" text-white">
+                  Registrarme con Google <FontAwesomeIcon
+                      className="mx-2 mt-1  text-white "
                       icon={faGoogle}
                       size="1x"
                     ></FontAwesomeIcon>
+                </Link>
+                    
+                   
                   </Button>
                 </Form>
               </Card.Text>
