@@ -15,6 +15,7 @@ const Nosotros = () => {
               <div>
                 <img
                   src={process.env.PUBLIC_URL + "/foto/pablo.png"}   
+                  alt="Pablo Cativa"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import {Form,Button,Card} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./style/login.css";
 import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import Alert from "react-bootstrap/Alert";
-import { faDiceThree } from "@fortawesome/free-solid-svg-icons";
+
 
 const Registro = (props) => {
   const [nombre, setNombre] = useState("");
@@ -112,7 +110,7 @@ const Registro = (props) => {
     <div className="py-2">
       <div className="fixed-bg d-none d-md-block d-lg-block">
         <img
-          src={process.env.PUBLIC_URL + "/bglogin.jpg"}
+          src={process.env.PUBLIC_URL + "/bglogin.jpg"} alt="background login"
           className="bglogin"
         ></img> 
       </div>

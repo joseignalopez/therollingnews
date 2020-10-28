@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Categories from "./Categories";
 import Destacadas from "./Destacadas";
 import BannerCovid from "./BannerCovid";

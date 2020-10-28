@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
 import ElementoLista from "./ElementoLista";
 import "../style/admin.css";
 
@@ -9,9 +9,10 @@ const ListaNoticias = (props) => {
     <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Noticias</h1>
-        <Button className="boton ml-auto my-3" href="/Administracion/Noticia">
-          Agregar noticia
-        </Button>{" "}
+        <Link type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded" to="/Administracion/Noticia">
+              Agregar Noticia
+            </Link>
+        
       </div>
       <Table striped bordered hover>
         <thead>
