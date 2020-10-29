@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 const SeccionesHeader = (props) => {
   return (
     <div className="subnav-content d-flex justify-content-center text-white" >
