@@ -111,7 +111,7 @@ const Registro = (props) => {
       <div className="fixed-bg d-none d-md-block d-lg-block">
         <img
           src={process.env.PUBLIC_URL + "/bglogin.jpg"} alt="background login"
-          className="bglogin"
+          className="bgregister"
         ></img> 
       </div>
       <div className="container">

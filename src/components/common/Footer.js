@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   return (
-    <div className="rojo">
+    <div className="rojo footer">
       <section className="container py-4">
         <div className="text-center row text-light">
           <div className="col-sm-12 col-md-4 list-unstyled mb-4 d-flex flex-column justify-content-around">

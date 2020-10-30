@@ -90,7 +90,7 @@ const Header = (props) => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <div className="subnav ">
+        <div className="subnav  ">
           <Nav className="mr-auto">
             {/* boton para ingresar o dropdown de usuario */}
             {props.sesion.usuario !== "Ingresar" ? (
