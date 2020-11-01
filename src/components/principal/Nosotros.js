@@ -14,15 +14,15 @@ const Nosotros = () => {
             <Card className="card bg-light text-center">
               <div>
                 <img
-                  src={process.env.PUBLIC_URL + "/foto/pablo.png"}   
-                  alt="Pablo Cativa"
+                  src={process.env.PUBLIC_URL + "/foto/jose.png"}   
+                  alt="Jose Lopez"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
                 />
               </div>
               <Card.Body className="card-body  bg-dark text-white">
-                <Card.Title>Pablo Cativa</Card.Title>
+                <Card.Title>José López</Card.Title>
                 <Card.Text>Developer.</Card.Text>
                 <Button
                   variant="primary"
@@ -40,15 +40,15 @@ const Nosotros = () => {
             <Card className="card bg-light text-center">
               <div>
                 <img
-                  src={process.env.PUBLIC_URL + "/foto/luciano.png"}
-                  alt="Luciano Chipolina"
+                  src={process.env.PUBLIC_URL + "/foto/nico.png"}
+                  alt="Nicolas Bertini Arganaraz"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
                 />
               </div>
               <Card.Body className="card-body  bg-dark text-white">
-                <Card.Title>Luciano Chipolina</Card.Title>
+                <Card.Title>Nicolás Bertini</Card.Title>
                 <Card.Text>Developer.</Card.Text>
                 <Button
                   variant="primary"
@@ -65,15 +65,15 @@ const Nosotros = () => {
             <Card className="card bg-light text-center">
               <div>
                 <img
-                  src={process.env.PUBLIC_URL + "/foto/jose.png"}
-                  alt="Jose Lopez"
+                  src={process.env.PUBLIC_URL + "/foto/ro.png"}
+                  alt="Rosario Serrano"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
                 />
               </div>
               <Card.Body className="card-body  bg-dark text-white">
-                <Card.Title>José López</Card.Title>
+                <Card.Title>Rosario Serrano</Card.Title>
                 <Card.Text>Developer.</Card.Text>
                 <Button
                   variant="primary"
@@ -140,15 +140,15 @@ const Nosotros = () => {
             <Card className="card bg-light text-center">
               <div>
                 <img
-                  src={process.env.PUBLIC_URL + "/foto/nico.png"}
-                  alt=" Nicolas Bertini"
+                  src={process.env.PUBLIC_URL + "/foto/pablo.png"}
+                  alt=" Pablo Cativa"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
                 />
               </div>
               <Card.Body className="card-body  bg-dark text-white">
-                <Card.Title>Nicolas Bertini</Card.Title>
+                <Card.Title>Pablo Cativa</Card.Title>
                 <Card.Text>Developer.</Card.Text>
                 <Button
                   variant="primary"
@@ -165,15 +165,15 @@ const Nosotros = () => {
             <Card className="card bg-light text-center">
               <div>
                 <img
-                  src={process.env.PUBLIC_URL + "/foto/ro.png"}
-                  alt=" Rosario Serrano"
+                  src={process.env.PUBLIC_URL + "/foto/luciano.png"}
+                  alt=" Luciano Chipolina"
                   className="rounded-circle efectoimg py-4"
                   width="100px"
                   height="150px"
                 />
               </div>
               <Card.Body className="card-body  bg-dark text-white">
-                <Card.Title>Rosario Serrano</Card.Title>
+                <Card.Title>Luciano Chipolina</Card.Title>
                 <Card.Text>Developer.</Card.Text>
                 <Button
                   variant="primary"
