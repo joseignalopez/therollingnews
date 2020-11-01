@@ -15,7 +15,6 @@
   padding: 0.2rem 1.25rem;
 }
 .cardNew-container {
-  /* padding: 0 10px 0 10px; */
   margin-bottom: 10px;
 }
 
@@ -25,15 +24,10 @@ a{text-decoration:none;
   color: black;
 }
 
-
 @media (max-width: 980px) {
   .cardNew-card {
     width: auto !important;
   }
-  /* .cardNew-container{
-        padding: 0 10px 0 10px;
-        margin-bottom: 10px;
-    } */
 }
 @media(min-width:450px) and (max-width: 979px){
  .cardNew-card{

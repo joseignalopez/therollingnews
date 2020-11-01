@@ -8,7 +8,6 @@
 .contenidoSeccion{
     border: 0;
     color: black;
-  
 }
 
 body{
@@ -31,8 +30,7 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
     outline: none;
     color: white;
      margin: 0;
-     position: absolute;  
-     
+     position: absolute;    
   } 
  
   .subnav-content {  
@@ -42,18 +40,11 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
     width: 100%;
     z-index: 1; 
     display:inline-block;
-    position: absolute; 
-    
+    position: absolute;  
   } 
-  
- 
-  
    .subnav  a:hover{
     background-color:#FF9605; 
-    border-radius: 5px;
-    
-    
-
+    border-radius: 5px;  
   }
   .subnav-content ul:hover  { 
     background-color:#FF9605;  
@@ -65,12 +56,7 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
   .subnav-content ul { 
     list-style: none;
     color:white;
-    /* line-height: 2px; */
-    
-    display:inline-block;
-
-    
-    
+    display:inline-block;  
   }
   .subnav-content li a{ 
     list-style: none;
@@ -78,14 +64,10 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
     display: block;
     position: relative;
     align-items: center;
-   
   }
   .fixed-bg{
-    /* position: fixed; */
-    /* background: url("/public/bglogin.jpg"); */
     z-index: -1 !important;
-    background-position: center center !important;;
-    
+    background-position: center center !important;; 
     background-size: cover !important;;
     width: 100% !important;;
     margin-top: -10px;
@@ -94,9 +76,5 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
   background: transparent;
 }
 
-/* .footer{
-  display: block;
-  bottom: 0;
 
-} */
 

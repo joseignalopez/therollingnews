@@ -95,16 +95,16 @@ const Header = (props) => {
             {/* boton para ingresar o dropdown de usuario */}
             {props.sesion.usuario !== "Ingresar" ? (
               <Dropdown>
-                <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white">
+                <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white amarillo">
                 {props.sesion.usuario}
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item>
-                    <Link to="/administracion/Administrar">Administración</Link>
+                <Dropdown.Menu className="  amarillo">
+                  <Dropdown.Item >
+                    <Link to="/administracion/Administrar" className="text-light">Administración</Link>
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="/" onClick={()=> props.setSesion({usuario: "Ingresar"})}>
+                  <Dropdown.Item href="/" onClick={()=> props.setSesion({usuario: "Ingresar"})} className="text-light">
                     Cerrar sesión
                   </Dropdown.Item>
                 </Dropdown.Menu>

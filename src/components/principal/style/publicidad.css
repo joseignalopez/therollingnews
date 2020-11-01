@@ -24,13 +24,9 @@ aside {
     transform: scale(1.1);
     filter: opacity(.9)
 }
-
-
 .media {
-    background-color: #b8b3b3;
-    
+    background-color: #b8b3b3;  
   }
-  
   .media img {
     width: 200px;
   }
