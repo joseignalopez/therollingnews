@@ -76,5 +76,6 @@ background-image: linear-gradient(0deg, #EC5B09 0%, #FF9605 100%);
   background: transparent;
 }
 
-
-
+.bg-transparent{
+  border: none !important;
+}

@@ -10,12 +10,10 @@ const ListadoCategorias = (props) => {
       <div className="row">
         <h1 className="text-center col-12">Lista de Categorías</h1>
         <Link
-          type="button "
-          variant="primary"
-          className="azul text-white py-2 mb-3  ml-auto rounded"
+          className="azul text-white p-2 mb-3 ml-auto rounded"
           to="/Administracion/Categoria"
         >
-          Agregar Categoria
+          Agregar Categoría
         </Link>
       </div>
       <ListGroup>

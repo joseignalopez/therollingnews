@@ -148,7 +148,7 @@ const Header = (props) => {
               onClick={() => setSeccionVisible(!seccionVisible)}
             >
               Secciones
-              <FontAwesomeIcon icon={faCaretDown} />
+              <FontAwesomeIcon className="ml-1" icon={faCaretDown} />
             </Link>
             {seccionVisible && (
               <SeccionesHeader
@@ -159,15 +159,15 @@ const Header = (props) => {
             )}
           </div>
         </Nav>
-        <Form className="" onSubmit={handleSubmitSearch}>
+        <Form className="form-inline" onSubmit={handleSubmitSearch}>
           <div className="">
             <input
               type="text"
               placeholder=" Buscar por Secciones"
               onChange={handleChange} value={searchTerm}
-              className="btn-sm"
+              className="btn-sm form-control"
             />
-            <Button className=" azul btn-ms" type="submit">
+            <Button className="btn-ms bg-transparent" type="submit">
               <FontAwesomeIcon icon={faSearch} />
             </Button>
           </div>

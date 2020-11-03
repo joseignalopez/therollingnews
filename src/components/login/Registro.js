@@ -203,18 +203,6 @@ const Registro = (props) => {
                       name="repeatPassword"
                     />
                   </Form.Group>
-{/* 
-                  <Form.Group
-                    className="my-4"
-                    
-                  >
-                    <Form.Control controlId="formBasicRepeatPassword"
-                      onChange={(e) => setRepContraseña(e.target.value)}
-                      type="password"
-                      placeholder=" Repita la Contraseña"
-                      name="repeatPassword"
-                    />
-                  </Form.Group> */}
                   <Form.Group controlId="formBasicCheckbox">
                     <Form.Check
                       onChange={aceptarTerminos}

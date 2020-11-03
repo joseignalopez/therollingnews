@@ -10,10 +10,12 @@ const ListaNoticias = (props) => {
     <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Noticias</h1>
-        <Link type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded" to="/Administracion/Noticia">
-              Agregar Noticia
-            </Link>
-        
+        <Link
+          className="azul text-white p-2 mb-3  ml-auto rounded"
+          to="/Administracion/Noticia"
+        >
+          Agregar Noticia
+        </Link>
       </div>
       <Table striped bordered hover>
         <thead>
@@ -24,15 +26,13 @@ const ListaNoticias = (props) => {
           </tr>
         </thead>
         <tbody>
-          {
-            props.noticias.map((noticia) => (
-              <ElementoLista
-                key={noticia._id}
-                noticia={noticia}
-                setRecargarNoticias={props.setRecargarNoticias}
-              ></ElementoLista>
-            ))
-          }
+          {props.noticias.map((noticia) => (
+            <ElementoLista
+              key={noticia._id}
+              noticia={noticia}
+              setRecargarNoticias={props.setRecargarNoticias}
+            ></ElementoLista>
+          ))}
         </tbody>
       </Table>
     </section>
