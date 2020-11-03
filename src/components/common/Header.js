@@ -69,9 +69,11 @@ const Header = (props) => {
   let history = useHistory();
   const handleSubmitSearch = (e) => {
     e.preventDefault();
+    if(searchTerm !== ""){
     const upperTerm = searchTerm[0].toUpperCase() + searchTerm.slice(1); 
     history.push(`/Categoria/${upperTerm}`);
     setSearchTerm("");
+    }
   };
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
