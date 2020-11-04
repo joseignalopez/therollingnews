@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import "../style/admin.css";
 import ElementoListaCat from "./ElementoListaCat";
+import { Button } from "react-bootstrap";
 
 const ListadoCategorias = (props) => {
   
@@ -10,9 +11,9 @@ const ListadoCategorias = (props) => {
     <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Categorías</h1>
-        <Link type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded" to="/Administracion/Categoria">
+       <Button type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded"> <Link  to="/Administracion/Categoria" className="text-white">
               Agregar Categoria
-            </Link>
+            </Link></Button>
         
       </div>
       <ListGroup>

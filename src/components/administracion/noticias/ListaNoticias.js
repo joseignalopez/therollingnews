@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import ElementoLista from "./ElementoLista";
 import "../style/admin.css";
+import { Button } from "react-bootstrap";
 
 const ListaNoticias = (props) => {
   return (
     <section className="container my-5 px-5">
       <div className="row">
         <h1 className="text-center col-12">Lista de Noticias</h1>
-        <Link type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded" to="/Administracion/Noticia">
+      <Button type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded">  <Link  to="/Administracion/Noticia" className="text-white">
               Agregar Noticia
-            </Link>
+            </Link></Button>
         
       </div>
       <Table striped bordered hover>
