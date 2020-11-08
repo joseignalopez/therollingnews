@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
-import {NavLink, useHistory } from "react-router-dom";
+import {Link,NavLink, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser,faCaretDown,faSearch} from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
@@ -93,7 +93,7 @@ const Header = (props) => {
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="amarillo">
                   <Dropdown.Item >
-                    <NavLink to="/administracion/Administrar" className="text-light">Administración</NavLink>
+                    <Link to="/administracion/Administrar" className="text-light">Administración</Link>
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item href="/" onClick={()=> props.setSesion({usuario: "Ingresar"})} className="text-light">
