@@ -25,9 +25,10 @@ const EditarCategoria = (props) => {
 
     const categoriaModificada = {
         nombre: nombreCatRef.current.value,
-        descripcion: descripcionCatRef.current.value
+        descripcion: descripcionCatRef.current.value,
+        nombreViejo: props.categoria.nombre,
     }
-
+    console.log(JSON.stringify(categoriaModificada))
     try {
         const respuesta = await fetch(
             `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,

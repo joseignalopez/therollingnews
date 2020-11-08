@@ -6,7 +6,6 @@ import ElementoListaCat from "./ElementoListaCat";
 import { Button } from "react-bootstrap";
 
 const ListadoCategorias = (props) => {
-  
   return (
     <section className="container my-5">
       <div >
@@ -26,7 +25,8 @@ const ListadoCategorias = (props) => {
             ></ElementoListaCat>
           ))
         }
-      </ListGroup></div>
+      </ListGroup>
+      </div>
     </section>
   );
 };
