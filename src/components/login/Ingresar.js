@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const Ingresar = (props) => {
       });
       return;
     } else {
-      setError(false);
+    
       const usuarioBuscado = props.usuarios.find(
         (usuario) => usuario.correo === email
       );
@@ -62,9 +62,9 @@ const Ingresar = (props) => {
           <Card className="border ml-auto col-sm-12 col-md-8 col-lg-6 mt-5">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Ingresar</Card.Title>
-              <Card.Text>
+              
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group controlId="formBasicEmail">
+                  <Form.Group >
                     <Form.Control
                       type="email"
                       placeholder="Email"
@@ -72,7 +72,7 @@ const Ingresar = (props) => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </Form.Group>
-                  <Form.Group className="my-4" controlId="formBasicPassword">
+                  <Form.Group className="my-4" >
                     <Form.Control
                       type="password"
                       placeholder="Contraseña"
@@ -106,11 +106,8 @@ const Ingresar = (props) => {
                 </Link>
                   </Button>
                 </Form>
-              </Card.Text>
-              <hr></hr>
-              <div className="mt-4">
-                <p className="text-secondary">¿No tenés una cuenta?</p>
-              </div>
+              <hr></hr> 
+              
               <div className="mb-4">
                 <Link className="text-danger" to="/login/registro">Registrarme ahora</Link>
               </div>

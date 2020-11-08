@@ -14,7 +14,7 @@ const Categories = (props) => {
       const resultado = await consultar.json();
       setNoticias(resultado);
     } catch (error) {
-      console.log(error);
+     
     }
   };
   return (

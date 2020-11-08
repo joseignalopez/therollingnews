@@ -52,7 +52,7 @@ const EditarCategoria = (props) => {
             text: 'Ocurrió un error!',
             footer: '<p>No se pudo modificar la categoría.</p>'
           })
-          console.log(error);
+         
     }
   };
 

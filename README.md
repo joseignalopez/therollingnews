@@ -31,7 +31,10 @@ The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ## Commands used to publish react files in github:
-URL:https://github.com/rserrano20/therollingnews
+Frontend-URL:https://github.com/rserrano20/therollingnews
+
+## Commands used to publish react files in github:
+Backend-URL:https://github.com/bertini91/TheRollingNew-Backend
 
 
 

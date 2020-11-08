@@ -49,7 +49,7 @@ const AgregarCategoria = (props) => {
         text: 'Ocurrió un error!',
         footer: '<p>No se pudo cargar la categoría.</p>'
       })
-      console.log(error);
+      
   }}
 
 

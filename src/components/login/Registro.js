@@ -19,7 +19,6 @@ const Registro = (props) => {
     "Se debe completar todos los campos"
   );
   const [terminos, setTerminos] = useState(false);
-  const [validarCorreo, setValidarCorreo] = useState(false);
   const [errorCorreo, setErrorCorreo] = useState(false);
   const [localidad, setLocalidad] = useState("");
   const [codPostal, setCodPostal] = useState(0);
@@ -98,10 +97,10 @@ const Registro = (props) => {
   const validarEmail = (input) => {
     const expresion = /\w+@\w+\.[a-z]{2,}$/;
     if (input !== "" && expresion.test(input)) {
-      setValidarCorreo(true);
+     
       setErrorCorreo(false);
     } else {
-      setValidarCorreo(false);
+      
       setErrorCorreo(true);
     }
   };
@@ -119,23 +118,23 @@ const Registro = (props) => {
           <Card className="border ml-auto col-sm-12 col-md-8 col-lg-8 my-3">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Registrarse</Card.Title>
-              <Card.Text>
+              
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="d-flex" >
-                    <Form.Control className="mr-1" controlId="formBasicNombre"
+                    <Form.Control className="mr-1" 
                       onChange={(e) => setNombre(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Nombre"
                       name="nombre"
                     />
-                    <Form.Control className="ml-1" controlId="formBasicApellido"
+                    <Form.Control className="ml-1" 
                       onChange={(e) => setApellido(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Apellido"
                       name="apellido"
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicDireccion">
+                  <Form.Group >
                     <Form.Control
                       onChange={(e) => setDireccion(e.target.value)}
                       type="text"
@@ -143,7 +142,7 @@ const Registro = (props) => {
                       name="Direccion"
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicLocalidad">
+                  <Form.Group >
                     <Form.Control
                       onChange={(e) => setLocalidad(e.target.value)}
                       type="text"
@@ -153,13 +152,13 @@ const Registro = (props) => {
                   </Form.Group>
 
                   <Form.Group className="d-flex">
-                    <Form.Control className="mr-1" controlId="formBasicCodPostal"
+                    <Form.Control className="mr-1" 
                       onChange={(e) => setCodPostal(e.target.value)}
                       type="number"
                       placeholder="Ingrese su Codigo Postal"
                       name="codPostal"
                     />
-                     <Form.Control className="ml-1" controlId="formBasicTelefono"
+                     <Form.Control className="ml-1" 
                       onChange={(e) => setTelefono(e.target.value)}
                       type="text"
                       placeholder="Ingrese su Telefono"
@@ -167,7 +166,7 @@ const Registro = (props) => {
                     />
                   </Form.Group>
                
-                  <Form.Group controlId="formBasicEmail">
+                  <Form.Group >
                     <Form.Control
                       onBlur={(e) => validarEmail(e.target.value)}
                       onChange={(e) => setEmail(e.target.value)}
@@ -181,7 +180,7 @@ const Registro = (props) => {
                       </Alert>
                     ) : null}
                   </Form.Group>
-                  <Form.Group controlId="formBasicUsuario">
+                  <Form.Group >
                     <Form.Control
                       onChange={(e) => setUsuario(e.target.value)}
                       type="text"
@@ -190,32 +189,20 @@ const Registro = (props) => {
                     />
                   </Form.Group>
                   <Form.Group className="d-flex my-4" >
-                    <Form.Control className="mr-1" controlId="formBasicPassword"
+                    <Form.Control className="mr-1" 
                       onChange={(e) => setContraseña(e.target.value)}
                       type="password"
                       placeholder=" Ingrese una Contraseña"
                       name="password"
                     />
-                     <Form.Control className="ml-1" controlId="formBasicRepeatPassword"
+                     <Form.Control className="ml-1" 
                       onChange={(e) => setRepContraseña(e.target.value)}
                       type="password"
                       placeholder=" Repita la Contraseña"
                       name="repeatPassword"
                     />
                   </Form.Group>
-{/* 
-                  <Form.Group
-                    className="my-4"
-                    
-                  >
-                    <Form.Control controlId="formBasicRepeatPassword"
-                      onChange={(e) => setRepContraseña(e.target.value)}
-                      type="password"
-                      placeholder=" Repita la Contraseña"
-                      name="repeatPassword"
-                    />
-                  </Form.Group> */}
-                  <Form.Group controlId="formBasicCheckbox">
+                  <Form.Group >
                     <Form.Check
                       onChange={aceptarTerminos}
                       className="text-muted"
@@ -246,19 +233,15 @@ const Registro = (props) => {
                       icon={faGoogle}
                       size="1x"
                     ></FontAwesomeIcon>
-                </Link>
-                    
-                   
+                </Link>    
                   </Button>
                 </Form>
-              </Card.Text>
+            
               <hr></hr>
               <div className="d-flex justify-content-around mt-4">
               <Link className="text-secondary" to="error404/Error404">
                     ¿Necesitás ayuda?
                   </Link>
-
-                <p className="text-secondary">¿Ya tenés una cuenta?</p>
                 <div>
                 <Link className="text-danger" to="/login/ingresar">
                   Ingresar

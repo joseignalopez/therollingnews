@@ -36,7 +36,6 @@ const ElementoLista = (props) => {
             Swal.fire("Listo!", "La noticia ha sido eliminada", "success");
           }
         } catch (error) {
-          console.log(error);
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -83,7 +82,7 @@ const ElementoLista = (props) => {
         Swal.fire("Listo!", "Se cambió el estado destacado", "success");
       }
     } catch (error) {
-      console.log(error);
+  
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -94,7 +93,7 @@ const ElementoLista = (props) => {
   };
 
   return (
-    <tr>
+    <tr >
       <td>{props.noticia.titulo}</td>
       <td>{props.noticia.categoria}</td>
       <td>

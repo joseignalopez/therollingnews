@@ -5,11 +5,10 @@ import ElementoListUsu from "./ElementoListUsu";
 
 const ListadoUsuarios = (props) => {
   return (
-    <section className="container my-5 px-5">
-      <div className="row">
-        <h1 className="text-center col-12">Lista de Usuarios</h1>
-      </div>
-      <ListGroup>
+    <section className="container my-5">
+      <div >
+        <h1 className="text-center  ">Lista de Usuarios</h1>
+      <ListGroup >
         {props.usuario.map((usuario) => (
           <ElementoListUsu
             key={usuario._id}
@@ -18,6 +17,7 @@ const ListadoUsuarios = (props) => {
           ></ElementoListUsu>
         ))}
       </ListGroup>
+      </div>
     </section>
   );
 };

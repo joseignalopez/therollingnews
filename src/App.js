@@ -67,7 +67,6 @@ function App() {
       setListadoCategorias(resultadoCat);
       setUsuarios(resultadoUsu);
     } catch (error) {
-      console.log(error);
     }
   };
 

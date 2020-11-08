@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import {NavLink, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faCaretDown,
-  faSearch
-} from "@fortawesome/free-solid-svg-icons";
+import {faUser,faCaretDown,faSearch} from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 import Modal from "react-bootstrap/Modal";
-import Alert from "react-bootstrap/Alert";
-import warning from "react-bootstrap/Alert";
 import Swal from "sweetalert2";
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -27,7 +21,7 @@ const Header = (props) => {
   const [codPostal, setcodigoPostalSuscriptor] = useState("");
   const [telefono, settelefonoSuscriptor] = useState("");
   const [correo, setemailSuscriptor] = useState("");
-  const [error, setError] = useState(false);
+ 
 
 
   const handleSubmit = async (e) => {
@@ -76,7 +70,6 @@ const Header = (props) => {
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
   return (
     <Navbar variant="dark" bg="dark" className="azul" expand="lg">
       <Navbar.Brand>
@@ -90,7 +83,7 @@ const Header = (props) => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <div className="subnav  ">
+        <div className="subnav">
           <Nav className="mr-auto">
             {/* boton para ingresar o dropdown de usuario */}
             {props.sesion.usuario !== "Ingresar" ? (
@@ -98,10 +91,9 @@ const Header = (props) => {
                 <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white amarillo">
                 {props.sesion.usuario}
                 </Dropdown.Toggle>
-
-                <Dropdown.Menu className="  amarillo">
+                <Dropdown.Menu className="amarillo">
                   <Dropdown.Item >
-                    <Link to="/administracion/Administrar" className="text-light">Administración</Link>
+                    <NavLink to="/administracion/Administrar" className="text-light">Administración</NavLink>
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item href="/" onClick={()=> props.setSesion({usuario: "Ingresar"})} className="text-light">
@@ -110,8 +102,7 @@ const Header = (props) => {
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-              <NavLink
-                exact={true}
+              <NavLink  
                 to="/login/ingresar"
                 className="nav-link mr-3"
                 activeClassName="active"
@@ -132,24 +123,23 @@ const Header = (props) => {
           </Nav>
         </div>
         <Nav className="ml-auto subnav">
-          <Link
-            exact={true}
+          <NavLink
+           
             to="/"
             className="nav-link "
             activeClassName="active"
           >
             Home
-          </Link>
+          </NavLink>
           <div className="subnav justify-content-center">
-            <Link
-              exact={true}
+            <Nav.Link
+              
               className="nav-link "
-              activeClassName="active"
               onClick={() => setSeccionVisible(!seccionVisible)}
             >
               Secciones
               <FontAwesomeIcon icon={faCaretDown} />
-            </Link>
+            </Nav.Link>
             {seccionVisible && (
               <SeccionesHeader
                 setSeccionVisible={setSeccionVisible}
@@ -221,7 +211,7 @@ const Header = (props) => {
                     onChange={(e) => settelefonoSuscriptor(e.target.value)}
                   />
                   <br />
-                  <Form.Group controlId="formBasicEmail">
+                  <Form.Group >
                     <Form.Label
                       className="lead font-weight-bold text-warning"
                     >
@@ -233,15 +223,6 @@ const Header = (props) => {
                       onChange={(e) => setemailSuscriptor(e.target.value)}
                     />
                   </Form.Group>
-
-            {error ? (
-              <Alert
-              variant={warning}
-              className="lead font-weight-bold bg-warning text-white text-center w-80"
-              >
-                Todos los campos son obligatorios!
-              </Alert>
-            ) : null}
               <Button
                 variant="warning"
                 className="text-white"

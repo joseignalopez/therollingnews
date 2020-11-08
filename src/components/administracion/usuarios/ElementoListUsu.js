@@ -69,7 +69,6 @@ const ElementoListUsu = (props) => {
         className="mx-1 eliminar"
         onClick={() => eliminarUsuario(props.usuario._id)}
       > 
-    
         <FontAwesomeIcon icon={faTrashAlt} size="2x"></FontAwesomeIcon>
       </Button>
      

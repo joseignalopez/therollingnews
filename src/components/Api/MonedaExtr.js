@@ -16,7 +16,7 @@ const Precio = () => {
     
     const data = await respuesta.json();
     setprecio(data);
-    console.log('https://dolarapi.casalox.com/api/v1/dolar')
+    
   };
   return (
     <div className="d-flex container-fluid justify-content-center shadow amarillo text-white">

@@ -8,14 +8,14 @@ import { Button } from "react-bootstrap";
 const ListadoCategorias = (props) => {
   
   return (
-    <section className="container my-5 px-5">
-      <div className="row">
-        <h1 className="text-center col-12">Lista de Categorías</h1>
+    <section className="container my-5">
+      <div >
+        <h1 className="text-center">Lista de Categorías</h1>
        <Button type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded"> <Link  to="/Administracion/Categoria" className="text-white">
               Agregar Categoria
             </Link></Button>
         
-      </div>
+      
       <ListGroup>
         {
           props.categorias.map((categoria) => (
@@ -26,7 +26,7 @@ const ListadoCategorias = (props) => {
             ></ElementoListaCat>
           ))
         }
-      </ListGroup>
+      </ListGroup></div>
     </section>
   );
 };

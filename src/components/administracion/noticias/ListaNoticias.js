@@ -7,14 +7,15 @@ import { Button } from "react-bootstrap";
 
 const ListaNoticias = (props) => {
   return (
-    <section className="container my-5 px-5">
-      <div className="row">
-        <h1 className="text-center col-12">Lista de Noticias</h1>
+    <section className="container my-5 ">
+      <div >
+        
+        <h1 className="text-center  ">Lista de Noticias</h1>
       <Button type="button " variant="primary" className="azul text-white py-2 mb-3  ml-auto rounded">  <Link  to="/Administracion/Noticia" className="text-white">
               Agregar Noticia
             </Link></Button>
         
-      </div>
+    
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -35,6 +36,7 @@ const ListaNoticias = (props) => {
           }
         </tbody>
       </Table>
+      </div>
     </section>
   );
 };

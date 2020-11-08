@@ -42,7 +42,7 @@ const ElementoListaCat = (props) => {
             text: "Ocurrió un error!",
             footer: "<p>No se pudo eliminar la categoría</p>",
           });
-          console.log(error);
+         
         }
       }
     });
