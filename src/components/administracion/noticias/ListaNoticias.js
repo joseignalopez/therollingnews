@@ -6,7 +6,7 @@ import "../style/admin.css";
 import { Button } from "react-bootstrap";
 
 const ListaNoticias = (props) => {
-  console.log(props.noticias);
+  
   return (
     <section className="container my-5 ">
       <div >

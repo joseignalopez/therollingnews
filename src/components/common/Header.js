@@ -33,7 +33,7 @@ const Header = (props) => {
       localidad,
       codPostal,
       telefono,
-      correo,
+      correo
     };
 
     const requestInfo = {
@@ -71,7 +71,7 @@ const Header = (props) => {
     setSearchTerm(event.target.value);
   };
   return (
-    <Navbar variant="dark" bg="dark" className="azul" expand="lg">
+    <Navbar  variant="dark" bg="dark" className="azul" expand="lg">
       <Navbar.Brand>
         <NavLink to="/">
           <img
@@ -82,12 +82,12 @@ const Header = (props) => {
         </NavLink>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse  id="basic-navbar-nav">
         <div className="subnav">
           <Nav className="mr-auto">
             {/* boton para ingresar o dropdown de usuario */}
             {props.sesion.usuario !== "Ingresar" ? (
-              <Dropdown>
+              <Dropdown >
                 <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white amarillo">
                 {props.sesion.usuario}
                 </Dropdown.Toggle>
@@ -123,8 +123,7 @@ const Header = (props) => {
           </Nav>
         </div>
         <Nav className="ml-auto subnav">
-          <NavLink
-           
+          <NavLink   
             to="/"
             className="nav-link "
             activeClassName="active"
@@ -163,9 +162,9 @@ const Header = (props) => {
           </div>
         </Form>
         <Form className="">
-          <Modal show={show} onHide={handleClose}>
+          <Modal  animation = {false} show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title classname="text-center">Suscribite</Modal.Title>
+              <Modal.Title className="text-center">Suscribite</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <div>

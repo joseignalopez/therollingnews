@@ -61,7 +61,7 @@ function App() {
       const resultadoCat = await respuestaCat.json();
       const resultadoUsu = await respuestaUsu.json();
       const resultadoU = await respuestaU.json();
-        console.log(resultado)
+       
       setListadoUsuarios(resultadoU);
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
@@ -105,8 +105,8 @@ function App() {
               ></Category>
             );
           }}
-        ></Route>
-
+        >
+        </Route>
         <Route
           path="/:categoria/nota/:id"
           render={(props) => {
