@@ -3,7 +3,6 @@ import Tiempo from "../Apiclima/Tiempo";
 import "./Moneda.css";
 
 const Precio = () => {
-  //state
   const [precio, setprecio] = useState([]);
 
   useEffect(() => {

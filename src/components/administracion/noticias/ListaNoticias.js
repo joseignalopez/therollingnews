@@ -26,15 +26,13 @@ const ListaNoticias = (props) => {
           </tr>
         </thead>
         <tbody>
-          {
-            props.noticias.map((noticia) => (
-              <ElementoLista
-                key={noticia._id}
-                noticia={noticia}
-                setRecargarNoticias={props.setRecargarNoticias}
-              ></ElementoLista>
-            ))
-          }
+          {props.noticias.map((noticia) => (
+            <ElementoLista
+              key={noticia._id}
+              noticia={noticia}
+              setRecargarNoticias={props.setRecargarNoticias}
+            ></ElementoLista>
+          ))}
         </tbody>
       </Table>
       </div>

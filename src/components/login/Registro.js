@@ -202,7 +202,11 @@ const Registro = (props) => {
                       name="repeatPassword"
                     />
                   </Form.Group>
+<<<<<<< HEAD
                   <Form.Group >
+=======
+                  <Form.Group controlId="formBasicCheckbox">
+>>>>>>> 20c87b19acc0405c82fd6fb6b7b1f311444707f8
                     <Form.Check
                       onChange={aceptarTerminos}
                       className="text-muted"

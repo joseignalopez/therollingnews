@@ -63,9 +63,11 @@ const Header = (props) => {
   let history = useHistory();
   const handleSubmitSearch = (e) => {
     e.preventDefault();
+    if(searchTerm !== ""){
     const upperTerm = searchTerm[0].toUpperCase() + searchTerm.slice(1); 
     history.push(`/Categoria/${upperTerm}`);
     setSearchTerm("");
+    }
   };
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -148,15 +150,15 @@ const Header = (props) => {
             )}
           </div>
         </Nav>
-        <Form className="" onSubmit={handleSubmitSearch}>
+        <Form className="form-inline" onSubmit={handleSubmitSearch}>
           <div className="">
             <input
               type="text"
               placeholder=" Buscar por Secciones"
               onChange={handleChange} value={searchTerm}
-              className="btn-sm"
+              className="btn-sm form-control"
             />
-            <Button className=" azul btn-ms" type="submit">
+            <Button className="btn-ms bg-transparent" type="submit">
               <FontAwesomeIcon icon={faSearch} />
             </Button>
           </div>
