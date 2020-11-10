@@ -95,7 +95,7 @@ const ElementoLista = (props) => {
     <tr>
       <td>{props.noticia.titulo}</td>
       <td>{props.noticia.categoria}</td>
-      <td className="btn-group">
+      <td>
         <Button
           variant="outline-warning"
           size="sm"
