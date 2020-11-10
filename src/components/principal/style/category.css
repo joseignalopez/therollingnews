@@ -18,9 +18,12 @@
   margin-bottom: 10px;
 }
 
-a:hover{text-decoration:none;
-color: black;} 
-a{text-decoration:none;
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+a {
+  text-decoration: none;
   color: black;
 }
 
@@ -29,11 +32,12 @@ a{text-decoration:none;
     width: auto !important;
   }
 }
-@media(min-width:450px) and (max-width: 979px){
- .cardNew-card{
-   width: 70% !important;
- }
- .categoryNew-cardDeck, .cardNew-container{
-   margin-left: 8%;
- }
+@media (min-width: 450px) and (max-width: 979px) {
+  .cardNew-card {
+    width: 70% !important;
+  }
+  .categoryNew-cardDeck,
+  .cardNew-container {
+    margin-left: 8%;
+  }
 }

@@ -30,7 +30,7 @@ const ElementoLista = (props) => {
               },
             }
           );
-          
+
           if (respuesta.status === 200) {
             props.setRecargarNoticias(true);
             Swal.fire("Listo!", "La noticia ha sido eliminada", "success");
@@ -50,7 +50,7 @@ const ElementoLista = (props) => {
   const destacarNoticia = async (id) => {
     if (props.noticia.destacado === false) {
       props.noticia.destacado = true;
-    }else{
+    } else {
       props.noticia.destacado = false;
     }
 
@@ -62,8 +62,8 @@ const ElementoLista = (props) => {
       categoria: props.noticia.categoria,
       autor: props.noticia.autor,
       fecha: props.noticia.fecha,
-      destacado: props.noticia.destacado
-    }
+      destacado: props.noticia.destacado,
+    };
 
     try {
       const respuesta = await fetch(
@@ -76,13 +76,12 @@ const ElementoLista = (props) => {
           body: JSON.stringify(noticiaDest),
         }
       );
-      
+
       if (respuesta.status === 200) {
         props.setRecargarNoticias(true);
         Swal.fire("Listo!", "Se cambió el estado destacado", "success");
       }
     } catch (error) {
-  
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -93,7 +92,7 @@ const ElementoLista = (props) => {
   };
 
   return (
-    <tr >
+    <tr>
       <td>{props.noticia.titulo}</td>
       <td>{props.noticia.categoria}</td>
       <td className="btn-group">
@@ -105,15 +104,17 @@ const ElementoLista = (props) => {
         >
           <FontAwesomeIcon icon={faCheckCircle} size="2x"></FontAwesomeIcon>
         </Button>
-        <Link to={`/Administracion/Noticia/${props.noticia._id}`} className="btn btn-outline-primary mx-1 editar">
-            <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
+        <Link
+          to={`/Administracion/Noticia/${props.noticia._id}`}
+          className="btn btn-outline-primary mx-1 editar"
+        >
+          <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
         </Link>
         <Button
           variant="outline-danger"
           size="sm"
           className="mx-1 eliminar"
           onClick={() => eliminarNotica(props.noticia._id)}
-
         >
           <FontAwesomeIcon icon={faTrashAlt} size="2x"></FontAwesomeIcon>
         </Button>

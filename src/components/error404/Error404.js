@@ -14,7 +14,12 @@ const Error404 = () => {
         />
         <Card.ImgOverlay>
           <Card.Text>
-            <Link type="button" variant="primary" className="azul text-white p-3 rounded" to="/">
+            <Link
+              type="button"
+              variant="primary"
+              className="azul text-white p-3 rounded"
+              to="/"
+            >
               <FontAwesomeIcon icon={faHome} /> Home
             </Link>
           </Card.Text>

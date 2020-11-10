@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +23,6 @@ const Ingresar = (props) => {
       });
       return;
     } else {
-    
       const usuarioBuscado = props.usuarios.find(
         (usuario) => usuario.correo === email
       );
@@ -62,54 +60,56 @@ const Ingresar = (props) => {
           <Card className="border ml-auto col-sm-12 col-md-8 col-lg-6 mt-5">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Ingresar</Card.Title>
-              
-                <Form onSubmit={handleSubmit}>
-                  <Form.Group >
-                    <Form.Control
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="my-4" >
-                    <Form.Control
-                      type="password"
-                      placeholder="Contraseña"
-                      name="password"
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Button
-                    className="mb-3 text-white amarillo"
-                    type="submit"
-                    size="lg"
-                    block
-                  >
-                    Ingresar
-                  </Button>
-                  <Link className="text-secondary" to="error404/Error404">
-                    ¿Necesitás ayuda?
-                  </Link>
-                  <Button
-                    className="my-4 text-white rojo d-flex align-content-center justify-content-center"
-                    size="lg"
-                    block
-                  >
-                     <Link 
-                    to="error404/Error404" className=" text-white">
-                  Ingresar con Google <FontAwesomeIcon
+
+              <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="my-4">
+                  <Form.Control
+                    type="password"
+                    placeholder="Contraseña"
+                    name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Group>
+                <Button
+                  className="mb-3 text-white amarillo"
+                  type="submit"
+                  size="lg"
+                  block
+                >
+                  Ingresar
+                </Button>
+                <Link className="text-secondary" to="error404/Error404">
+                  ¿Necesitás ayuda?
+                </Link>
+                <Button
+                  className="my-4 text-white rojo d-flex align-content-center justify-content-center"
+                  size="lg"
+                  block
+                >
+                  <Link to="error404/Error404" className=" text-white">
+                    Ingresar con Google{" "}
+                    <FontAwesomeIcon
                       className="mx-2 mt-1  text-white "
                       icon={faGoogle}
                       size="1x"
                     ></FontAwesomeIcon>
-                </Link>
-                  </Button>
-                </Form>
-              <hr></hr> 
-              
+                  </Link>
+                </Button>
+              </Form>
+              <hr></hr>
+
               <div className="mb-4">
-                <Link className="text-danger" to="/login/registro">Registrarme ahora</Link>
+                <Link className="text-danger" to="/login/registro">
+                  Registrarme ahora
+                </Link>
               </div>
             </Card.Body>
           </Card>

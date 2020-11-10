@@ -11,7 +11,8 @@ const ElementoListaCat = (props) => {
   const eliminarCategoria = (id) => {
     Swal.fire({
       title: "Estás seguro?",
-      text: "La categoría no se podrá recuperar. Se eliminarán todas las noticias de esta categoría",
+      text:
+        "La categoría no se podrá recuperar. Se eliminarán todas las noticias de esta categoría",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -30,7 +31,7 @@ const ElementoListaCat = (props) => {
               },
             }
           );
-          
+
           if (respuesta.status === 200) {
             props.setRecargarCategorias(true);
             Swal.fire("Listo!", "La categoría ha sido eliminada", "success");
@@ -42,7 +43,6 @@ const ElementoListaCat = (props) => {
             text: "Ocurrió un error!",
             footer: "<p>No se pudo eliminar la categoría</p>",
           });
-         
         }
       }
     });

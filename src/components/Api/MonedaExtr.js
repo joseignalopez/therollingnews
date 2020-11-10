@@ -12,10 +12,9 @@ const Precio = () => {
 
   const consultarDolar = async () => {
     const respuesta = await fetch("https://dolarapi.casalox.com/api/v1/dolar");
-    
+
     const data = await respuesta.json();
     setprecio(data);
-    
   };
   return (
     <div className="d-flex container-fluid justify-content-center shadow amarillo text-white">

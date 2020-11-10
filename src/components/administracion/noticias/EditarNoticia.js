@@ -16,72 +16,66 @@ const EditarNoticia = (props) => {
   const noticiaRef = useRef("");
   const autorRef = useRef("");
   const destacado = props.noticia.destacado;
-  
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
 
-  const handleSubmit = async (e) =>{
-      e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    //   validar
     const _categoria = categoria === "" ? props.noticia.categoria : categoria;
     if (
-        tituloRef.current.value.trim() === "" ||
-        imagenCabeceraRef.current.value.trim() === "" ||
-        resumenRef.current.value.trim() === "" ||
-        noticiaRef.current.value.trim() === "" ||
-        autorRef.current.value.trim() === "" ||
-        _categoria === ""
-      ) {
-        setError(true);
-        return;
-      }
-      setError(false);
-
-      const fecha = new Date()
-    const noticiaModificada = {
-        titulo: tituloRef.current.value,
-        url: imagenCabeceraRef.current.value,
-        detalleCorto: resumenRef.current.value,
-        detalle: noticiaRef.current.value,
-        autor: autorRef.current.value,
-        fecha: fecha,
-        categoria: _categoria,
-        destacado
+      tituloRef.current.value.trim() === "" ||
+      imagenCabeceraRef.current.value.trim() === "" ||
+      resumenRef.current.value.trim() === "" ||
+      noticiaRef.current.value.trim() === "" ||
+      autorRef.current.value.trim() === "" ||
+      _categoria === ""
+    ) {
+      setError(true);
+      return;
     }
+    setError(false);
 
-    
+    const fecha = new Date();
+    const noticiaModificada = {
+      titulo: tituloRef.current.value,
+      url: imagenCabeceraRef.current.value,
+      detalleCorto: resumenRef.current.value,
+      detalle: noticiaRef.current.value,
+      autor: autorRef.current.value,
+      fecha: fecha,
+      categoria: _categoria,
+      destacado,
+    };
+
     try {
-        const respuesta = await fetch(
-          `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia._id}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(noticiaModificada),
-          }
-        );
-        
-        if (respuesta.status === 200) {
-          props.setRecargarNoticias(true);
-          Swal.fire("Listo!", "La noticia se modificó correctamente", "success");
-          props.history.push("/Administracion/Noticias");
+      const respuesta = await fetch(
+        `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${props.noticia._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(noticiaModificada),
         }
-      } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Ocurrió un error!',
-          footer: '<p>No se pudo modificar la noticia.</p>'
-        })
-        console.log(error);
+      );
+
+      if (respuesta.status === 200) {
+        props.setRecargarNoticias(true);
+        Swal.fire("Listo!", "La noticia se modificó correctamente", "success");
+        props.history.push("/Administracion/Noticias");
       }
-
-  }
-
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>No se pudo modificar la noticia.</p>",
+      });
+    }
+  };
 
   return (
     <section className="container">
@@ -136,29 +130,25 @@ const EditarNoticia = (props) => {
         </Form.Group>
         <h3 className="text-center mt-4">Categoría</h3>
         <div className="my-3 text-center">
-        {
-            props.categorias.map((categoria) =>(
-              <Form.Check
-            type="radio"
-            label={categoria.nombre}
-            value={categoria.nombre}
-            name="categoria"
-            inline
-            className="mx-3"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === `${categoria.nombre}`}
-          />
-            ))
-          }
+          {props.categorias.map((categoria) => (
+            <Form.Check
+              type="radio"
+              label={categoria.nombre}
+              value={categoria.nombre}
+              name="categoria"
+              inline
+              className="mx-3"
+              onChange={seleccionarCategoria}
+              defaultChecked={props.noticia.categoria === `${categoria.nombre}`}
+            />
+          ))}
         </div>
 
-        {
-          error ? (
-            <Alert className="mt-4" variant={"danger"}>
-              Debes completar todos los campos
-            </Alert>
-          ) : null
-        }
+        {error ? (
+          <Alert className="mt-4" variant={"danger"}>
+            Debes completar todos los campos
+          </Alert>
+        ) : null}
         <Button type="submit" className="w-100 mb-4 boton">
           GUARDAR CAMBIOS
         </Button>

@@ -34,7 +34,7 @@ const AgregarNoticia = (props) => {
     setError(false);
 
     const fecha = new Date();
-    
+
     const noticiaNueva = {
       titulo,
       url: imagenCabecera,
@@ -43,10 +43,8 @@ const AgregarNoticia = (props) => {
       categoria,
       destacado: false,
       autor,
-      fecha: fecha
+      fecha: fecha,
     };
-
-    
 
     try {
       const resultado = await fetch(
@@ -63,7 +61,6 @@ const AgregarNoticia = (props) => {
         Swal.fire("Listo!", "La noticia se cargó correctamente", "success");
         props.setRecargarNoticias(true);
         props.history.push("/Administracion/Noticias");
-        
       }
     } catch (error) {
       Swal.fire({
@@ -72,7 +69,6 @@ const AgregarNoticia = (props) => {
         text: "Ocurrió un error!",
         footer: "<p>No se pudo cargar la noticia.</p>",
       });
-      
     }
   };
 
@@ -138,13 +134,11 @@ const AgregarNoticia = (props) => {
             />
           ))}
         </div>
-        {
-          error ? (
-            <Alert className="mt-4" variant={"danger"}>
-              Se debe completar todos los campos
-            </Alert>
-          ) : null
-        }
+        {error ? (
+          <Alert className="mt-4" variant={"danger"}>
+            Se debe completar todos los campos
+          </Alert>
+        ) : null}
         <Button type="submit" className="w-100 mb-4 boton">
           AGREGAR NOTICIA
         </Button>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MonedaExtr from "./components/Api/MonedaExtr";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,7 +21,6 @@ import Category from "./components/categoria/Category";
 import Administrar from "./components/administracion/Administrar";
 import ListadoUsuarios from "./components/administracion/usuarios/ListadoUsuarios";
 import EditarUsuarios from "./components/administracion/usuarios/EditarUsuarios";
-
 
 function App() {
   const [listadoUsuarios, setListadoUsuarios] = useState([]);
@@ -61,13 +60,12 @@ function App() {
       const resultadoCat = await respuestaCat.json();
       const resultadoUsu = await respuestaUsu.json();
       const resultadoU = await respuestaU.json();
-       
+
       setListadoUsuarios(resultadoU);
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
       setUsuarios(resultadoUsu);
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   return (
@@ -105,8 +103,7 @@ function App() {
               ></Category>
             );
           }}
-        >
-        </Route>
+        ></Route>
         <Route
           path="/:categoria/nota/:id"
           render={(props) => {
@@ -185,7 +182,7 @@ function App() {
           <Ingresar usuarios={usuarios} sesion={setSesion}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
-          <Registro setRecargarUsuarios={setRecargarUsuarios}/>
+          <Registro setRecargarUsuarios={setRecargarUsuarios} />
         </Route>
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>

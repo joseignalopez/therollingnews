@@ -78,7 +78,6 @@ const EditarUsuarios = (props) => {
         text: "Ocurrió un error!",
         footer: "<p>No se pudo modificar el usuario.</p>",
       });
-      console.log(error);
     }
   };
 

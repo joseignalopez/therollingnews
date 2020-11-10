@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const ElementoListUsu = (props) => {
   const eliminarUsuario = (id) => {
-    
     Swal.fire({
       title: "Estás seguro?",
       text: `El usuario ${props.usuario.usuario} no se podrá recuperar.`,
@@ -24,23 +23,20 @@ const ElementoListUsu = (props) => {
         try {
           const respuestaU = await fetch(
             `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario/${id}`,
-        
+
             {
               method: "DELETE",
               headers: {
                 "Content-Type": "application/json",
               },
             }
-            
           );
-          console.log(await respuestaU.json());
 
           if (respuestaU.status === 200) {
             props.setRecargarUsuarios(true);
             Swal.fire("Listo!", "El usuario ha sido eliminado", "success");
           }
         } catch (error) {
-          console.log(error);
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -68,13 +64,11 @@ const ElementoListUsu = (props) => {
         size="sm"
         className="mx-1 eliminar"
         onClick={() => eliminarUsuario(props.usuario._id)}
-      > 
+      >
         <FontAwesomeIcon icon={faTrashAlt} size="2x"></FontAwesomeIcon>
       </Button>
-     
     </ListGroup.Item>
   );
 };
-
 
 export default ElementoListUsu;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-import './Reloj.css'
+import "./Reloj.css";
 
 const Reloj = () => {
   const [hora, setReloj] = useState();

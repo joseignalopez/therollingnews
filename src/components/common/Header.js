@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Form, Button, Col, Row } from "react-bootstrap";
-import {Link,NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faUser,faCaretDown,faSearch} from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faCaretDown,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import SeccionesHeader from "../principal/SeccionesHeader";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 
 const Header = (props) => {
   const [seccionVisible, setSeccionVisible] = useState(false);
@@ -21,8 +25,6 @@ const Header = (props) => {
   const [codPostal, setcodigoPostalSuscriptor] = useState("");
   const [telefono, settelefonoSuscriptor] = useState("");
   const [correo, setemailSuscriptor] = useState("");
- 
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ const Header = (props) => {
       localidad,
       codPostal,
       telefono,
-      correo
+      correo,
     };
 
     const requestInfo = {
@@ -63,17 +65,17 @@ const Header = (props) => {
   let history = useHistory();
   const handleSubmitSearch = (e) => {
     e.preventDefault();
-    if(searchTerm !== ""){
-    const upperTerm = searchTerm[0].toUpperCase() + searchTerm.slice(1); 
-    history.push(`/Categoria/${upperTerm}`);
-    setSearchTerm("");
+    if (searchTerm !== "") {
+      const upperTerm = searchTerm[0].toUpperCase() + searchTerm.slice(1);
+      history.push(`/Categoria/${upperTerm}`);
+      setSearchTerm("");
     }
   };
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
   return (
-    <Navbar  variant="dark" bg="dark" className="azul" expand="lg">
+    <Navbar variant="dark" bg="dark" className="azul" expand="lg">
       <Navbar.Brand>
         <NavLink to="/">
           <img
@@ -84,27 +86,38 @@ const Header = (props) => {
         </NavLink>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse  id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav">
         <div className="subnav">
           <Nav className="mr-auto">
-            {/* boton para ingresar o dropdown de usuario */}
             {props.sesion.usuario !== "Ingresar" ? (
-              <Dropdown >
-                <Dropdown.Toggle variant="primary" className="btn-nav mr-3 text-white amarillo">
-                {props.sesion.usuario}
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="primary"
+                  className="btn-nav mr-3 text-white amarillo"
+                >
+                  {props.sesion.usuario}
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="amarillo">
-                  <Dropdown.Item >
-                    <Link to="/administracion/Administrar" className="text-light">Administración</Link>
+                  <Dropdown.Item>
+                    <Link
+                      to="/administracion/Administrar"
+                      className="text-light"
+                    >
+                      Administración
+                    </Link>
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="/" onClick={()=> props.setSesion({usuario: "Ingresar"})} className="text-light">
+                  <Dropdown.Item
+                    href="/"
+                    onClick={() => props.setSesion({ usuario: "Ingresar" })}
+                    className="text-light"
+                  >
                     Cerrar sesión
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-              <NavLink  
+              <NavLink
                 to="/login/ingresar"
                 className="nav-link mr-3"
                 activeClassName="active"
@@ -125,16 +138,11 @@ const Header = (props) => {
           </Nav>
         </div>
         <Nav className="ml-auto subnav">
-          <NavLink   
-            to="/"
-            className="nav-link "
-            activeClassName="active"
-          >
+          <NavLink to="/" className="nav-link " activeClassName="active">
             Home
           </NavLink>
           <div className="subnav justify-content-center">
             <Nav.Link
-              
               className="nav-link "
               onClick={() => setSeccionVisible(!seccionVisible)}
             >
@@ -155,7 +163,8 @@ const Header = (props) => {
             <input
               type="text"
               placeholder=" Buscar por Secciones"
-              onChange={handleChange} value={searchTerm}
+              onChange={handleChange}
+              value={searchTerm}
               className="btn-sm form-control"
             />
             <Button className="btn-ms bg-transparent" type="submit">
@@ -164,7 +173,7 @@ const Header = (props) => {
           </div>
         </Form>
         <Form className="">
-          <Modal  animation = {false} show={show} onHide={handleClose}>
+          <Modal animation={false} show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title className="text-center">Suscribite</Modal.Title>
             </Modal.Header>
@@ -212,10 +221,8 @@ const Header = (props) => {
                     onChange={(e) => settelefonoSuscriptor(e.target.value)}
                   />
                   <br />
-                  <Form.Group >
-                    <Form.Label
-                      className="lead font-weight-bold text-warning"
-                    >
+                  <Form.Group>
+                    <Form.Label className="lead font-weight-bold text-warning">
                       Email
                     </Form.Label>
                     <Form.Control
@@ -224,17 +231,17 @@ const Header = (props) => {
                       onChange={(e) => setemailSuscriptor(e.target.value)}
                     />
                   </Form.Group>
-              <Button
-                variant="warning"
-                className="text-white"
-                onClick={handleSubmit}
-                type="submit"
-                >
-                Guardar
-              </Button>
-              </Form>
+                  <Button
+                    variant="warning"
+                    className="text-white"
+                    onClick={handleSubmit}
+                    type="submit"
+                  >
+                    Guardar
+                  </Button>
+                </Form>
               </div>
-                </Modal.Body>
+            </Modal.Body>
           </Modal>
         </Form>
       </Navbar.Collapse>
