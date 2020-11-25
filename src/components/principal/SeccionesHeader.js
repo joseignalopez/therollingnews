@@ -1,24 +1,26 @@
 import React from "react";
+import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 
 const SeccionesHeader = (props) => {
-  console.log(props.categorias);
   return (
-    <div className="subnav-content d-flex justify-content-center">
-      <ul className="d-flex  flex-column flex-lg-row">
+    <div className="subnav-content d-flex justify-content-center shadow amarillo">
+      <ListGroup className="d-flex flex-lg-row justify-content-between">
         {props.categorias.map((categoria) => (
-          <li key={categoria._id} className="nav-item my-1  ">
-            <Link to={`/Categoria/${categoria.nombre}`} className="nav-link">
+          <ListGroup.Item
+            key={categoria._id}
+            className="list-group border-0 bg-transparent active"
+          >
+            <Link
+              onClick={() => props.setSeccionVisible(!props.seccionVisible)}
+              to={`/Categoria/${categoria.nombre}`}
+              className="text-light "
+            >
               {categoria.nombre}
             </Link>
-          </li>
+          </ListGroup.Item>
         ))}
-        <li className="nav-item my-1">
-          <a className="nav-link " href="session/covid19">
-            Covid-19
-          </a>
-        </li>
-      </ul>
+      </ListGroup>
     </div>
   );
 };

@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import CategoryNew from "./CategoryNew";
-import defaultNew from "../../defaultNew";
 
 const Categories = (props) => {
-  /* const noticias = defaultNew; */
-  const[noticias, setNoticias] = useState([])
-  useEffect(()=>{
+  const [noticias, setNoticias] = useState([]);
+  useEffect(() => {
     cargarNoticias();
-  },[])
-  const cargarNoticias = async()=>{
+  }, []);
+  const cargarNoticias = async () => {
     try {
-      const consultar = await fetch("https://the-rolling-new.herokuapp.com/api/theRollingNew/")
+      const consultar = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/"
+      );
       const resultado = await consultar.json();
       setNoticias(resultado);
     } catch (error) {
-      console.log(error)
+     
     }
-  }
+  };
   return (
     <div>
       {props.categorias.map((valueCategory) => (

@@ -1,6 +1,5 @@
-import React, { Fragment /* , useState */ } from "react";
+import React, { Fragment } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import "./style/destacadas.css";
 import { Link } from "react-router-dom";
 

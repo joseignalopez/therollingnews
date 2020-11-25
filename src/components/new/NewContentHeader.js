@@ -39,9 +39,8 @@ const NewContentHeader = (props) => {
             <FontAwesomeIcon icon={faTwitterSquare} size="2x"></FontAwesomeIcon>
           </Link>
           <Link variant="light" to={`/error`} className="mr-1">
-            <FontAwesomeIcon icon={faEnvelope} size="2x" ></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faEnvelope} size="2x"></FontAwesomeIcon>
           </Link>
-          
         </div>
       </div>
     </div>

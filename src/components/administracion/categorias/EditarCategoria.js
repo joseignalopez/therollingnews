@@ -21,39 +21,41 @@ const EditarCategoria = (props) => {
       setError(true);
       return;
     }
-    setError(false)
+    setError(false);
 
     const categoriaModificada = {
-        nombre: nombreCatRef.current.value,
-        descripcion: descripcionCatRef.current.value
-    }
-
+      nombre: nombreCatRef.current.value,
+      descripcion: descripcionCatRef.current.value,
+      nombreViejo: props.categoria.nombre,
+    };
     try {
-        const respuesta = await fetch(
-            /* `http://localhost:4000/categorias/${props.categoria.id}`, */
-            `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,
-            {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(categoriaModificada),
-            }
-          );
-          
-          if (respuesta.status === 200) {
-            props.setRecargarCategorias(true);
-            Swal.fire("Listo!", "La categoría se modificó correctamente", "success");
-            props.history.push("/Administracion/Categorias");
-          }
+      const respuesta = await fetch(
+        `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Categoria/${props.categoria._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(categoriaModificada),
+        }
+      );
+
+      if (respuesta.status === 200) {
+        props.setRecargarCategorias(true);
+        Swal.fire(
+          "Listo!",
+          "La categoría se modificó correctamente",
+          "success"
+        );
+        props.history.push("/Administracion/Categorias");
+      }
     } catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Ocurrió un error!',
-            footer: '<p>No se pudo modificar la categoría.</p>'
-          })
-          console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error!",
+        footer: "<p>No se pudo modificar la categoría.</p>",
+      });
     }
   };
 
@@ -80,14 +82,11 @@ const EditarCategoria = (props) => {
             defaultValue={props.categoria.descripcion}
           />
         </Form.Group>
-        {
-          // alerta en caso de no completar los datos al intentar el submit
-          error ? (
-            <Alert className="mt-4" variant={"danger"}>
-              Se debe completar todos los campos
-            </Alert>
-          ) : null
-        }
+        {error ? (
+          <Alert className="mt-4" variant={"danger"}>
+            Se debe completar todos los campos
+          </Alert>
+        ) : null}
         <Button type="submit" className="w-100 my-4 boton">
           GUARDAR CAMBIOS
         </Button>

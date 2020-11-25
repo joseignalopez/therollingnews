@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><a href="" target="_blank" ><img width="200" src="./public/logo.png" alt="logo"></a></p>
 
-## Available Scripts
+## Title
+The Rolling Times.
+## Description
+This proyect is a digital Newspaper.
+Create,Read,Update and Delete of News. 
+Created in front-end with Technology Reactjs,nodejs,express,mongoose,Bootstrap. 
+And Back-end technology used Mongo db ,heroku, Postman.
+## Install
+You need to install Visual Studio Code, then clone GitHub repository.
+## Commands clone
 
+```javascript
+git clone URL
+npm install
+npm start
+```
 In the project directory, you can run:
 
-### `npm start`
+In Front-end
+##`npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In Back-end
+##`npm run dev`
 
-The page will reload if you make edits.<br />
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
+## Commands used to publish react files in github:
+Frontend-URL:https://github.com/rserrano20/therollingnews
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Commands used to publish react files in github:
+Backend-URL:https://github.com/bertini91/TheRollingNew-Backend
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+##  Authors
+- Mauricio G. Castro,
+- Jose Ignacio Lopez,
+- Luciano Chipolina, 
+- Nicolas Bertini Argañaraz,
+- Pablo Gabriel Cativa,
+- Carlos Rodriguez, 
+- Maria del Rosario Serrano.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Link web site
+https://therollingtimes.netlify.app/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2020.

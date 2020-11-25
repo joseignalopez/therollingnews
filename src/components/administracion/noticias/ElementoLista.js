@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const ElementoLista = (props) => {
-  const eliminarNoticia = (id) => {
+  const eliminarNotica = (id) => {
     Swal.fire({
       title: "Estás seguro?",
       text: "La noticia no se podrá recuperar",
@@ -20,7 +20,6 @@ const ElementoLista = (props) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.value) {
-        // aquí eliminamos el producto
         try {
           const respuesta = await fetch(
             `https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Noticia/${id}`,
@@ -31,13 +30,12 @@ const ElementoLista = (props) => {
               },
             }
           );
-          
+
           if (respuesta.status === 200) {
             props.setRecargarNoticias(true);
             Swal.fire("Listo!", "La noticia ha sido eliminada", "success");
           }
         } catch (error) {
-          console.log(error);
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -52,7 +50,7 @@ const ElementoLista = (props) => {
   const destacarNoticia = async (id) => {
     if (props.noticia.destacado === false) {
       props.noticia.destacado = true;
-    }else{
+    } else {
       props.noticia.destacado = false;
     }
 
@@ -64,8 +62,8 @@ const ElementoLista = (props) => {
       categoria: props.noticia.categoria,
       autor: props.noticia.autor,
       fecha: props.noticia.fecha,
-      destacado: props.noticia.destacado
-    }
+      destacado: props.noticia.destacado,
+    };
 
     try {
       const respuesta = await fetch(
@@ -78,13 +76,12 @@ const ElementoLista = (props) => {
           body: JSON.stringify(noticiaDest),
         }
       );
-      
+
       if (respuesta.status === 200) {
         props.setRecargarNoticias(true);
         Swal.fire("Listo!", "Se cambió el estado destacado", "success");
       }
     } catch (error) {
-      console.log(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -107,14 +104,17 @@ const ElementoLista = (props) => {
         >
           <FontAwesomeIcon icon={faCheckCircle} size="2x"></FontAwesomeIcon>
         </Button>
-        <Link to={`/Administracion/Noticia/${props.noticia._id}`} className="btn btn-outline-primary mx-1 editar">
-            <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
+        <Link
+          to={`/Administracion/Noticia/${props.noticia._id}`}
+          className="btn btn-outline-primary mx-1 editar"
+        >
+          <FontAwesomeIcon icon={faEdit} size="2x"></FontAwesomeIcon>
         </Link>
         <Button
           variant="outline-danger"
           size="sm"
           className="mx-1 eliminar"
-          onClick={() => eliminarNoticia(props.noticia._id)}
+          onClick={() => eliminarNotica(props.noticia._id)}
         >
           <FontAwesomeIcon icon={faTrashAlt} size="2x"></FontAwesomeIcon>
         </Button>

@@ -7,13 +7,10 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./style/login.css";
 import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
-import Alert from "react-bootstrap/Alert";
-
 
 const Ingresar = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +23,6 @@ const Ingresar = (props) => {
       });
       return;
     } else {
-      setError(false);
       const usuarioBuscado = props.usuarios.find(
         (usuario) => usuario.correo === email
       );
@@ -34,12 +30,10 @@ const Ingresar = (props) => {
         if (
           email === usuarioBuscado.correo &&
           password === usuarioBuscado.contrasenia
-
         ) {
-          props.history.push("/Administracion/Noticias/")
+          props.history.push("/Administracion/administrar/");
           props.sesion(usuarioBuscado);
           Swal.fire(`Bienvenido ${usuarioBuscado.nombre}!`, "", "success");
-         
         }
       } else {
         Swal.fire({
@@ -53,71 +47,69 @@ const Ingresar = (props) => {
   };
 
   return (
-    <div className="py-5">
-      <div className="fixed-bg">
+    <div className="py-2 pb-5">
+      <div className="fixed-bg d-none d-md-block d-lg-block">
         <img
           src="https://inmediaciones.org/wp-content/uploads/2019/10/smartphones.jpg"
           className="bglogin"
+          alt="background login"
         ></img>
       </div>
       <div className="container">
         <div className="row">
-          <Card className="border ml-auto col-sm-10 col-md-4 col-lg-5 mt-5">
+          <Card className="border ml-auto col-sm-12 col-md-8 col-lg-6 mt-5">
             <Card.Body>
               <Card.Title className="mb-4 text-danger">Ingresar</Card.Title>
-              <Card.Text>
-                <Form onSubmit={handleSubmit}>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Control
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="my-4" controlId="formBasicPassword">
-                    <Form.Control
-                      type="password"
-                      placeholder="Contraseña"
-                      name="password"
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Button
-                    className="mb-3 text-white amarillo"
-                    type="submit"
-                    size="lg"
-                    block
-                  >
-                    Ingresar
-                  </Button>
-                  <Card.Link className="text-secondary" href="/error404">
-                    ¿Necesitás ayuda?
-                  </Card.Link>
-                  <Button
-                    className="my-4 text-white rojo d-flex align-content-center justify-content-center"
-                    size="lg"
-                    block
-                  >
-                    Ingresa con Google
+
+              <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="my-4">
+                  <Form.Control
+                    type="password"
+                    placeholder="Contraseña"
+                    name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Group>
+                <Button
+                  className="mb-3 text-white amarillo"
+                  type="submit"
+                  size="lg"
+                  block
+                >
+                  Ingresar
+                </Button>
+                <Link className="text-secondary" to="error404/Error404">
+                  ¿Necesitás ayuda?
+                </Link>
+                <Button
+                  className="my-4 text-white rojo d-flex align-content-center justify-content-center"
+                  size="lg"
+                  block
+                >
+                  <Link to="error404/Error404" className=" text-white">
+                    Ingresar con Google{" "}
                     <FontAwesomeIcon
-                      className="mx-2 mt-1"
+                      className="mx-2 mt-1  text-white "
                       icon={faGoogle}
                       size="1x"
                     ></FontAwesomeIcon>
-                  </Button>
-                </Form>
-              </Card.Text>
+                  </Link>
+                </Button>
+              </Form>
               <hr></hr>
-              <div className="mt-4">
-                <Card.Link className="text-secondary" href="/error404">
-                  ¿No tenés una cuenta?
-                </Card.Link>
-              </div>
+
               <div className="mb-4">
-                <Card.Link className="text-danger" href="/login/registro">
+                <Link className="text-danger" to="/login/registro">
                   Registrarme ahora
-                </Card.Link>
+                </Link>
               </div>
             </Card.Body>
           </Card>

@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MonedaExtr from "./components/Api/MonedaExtr";
-import Tiempo from "./components/Apiclima/Tiempo";
-/* import Reloj from "./components/Apiclima/Reloj";
-import Fecha from "./components/fecha/Fecha"; */
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import defaultNew from "./defaultNew";
 import NewDetail from "./components/new/NewDetail";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
@@ -18,89 +14,96 @@ import Ingresar from "./components/login/Ingresar";
 import Registro from "./components/login/Registro";
 import AgregarCategoria from "./components/administracion/categorias/AgregarCategoria";
 import ListadoCategorias from "./components/administracion/categorias/ListadoCategorias";
- import EditarCategoria from "./components/administracion/categorias/EditarCategoria"; 
-import Error404  from './components/error404/Error404';
-import Nosotros  from './components/principal/Nosotros';
+import EditarCategoria from "./components/administracion/categorias/EditarCategoria";
+import Error404 from "./components/error404/Error404";
+import Nosotros from "./components/principal/Nosotros";
 import Category from "./components/categoria/Category";
-
+import Administrar from "./components/administracion/Administrar";
+import ListadoUsuarios from "./components/administracion/usuarios/ListadoUsuarios";
+import EditarUsuarios from "./components/administracion/usuarios/EditarUsuarios";
 
 function App() {
-
+  const [listadoUsuarios, setListadoUsuarios] = useState([]);
+  const [recargarUsuarios, setRecargarUsuarios] = useState(true);
   const [listadoNoticias, setListadoNoticias] = useState([]);
   const [recargarNoticias, setRecargarNoticias] = useState(true);
   const [listadoCategorias, setListadoCategorias] = useState([]);
   const [recargarCategorias, setRecargarCategorias] = useState(true);
-  const [destacados, setDestacados] = useState([]);
   const [usuarios, setUsuarios] = useState("");
-  const [sesion, setSesion] = useState({usuario: "Ingresar"})
+  const [sesion, setSesion] = useState({ usuario: "Ingresar" });
 
   useEffect(() => {
-    // llamar a la api
-    if (recargarNoticias || recargarCategorias) {
+    if (recargarNoticias || recargarCategorias || recargarUsuarios) {
       consultarAPI();
       setRecargarNoticias(false);
       setRecargarCategorias(false);
-      
+      setRecargarUsuarios(false);
     }
-    
-  }, [recargarNoticias, recargarCategorias]);
+  }, [recargarNoticias, recargarCategorias, recargarUsuarios]);
 
   const consultarAPI = async () => {
     try {
-      // operación GET
-      /* const respuesta = await fetch("http://localhost:4000/noticias"); */
+      const respuestaU = await fetch(
+        "https://the-rolling-new.herokuapp.com/api/theRollingNew/Administracion/Usuario"
+      );
+
       const respuesta = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew"
       );
-      /* const respuestaCat = await fetch("http://localhost:4000/categorias"); */
       const respuestaCat = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Categorias"
       );
-      const respuestaUsu= await fetch(
+      const respuestaUsu = await fetch(
         "https://the-rolling-new.herokuapp.com/api/theRollingNew/Sesion/Login"
-      )
+      );
       const resultado = await respuesta.json();
       const resultadoCat = await respuestaCat.json();
       const resultadoUsu = await respuestaUsu.json();
+      const resultadoU = await respuestaU.json();
 
+      setListadoUsuarios(resultadoU);
       setListadoNoticias(resultado);
       setListadoCategorias(resultadoCat);
-      setUsuarios(resultadoUsu)
-    } catch (error) {
-      console.log(error);
-    }
+      setUsuarios(resultadoUsu);
+    } catch (error) {}
   };
 
   return (
     <Router>
-      <Header categorias={listadoCategorias} sesion={sesion} setSesion ={setSesion}></Header>
+      <Header
+        categorias={listadoCategorias}
+        sesion={sesion}
+        setSesion={setSesion}
+      ></Header>
       <section className="container contenidoSeccion"></section>
       <MonedaExtr className="moneda"></MonedaExtr>
       <Switch>
         <Route exact path="/">
           <Inicio
-            destacadas={listadoNoticias.filter((destacadas) => destacadas.destacado === true)}
+            destacadas={listadoNoticias.filter(
+              (destacadas) => destacadas.destacado === true
+            )}
             categorias={listadoCategorias}
-            noticias = {listadoNoticias}
+            noticias={listadoNoticias}
           ></Inicio>
         </Route>
-        <Route path="/Categoria/:categoria/"
-        render={
-          (props)=>{
-
+        <Route
+          path="/Categoria/:categoria/"
+          render={(props) => {
             const categoria = props.match.params.categoria;
 
             const notasCategoria = listadoNoticias.filter(
               (n) => n.categoria === categoria
             );
 
-            return(
-            <Category categoria = {categoria} noticias = {notasCategoria}></Category>
-            )
-          }
-        }>
-        </Route >
-        
+            return (
+              <Category
+                categoria={categoria}
+                noticias={notasCategoria}
+              ></Category>
+            );
+          }}
+        ></Route>
         <Route
           path="/:categoria/nota/:id"
           render={(props) => {
@@ -176,16 +179,40 @@ function App() {
           }}
         ></Route>
         <Route exact path="/login/Ingresar">
-          <Ingresar
-          usuarios={usuarios} sesion ={setSesion}></Ingresar>
+          <Ingresar usuarios={usuarios} sesion={setSesion}></Ingresar>
         </Route>
         <Route exact path="/login/Registro">
-          <Registro />
+          <Registro setRecargarUsuarios={setRecargarUsuarios} />
         </Route>
         <Route exact path="/principal/Nosotros">
           <Nosotros></Nosotros>
         </Route>
-        <Route exact path='*'>
+        <Route exact path="/administracion/Usuarios">
+          <ListadoUsuarios
+            usuario={listadoUsuarios}
+            setRecargarUsuarios={setRecargarUsuarios}
+          ></ListadoUsuarios>
+        </Route>
+        <Route
+          exact
+          path="/Administracion/Usuario/:id"
+          render={(props) => {
+            const idUsuario = props.match.params.id;
+            const usuarioSeleccionado = listadoUsuarios.find(
+              (usuario) => usuario._id === idUsuario
+            );
+            return (
+              <EditarUsuarios
+                usuario={usuarioSeleccionado}
+                setRecargarUsuarios={setRecargarUsuarios}
+              ></EditarUsuarios>
+            );
+          }}
+        ></Route>
+        <Route exact path="/administracion/Administrar">
+          <Administrar></Administrar>
+        </Route>
+        <Route exact path="*">
           <Error404></Error404>
         </Route>
       </Switch>

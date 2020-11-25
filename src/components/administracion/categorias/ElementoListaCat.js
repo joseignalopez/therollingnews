@@ -2,7 +2,6 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-/* import { faCheckCircle } from "@fortawesome/free-regular-svg-icons"; */
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
@@ -12,7 +11,8 @@ const ElementoListaCat = (props) => {
   const eliminarCategoria = (id) => {
     Swal.fire({
       title: "Estás seguro?",
-      text: "La categoría no se podrá recuperar. Se eliminarán todas las noticias de esta categoría",
+      text:
+        "La categoría no se podrá recuperar. Se eliminarán todas las noticias de esta categoría",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -31,13 +31,12 @@ const ElementoListaCat = (props) => {
               },
             }
           );
-          
+
           if (respuesta.status === 200) {
             props.setRecargarCategorias(true);
             Swal.fire("Listo!", "La categoría ha sido eliminada", "success");
           }
         } catch (error) {
-          console.log(error);
           Swal.fire({
             icon: "error",
             title: "Oops...",

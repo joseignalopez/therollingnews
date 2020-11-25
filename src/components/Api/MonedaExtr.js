@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
 import Tiempo from "../Apiclima/Tiempo";
 import "./Moneda.css";
 
 const Precio = () => {
-  //state
   const [precio, setprecio] = useState([]);
 
   useEffect(() => {
     consultarDolar();
-    setInterval(consultarDolar, 900000); //cada media hora
+    setInterval(consultarDolar, 900000);
   }, []);
 
   const consultarDolar = async () => {
     const respuesta = await fetch("https://dolarapi.casalox.com/api/v1/dolar");
+
     const data = await respuesta.json();
     setprecio(data);
   };
-  // col-sm-12 col-md-4 col-lg-4 col-xl-4 borde contenedorfijo
   return (
-    <div className="d-flex container-fluid justify-content-center shadow rounded amarillo text-white">
+    <div className="d-flex container-fluid justify-content-center shadow amarillo text-white">
       <section className="row w-75 d-flex justify-content-around">
         <div className="d-flex align-items-center col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
           <small>
